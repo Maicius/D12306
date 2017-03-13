@@ -26,9 +26,9 @@ FONTS
     font-family: 'gotham_roundedlight';
     src: url('../fonts/gotham-rounded-light-webfont.eot');
     src: url('../fonts/gotham-rounded-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/gotham-rounded-light-webfont.woff') format('woff'),
-         url('../fonts/gotham-rounded-light-webfont.ttf') format('truetype'),
-         url('../fonts/gotham-rounded-light-webfont.svg#gotham_roundedlight') format('svg');
+    url('../fonts/gotham-rounded-light-webfont.woff') format('woff'),
+    url('../fonts/gotham-rounded-light-webfont.ttf') format('truetype'),
+    url('../fonts/gotham-rounded-light-webfont.svg#gotham_roundedlight') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -37,9 +37,9 @@ FONTS
     font-family: 'dinpromedium';
     src: url('../fonts/dinpro-medium_0-webfont.eot');
     src: url('../fonts/dinpro-medium_0-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/dinpro-medium_0-webfont.woff') format('woff'),
-         url('../fonts/dinpro-medium_0-webfont.ttf') format('truetype'),
-         url('../fonts/dinpro-medium_0-webfont.svg#dinpromedium') format('svg');
+    url('../fonts/dinpro-medium_0-webfont.woff') format('woff'),
+    url('../fonts/dinpro-medium_0-webfont.ttf') format('truetype'),
+    url('../fonts/dinpro-medium_0-webfont.svg#dinpromedium') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -48,9 +48,9 @@ FONTS
     font-family: 'gotham_roundedmedium';
     src: url('../fonts/gotham-rounded-medium_0-webfont.eot');
     src: url('../fonts/gotham-rounded-medium_0-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/gotham-rounded-medium_0-webfont.woff') format('woff'),
-         url('../fonts/gotham-rounded-medium_0-webfont.ttf') format('truetype'),
-         url('../fonts/gotham-rounded-medium_0-webfont.svg#gotham_roundedmedium') format('svg');
+    url('../fonts/gotham-rounded-medium_0-webfont.woff') format('woff'),
+    url('../fonts/gotham-rounded-medium_0-webfont.ttf') format('truetype'),
+    url('../fonts/gotham-rounded-medium_0-webfont.svg#gotham_roundedmedium') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -59,9 +59,9 @@ FONTS
     font-family: 'proxima_novaregular_italic';
     src: url('../fonts/proximanova-regularitalic_1-webfont.eot');
     src: url('../fonts/proximanova-regularitalic_1-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/proximanova-regularitalic_1-webfont.woff') format('woff'),
-         url('../fonts/proximanova-regularitalic_1-webfont.ttf') format('truetype'),
-         url('../fonts/proximanova-regularitalic_1-webfont.svg#proxima_novaregular_italic') format('svg');
+    url('../fonts/proximanova-regularitalic_1-webfont.woff') format('woff'),
+    url('../fonts/proximanova-regularitalic_1-webfont.ttf') format('truetype'),
+    url('../fonts/proximanova-regularitalic_1-webfont.svg#proxima_novaregular_italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -70,9 +70,9 @@ FONTS
     font-family: 'proxima_nova_rgregular';
     src: url('../fonts/proximanova-regular_1-webfont.eot');
     src: url('../fonts/proximanova-regular_1-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/proximanova-regular_1-webfont.woff') format('woff'),
-         url('../fonts/proximanova-regular_1-webfont.ttf') format('truetype'),
-         url('../fonts/proximanova-regular_1-webfont.svg#proxima_nova_rgregular') format('svg');
+    url('../fonts/proximanova-regular_1-webfont.woff') format('woff'),
+    url('../fonts/proximanova-regular_1-webfont.ttf') format('truetype'),
+    url('../fonts/proximanova-regular_1-webfont.svg#proxima_nova_rgregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -93,9 +93,9 @@ FONTS
     font-family: 'pt_serifregular';
     src: url('../fonts/pt_serif-web-regular-webfont.eot');
     src: url('../fonts/pt_serif-web-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/pt_serif-web-regular-webfont.woff') format('woff'),
-         url('../fonts/pt_serif-web-regular-webfont.ttf') format('truetype'),
-         url('../fonts/pt_serif-web-regular-webfont.svg#pt_serifregular') format('svg');
+    url('../fonts/pt_serif-web-regular-webfont.woff') format('woff'),
+    url('../fonts/pt_serif-web-regular-webfont.ttf') format('truetype'),
+    url('../fonts/pt_serif-web-regular-webfont.svg#pt_serifregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -158,7 +158,7 @@ p { font: 14px 'proxima_nova_rgregular',Times New Roman, Times, serif; color: #9
 .header_two {background: rgba(0,0,0,.7) !important; position: relative; z-index: 9999;}
 .header_two .logo { margin-top: 0px; line-height: 144px; }
 .header_two .logo img { vertical-align: middle; }
-.header_two .top-menu { margin-bottom: 10px; text-align: center; margin-top: 30px; }
+.header_two .top-menu { margin-bottom: 10px; text-align: right; margin-top: 30px; }
 
 .serch { width: 100%; text-align: center; position: relative; }
 .serch input[type="text"] { width: 93%; padding: 10px 32px 10px 15px; background: rgba(164,164,164,.7); color: #fff; font: 14px 'arial', sans-serif; border: 0px; outline: none;margin: 0 auto; box-shadow: none; border-radius: 27px; }
@@ -187,7 +187,7 @@ p { font: 14px 'proxima_nova_rgregular',Times New Roman, Times, serif; color: #9
 .social-nav a.google { background: url(../images/google.png) no-repeat; }
 .social-nav a.rss { background: url(../images/rss.png) no-repeat; }
 
-.sign-in {position: relative; top: -12px;margin-bottom: -10px; display: inline-block; color: #42504E; padding: 10px 12px; border-bottom-left-radius:5px; border-bottom-right-radius:5px; }
+.sign-in {position: relative; top: -12px;margin-bottom: -10px; display: inline-block; background: #3996d1; color: #FFF; padding: 10px 12px; border-bottom-left-radius:5px; border-bottom-right-radius:5px; }
 
 
 .header-wrapper { width: 100%; background: url(../images/Header-bg.png) repeat-x; min-height: 100px; }
@@ -195,65 +195,26 @@ p { font: 14px 'proxima_nova_rgregular',Times New Roman, Times, serif; color: #9
 .logo { /* position: relative; */   margin-top: -27px;}
 .logo a {/*  position: absolute; top: -27px; left: 0px; */  }
 
-.top-menu { margin-top: 45px;  text-align: right;}
+.top-menu { margin-top: 45px; text-align: right;}
 .top-menu ul li { display: inline-block; }
 .top-menu ul li a { font-size: 14px; color: #a0a0a0; padding:0px 15px; border-right: 1px solid #a0a0a0; }
 .top-menu ul li a.last { border-right: 0px; }
 .top-menu ul li a:hover { color: #fff; }
-/****************************************************************************
-							Purchase search top
-****************************************************************************/
-.sear-box{
-    height: 48px;
-    padding: 7px 10px;
-    background: #eef1f8;
-    font-size: 12px;
-    border: 1px solid #298cce;
-    margin-top: 10px;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-}
 
-.quick-sear-box {
-    padding: 12px 10px;
-}
 
-.sear-box .dfc {
-    float: left;
-    margin-right: 5px;
-    width: 60px;
-    background: url(../images/line_sear.png) right center no-repeat;
-}
-
-.quick-sear-box .s-info {
-    float: left;
-    margin-right: 15px;
-}
-
-.sear-box .label {
-    display: block;
-    width: 40px;
-    float: left;
-    margin: 0;
-    padding: 0;
-    padding-right: 2px;
-    text-align: right;
-}
-
-.sear-box .inp-w {
-    position: relative;
-    width: 122px;
-    height: 30px;
-    float: left;
-}
-.inp-w {
-    position: relative;
-}
 /****************************************************************************
 							Login
 ****************************************************************************/
-.login-popup-wrapper { display: none; width: 100%; height: 100%; position:fixed; top: 0; left: 0; background: url(../Images/bg.png) repeat; z-index: 9998; }
+.login-popup-wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    background: url(../Images/bg.png) repeat;
+    z-index: 9998;
+}
 #login-popup { display:none; position: fixed; top:50%; left:50%; margin: -45px 0 0 -185px; width:246px; padding: 57px 40px 26px 40px; background:#fff; border:3px solid #017eba; z-index: 9999; }
 #login-popup h2 { color: #342323; margin-bottom: 17px; }
 
@@ -660,7 +621,8 @@ checking_form input {  }
 .pagination .errows a.left_errow { background: url("../Images/left_errow.png") no-repeat center; border-bottom-left-radius: 27px; border-top-left-radius: 27px; }
 .pagination .errows a.right_errow { background: url("../Images/right_errow.png") no-repeat center; border-bottom-right-radius: 27px; border-top-right-radius: 27px; }
 .pagination .errows a.left_errow:hover { background: #00689a url("../Images/left_errow.png") no-repeat center; }
-.pagination .errows a.right_errow:hover { background: #00689a url("../Images/right_errow.png") no-repeat center; }
+.pagination .errows a.right_errow:hover { backgr
+ound: #00689a url("../Images/right_errow.png") no-repeat center; }
 
 
 /****************************************************************************
@@ -679,21 +641,185 @@ checking_form input {  }
 .adress div p { font:14px 'open sans',Times New Roman, Times, sans-serif; color: #b0b0b0; }
 .adress div p.first { margin-bottom: 30px; }
 
+/****************************************************************************
+	yezhen design
+****************************************************************************/
+.my_top{
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px solid #0077B3;
+
+}
+
+.you{
+    background:red;
+}
+.content_result{
+    width: inherit;
+    height: inherit;
+    margin: 10px 10px 10px;
+    border: 1px solid #298cce;
 
 
+}
+.my_places{
+    height: auto;
+    width: 30%;
+    float: left;
+
+    background: url(../images/line_sear.png) right center no-repeat;
+
+
+}
+
+.content_result th {
+    height: 52px;
+    background: url(../images/line_tlisth.png) right center no-repeat;
+    color: lightslategray;
+    overflow: hidden;
+    border: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+table, td, tr, th {
+    font-size: 12px;
+}
+
+.content_result th .b1 {
+    background: url(../images/icon_sj01.png) right center no-repeat;
+    padding-right: 13px;
+}
+
+.content_result th .b2 {
+    background: url(../images/icon_sj02.png) right center no-repeat;
+    padding-right: 13px;
+}
+
+.content_result table {
+    width: 100%;
+}
+
+.content_result table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    background: url(../images/bg_tlisthd.png) top repeat-x;
+    margin-top: 0;
+
+}
+
+.content_result th .b3 {
+    background: url(../images/icon_sj03.png) right center no-repeat;
+    padding-right: 13px;
+}
+
+span{
+    border: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+table {
+    border: 0;
+}
+table, td, tr, th {
+    font-size: 12px;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.my_time{
+    height: inherit;
+    width: 30%;
+    float: left;
+    text-align: center;
+    align-content: center;
+    background: url(../images/line_sear.png) right center no-repeat;
+
+}
+
+.my_person{
+    height: inherit;
+    width: 10%;
+    float: left;
+    text-align: center;
+    align-content: center;
+    background: url(../images/line_sear.png) right center no-repeat;
+
+
+}
+
+.my_search{
+    height: inherit;
+    width: 30%;
+    float: left;
+}
+
+.my_start{
+    height: auto;
+
+    width: 100%;
+    align-content: center;
+    position: relative;
+    text-align: center;
+}
+
+
+
+.my_input{
+    width: 50%;
+    height: 20%;
+}
+.my_span{
+    width: 20%;
+    height: 20%;
+}
+.my_end{
+    height: 10%;
+    width: 80%;
+    margin-top: 10%;
+    align-content: center;
+    margin-right: 20%;
+}
+
+.my_submit{
+
+}
+
+.btn{
+    display:block;
+    width:100px;
+    height: 25px;
+    line-height: 25px;
+    text-align:center;
+    color:#fff;
+    border-radius: 5px;
+    text-decoration: none;
+    background:-webkit-linear-gradient(270deg,rgb(96,161,255),rgb(33,121,255) 30%,rgb(4,103,255) 30%,rgb(0,97,255));
+}
+
+.btn:active{
+    background:-webkit-linear-gradient(270deg,rgb(80,121,255),rgb(20,121,255) 30%,rgb(1,103,255) 30%,rgb(0,60,255));
+}
 /****************************************************************************
 	Booking
 ****************************************************************************/
 .booking_wrap { padding: 60px 0px; }
-.booking .top {
-    border-bottom:1px solid #f2f2f2;
-    background: #fafafa;
-    text-align: center;
-    padding: 25px 0px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    height: 900px;
-}
+.booking .top {border-bottom:1px solid #f2f2f2; background: #fafafa; text-align: center; padding: 25px 0px; border-top-left-radius: 5px; border-top-right-radius: 5px;height: auto;}
 
 .booking .top h2 { color:#017eba ; text-transform: uppercase; margin-bottom: -8px;  }
 .booking .top h3 { color:#2f2f2f ; text-transform: none; font-size: 18px;  }
@@ -806,64 +932,64 @@ footer .gotop { width: 32px;height: 32px; background: url(../images/gotop.png) n
 
 
 .weatherFeed {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 90%;
-	margin: 2em 3em;
-	width: 280px;
-	color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    margin: 2em 3em;
+    width: 280px;
+    color: #ccc;
 }
 .weatherFeed a { color: #888; }
 .weatherFeed a:hover {
-	color: #eee;
-	text-decoration: none;
+    color: #eee;
+    text-decoration: none;
 }
 .weatherItem {
-	padding: 0.8em;
-	text-align: right;
+    padding: 0.8em;
+    text-align: right;
 }
 .weatherCity { text-transform: uppercase; color: #000; }
 .weatherTemp {
-	font-size: 2.8em;
-	font-weight: bold;
-	color: #eee;
+    font-size: 2.8em;
+    font-weight: bold;
+    color: #eee;
 }
 .weatherDesc, .weatherCity { font-weight: bold; }
 .weatherDesc { margin-bottom: 0.4em; color: #eee; }
 .weatherRange, .weatherWind { font-size: 0.8em; }
 .weatherLink {
-	margin-top: 6px;
-	text-align: left;
-	font-size: 0.8em;
+    margin-top: 6px;
+    text-align: left;
+    font-size: 0.8em;
 }
 
 .vertical {
-	position:relative;
-	overflow:hidden;
-	height: 160px;
-	width: 280px;
-	border: 4px solid #555;
-	background: #222 url('bg.jpg') repeat-x;
+    position:relative;
+    overflow:hidden;
+    height: 160px;
+    width: 280px;
+    border: 4px solid #555;
+    background: #222 url('bg.jpg') repeat-x;
 }
 
 .items {
-	position:absolute;
-	height:20000em;
-	margin: 0px;
+    position:absolute;
+    height:20000em;
+    margin: 0px;
 }
 .items div.weatherItem { height: 160px; }
 
 .navi {
-	width:288px;
-	height:20px;
+    width:288px;
+    height:20px;
 }
 .navi a {
-	width:8px;
-	height:8px;
-	float:left;
-	margin:3px;
-	background: url('navigator.png') 0 0 no-repeat;
-	display:block;
-	font-size:1px;
+    width:8px;
+    height:8px;
+    float:left;
+    margin:3px;
+    background: url('navigator.png') 0 0 no-repeat;
+    display:block;
+    font-size:1px;
 }
 .navi a:hover { background-position:0 -8px; }
 .navi a.active { background-position:0 -16px; }
@@ -1001,35 +1127,35 @@ footer .gotop { width: 32px;height: 32px; background: url(../images/gotop.png) n
 * WEATHER PLUGIN STYLES
 */
 #weather {
-  background: #303030;
-  width: 210px;
-  padding: 28px 10px;
-  overflow: hidden;
-  text-align: center;
+    background: #303030;
+    width: 210px;
+    padding: 28px 10px;
+    overflow: hidden;
+    text-align: center;
 }
 
 #weather figure {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  background-size: 148px;
-  background-position: left 10px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-size: 148px;
+    background-position: left 10px;
 }
 
 #weather h2 {
-  color: #fff;
-  font: 16px 'gotham_roundedlight', Arial, Helvetica, sans-serif;
+    color: #fff;
+    font: 16px 'gotham_roundedlight', Arial, Helvetica, sans-serif;
 }
 
 #weather p {
-  border-top: 1px solid #1a546f;
-  font:78px 'gotham_roundedmedium',Times New Roman, Times, serif;
-  line-height: 78px;
-  color: #017eba;
-  margin: 0px;
-  padding-top: 23px;
+    border-top: 1px solid #1a546f;
+    font:78px 'gotham_roundedmedium',Times New Roman, Times, serif;
+    line-height: 78px;
+    color: #017eba;
+    margin: 0px;
+    padding-top: 23px;
 }
-.days a{  font:12px 'gotham_roundedmedium',Times New Roman, Times, serif; color:#ffffff; font-weight:500; padding:25px;  padding-top:65px; display:inline-block; width:64px; }  
+.days a{  font:12px 'gotham_roundedmedium',Times New Roman, Times, serif; color:#ffffff; font-weight:500; padding:25px;  padding-top:65px; display:inline-block; width:64px; }
 
 .days .sunday{background:#017eba url("../images/sunday-bg.png") center 30px no-repeat; border-right:2px solid #0273a9;}
 .days .monday{background:#017eba url("../images/monday-bg.png") center 30px no-repeat; margin-left:-5px;}
