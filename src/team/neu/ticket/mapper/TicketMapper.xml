@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="team.neu.queryInfo.mapper.TicketMapper">
+    <resultMap id = "FirstQueryMap" type = "Ticket">
+        <result column="train_id" property="train_id" jdbcType="varchar"/>
+        <result column="start_time" property="start_time" jdbcType="varchar"/>
+        <result column="start_station" property="start_station" jdbcType="varchar"/>
+    </resultMap>
+
+    <sql id ="first_column">
+        train_id, start_time, start_station
+    </sql>
+    <select id="doFirstQuery" parameterType="QueryInfo" resultMap="FirstQueryMap">
+        SELECT
+        <include refid="first_column"></include>
+        FROM T_route
+        WHERE
+            station_name = #{start_station} AND route_num
+            IN(SELECT route_num) FROM T_route WHERE station_name = #{end_station}
+    </select>
+
+</mapper>

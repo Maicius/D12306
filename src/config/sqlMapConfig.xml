@@ -5,6 +5,6 @@
 <configuration>
 
     <typeAliases>
-        <package name="team.neu.ticket.User"/>
+        <package name="team.neu.queryInfo.User"/>
     </typeAliases>
 </configuration>

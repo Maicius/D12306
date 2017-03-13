@@ -8,7 +8,8 @@ jQuery(document).ready(function() {
 
     $ = jQuery;
 	
-	//Login
+
+	//Login 管理员
 		$('#login-link').click(function(){
 			$('.login-popup-wrapper').fadeIn('slow',function(){
 				$(this).children('#login-popup').fadeIn('fast');			
@@ -18,8 +19,21 @@ jQuery(document).ready(function() {
 			$(this).parents('.login-popup-wrapper').fadeOut('slow');
 			$(this).parent('#login-popup').fadeOut('slow');
 		});
-	
-	//Flex Slider
+
+    //用户登录
+    $('#user_login').click(function(){
+        $('.login-popup-wrapper').fadeIn('slow',function(){
+            $(this).children('#login-popup').fadeIn('fast');
+        });
+    });
+    $('.close').click(function(){
+        $(this).parents('.login-popup-wrapper').fadeOut('slow');
+        $(this).parent('#login-popup').fadeOut('slow');
+    });
+
+
+    //Flex Slider
+
 	$('.flexslider').flexslider({
 		animation: "slide"	
 	});

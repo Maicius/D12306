@@ -19,7 +19,7 @@
     FROM t_12306user
     <where>
         <if test="phone_num != null and phone_num !=''">
-                and email = #{email}
+                and phone_num = #{phone_num}
         </if>
         <if test="password !=null and password !=''">
             and password = #{password}
