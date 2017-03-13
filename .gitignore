@@ -55,3 +55,8 @@ web/js/jquery.tinyscrollbar.min.js
 web/js/jquery.zweatherfeed.js
 web/js/jquery.zweatherfeed.min.js
 web/js/localWeather.js
+
+out/artifacts/_war_exploded/js/jquery.zweatherfeed.js
+out/artifacts/_war_exploded/js/jquery.zweatherfeed.min.js
+out/
+
