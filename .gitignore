@@ -31,3 +31,10 @@ web/css/responsive.css
 *.woff
 *.jpg
 web/images/Thumbs.db
+out/artifacts/_war_exploded/css/bootstrap.css
+out/artifacts/_war_exploded/css/flexslider.css
+out/artifacts/_war_exploded/css/elastislide.css
+out/artifacts/_war_exploded/css/ie.css
+out/artifacts/_war_exploded/css/responsive.css
+out/artifacts/_war_exploded/images/Thumbs.db
+*.iml
