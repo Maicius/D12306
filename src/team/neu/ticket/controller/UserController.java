@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping("/userLogin")
     public ModelAndView userLogin(HttpServletRequest request, @RequestParam(value="phone_num") String phone_num,
                                   @RequestParam(value="password") String password) throws Exception{
-        user.setUserName(phone_num);
+        user.setUser_name(phone_num);
         user.setPassword(password);
         ModelAndView modelAndView = new ModelAndView();
         User loginUser = userService.doUserLogin(user);
@@ -32,7 +32,7 @@ public class UserController {
         }else{
             HttpSession session = request.getSession();
             session.setAttribute("user", loginUser);
-            System.out.println("Login_success：" + loginUser.getUserName());
+            System.out.println("Login_success：" + loginUser.getUser_name());
         }
 
         return null;
