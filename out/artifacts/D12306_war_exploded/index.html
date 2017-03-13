@@ -143,17 +143,17 @@
                   
                   <h3> <span class="flight">列车查询</span> <a href="#"></a> </h3>
                   <div class="detail">
-                    <form action="#" method="post">
+                    <form action="queryTicket.action" method="get">
                    
                     <div class="location clearfix">
                     	
                         	<div class="pull-left">
                         		<label>出发地</label>
-                        		<input id ="from station" type="text" name="location" value="沈阳">
+                        		<input id ="from_station" type="text" name="from_station" value="沈阳">
                         	</div>
                             <div class="pull-right">
                             	<label class="dst">到达地</label>
-                            	<input id="to_station" type="text" name="Destination" value="成都">
+                            	<input id="to_station" type="text" name="to_station" value="成都">
                             </div>
                         
                     </div>
@@ -164,7 +164,7 @@
                         		<div class="date clearfix">
                         			<div class="Depart-Date">
                                     	<label>出发时间</label>
-                        				<input id="ticket_date" type="text" name="Location" value="03/20/2017" id="datepicker">
+                        				<input id="ticket_date" type="text" name="ticket_date" value="03/20/2017" id="datepicker">
                                     </div>
                                     
                         		</div>
@@ -173,15 +173,15 @@
                             	<div class="persons">
                                 	<div class="ad">
                                     	<label>成人</label>
-                        				<input type="text" name="Location" value="1" id="Adult">
+                        				<input type="text" name="adult" value="1" id="adult">
 									</div>
                                     <div class="ad">
                                     	<label>小孩</label>
-                        				<input type="text" name="Location" value="0" id="Children">
+                        				<input type="text" name="children" value="0" id="Children">
 									</div>
                                     <div>
                                     	<label>学生</label>
-                        				<input type="text" name="Location" value="0" id="Student">
+                        				<input type="text" name="student" value="0" id="Student">
 									</div>
                                 </div>
                             </div>

@@ -9,6 +9,7 @@ import team.neu.ticket.User.QueryInfo;
 import team.neu.ticket.service.TicketService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by Maicius on 2017/3/13.
@@ -18,18 +19,22 @@ public class QueryTicketController {
     @Autowired
     TicketService ticketService;
     QueryInfo queryInfo = new QueryInfo();
-    ModelAndView mv = new ModelAndView();
-    @RequestMapping(value = "queryTicket")
+
+    @RequestMapping(value = "/queryTicket")
     public ModelAndView queryTicket(HttpServletRequest request,
-                                    @RequestParam(value="from_location") String start_station,
-                                    @RequestParam(value="to_location") String end_station,
+                                    @RequestParam(value="from_station") String start_station,
+                                    @RequestParam(value="to_station") String end_station,
                                     @RequestParam(value="ticket_date") String ticket_date) throws Exception{
+        ModelAndView mv = new ModelAndView();
 
         queryInfo.setStart_station(start_station);
         queryInfo.setEnd_station(end_station);
         queryInfo.setTicket_date(ticket_date);
 
-        ticketService.doFirstQuery(queryInfo);
+        List<QueryInfo> queryInfos =  ticketService.doFirstQuery(queryInfo);
+
+        mv.addObject(queryInfos);
+        return mv;
     }
 
 }
