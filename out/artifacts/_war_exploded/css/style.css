@@ -200,8 +200,56 @@ p { font: 14px 'proxima_nova_rgregular',Times New Roman, Times, serif; color: #9
 .top-menu ul li a { font-size: 14px; color: #a0a0a0; padding:0px 15px; border-right: 1px solid #a0a0a0; }
 .top-menu ul li a.last { border-right: 0px; }
 .top-menu ul li a:hover { color: #fff; }
+/****************************************************************************
+							Purchase search top
+****************************************************************************/
+.sear-box{
+    height: 48px;
+    padding: 7px 10px;
+    background: #eef1f8;
+    font-size: 12px;
+    border: 1px solid #298cce;
+    margin-top: 10px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
 
+.quick-sear-box {
+    padding: 12px 10px;
+}
 
+.sear-box .dfc {
+    float: left;
+    margin-right: 5px;
+    width: 60px;
+    background: url(../images/line_sear.png) right center no-repeat;
+}
+
+.quick-sear-box .s-info {
+    float: left;
+    margin-right: 15px;
+}
+
+.sear-box .label {
+    display: block;
+    width: 40px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    padding-right: 2px;
+    text-align: right;
+}
+
+.sear-box .inp-w {
+    position: relative;
+    width: 122px;
+    height: 30px;
+    float: left;
+}
+.inp-w {
+    position: relative;
+}
 /****************************************************************************
 							Login
 ****************************************************************************/
@@ -637,7 +685,15 @@ checking_form input {  }
 	Booking
 ****************************************************************************/
 .booking_wrap { padding: 60px 0px; }
-.booking .top {border-bottom:1px solid #f2f2f2; background: #fafafa; text-align: center; padding: 25px 0px; border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.booking .top {
+    border-bottom:1px solid #f2f2f2;
+    background: #fafafa;
+    text-align: center;
+    padding: 25px 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 900px;
+}
 
 .booking .top h2 { color:#017eba ; text-transform: uppercase; margin-bottom: -8px;  }
 .booking .top h3 { color:#2f2f2f ; text-transform: none; font-size: 18px;  }
