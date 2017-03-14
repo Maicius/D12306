@@ -1,0 +1,123 @@
+*, td {margin:0;padding:0;}
+
+.left_div{
+    width: 15%;
+    height: 400px;
+    border: 1px solid grey;
+    float: left;
+    background-color: darkgrey;
+}
+
+.right_div{
+    width: 83%;
+    height: 400px;
+
+    float: left;
+}
+
+.left_div .left_ul{
+    height: 50px;
+    line-height: 50px;
+    list-style:none;
+    display:inline;
+}
+
+.left_ul li{
+    line-height: 50px;
+    height: 50px;
+    border: 1px solid grey;
+    margin-bottom: 0px;
+}
+.left_ul li a{
+    width: inherit;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.ul_wraper{
+    height: auto;
+    width: auto;
+    margin: auto 0px;
+    background-color: midnightblue;
+}
+.right_view_class{
+    height:95%;
+    width: 95%;
+    margin: 1% ;
+    border: 1px solid darkgrey;
+    background-color: lightgrey;
+}
+.oder_table_class{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #f5f5f5;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.oder_table_class .table_head_class td{
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid grey;
+}
+
+.oder_table_class .table_row_class td{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid grey;
+}
+
+
+
+.oder_table_class .table_head_class td p{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.table_head_class{
+    background-color: lightblue;
+}
+.table_row_class{
+    background-color: whitesmoke;
+    border: 0px;
+}
+
+.oder_table_class .table_row_class td p{
+    text-align: center;
+    font-size: 10px;
+
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.table_row_class .oder_info_more{
+    color: #FF7F00;
+    text-align: center;
+    font-size: 15px;
+}
+.table_row_class .draw_yes{
+    color: lawngreen;
+}
+
+.table_row_class .draw_not{
+    color: red;
+}
