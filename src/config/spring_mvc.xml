@@ -39,5 +39,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- /**表示所有url包括子url路径 -->
+            <mvc:mapping path="/**"/>
+            <bean class="team.neu.ticket.interceptor.LoginIntercepter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

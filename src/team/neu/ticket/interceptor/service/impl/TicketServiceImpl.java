@@ -1,9 +1,9 @@
-package team.neu.ticket.service.impl;
+package team.neu.ticket.interceptor.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import team.neu.ticket.User.QueryInfo;
-import team.neu.ticket.mapper.TicketMapper;
-import team.neu.ticket.service.TicketService;
+import team.neu.ticket.interceptor.User.QueryInfo;
+import team.neu.ticket.interceptor.mapper.TicketMapper;
+import team.neu.ticket.interceptor.service.TicketService;
 
 import java.util.List;
 

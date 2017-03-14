@@ -1,6 +1,6 @@
-package team.neu.ticket.service;
+package team.neu.ticket.interceptor.service;
 
-import team.neu.ticket.User.User;
+import team.neu.ticket.interceptor.User.User;
 
 /**
  * Created by Maicius on 2017/3/13.

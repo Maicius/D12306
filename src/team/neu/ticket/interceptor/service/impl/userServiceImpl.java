@@ -1,9 +1,9 @@
-package team.neu.ticket.service.impl;
+package team.neu.ticket.interceptor.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import team.neu.ticket.User.User;
-import team.neu.ticket.mapper.UserMapper;
-import team.neu.ticket.service.UserService;
+import team.neu.ticket.interceptor.User.User;
+import team.neu.ticket.interceptor.mapper.UserMapper;
+import team.neu.ticket.interceptor.service.UserService;
 
 /**
  * Created by Maicius on 2017/3/13.
