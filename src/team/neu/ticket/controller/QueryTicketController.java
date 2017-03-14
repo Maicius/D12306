@@ -35,6 +35,7 @@ public class QueryTicketController {
 
         mv.addObject("queryInfos",queryInfos);
         mv.setViewName("purchase");
+        System.out.println("Query Server Finished!"+ queryInfos.toString());
         return mv;
     }
 

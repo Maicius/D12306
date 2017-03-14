@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -98,7 +102,7 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">首页 </a></li>
-                        <li><a href="purchase.html">购票</a></li>
+                        <li><a href="purchase.jsp">购票</a></li>
                         <li><a href="#">退票</a></li>
                         <li><a href="#">余票查询</a></li>
                         <li><a href="#">列车时刻表查询</a></li>
@@ -166,12 +170,24 @@
                                 <th colspan="1" rowspan="1" >到达站</th>
                                 <th colspan="1" rowspan="1" >出发时间</th>
                                 <th colspan="1" rowspan="1">到达时间</th>
-                                <th colspan="1" rowspan="1">时长</th>
                                 <th colspan="1" rowspan="1" >里程</th>
                                 <th colspan="1" rowspan="1" >详情</th>
                             </tr>
                             </thead>
-                            <tbody id="queryLeftTable"></tbody>
+                            <tbody id="queryLeftTable">
+                            <c:forEach items="${queryInfos}" var = "info">
+                            <tr>
+                                <td>${info.train_id}</td>
+                                <td>${info.start_station}</td>
+                                <td>${info.arrive_station}</td>
+                                <td>${info.start_time}</td>
+                                <td>${info.arrive_time}</td>
+                                <td>${info.mile}</td>
+                                <td><a href="#">点击查看详情</a></td>
+                            </tr>
+                            </c:forEach>
+                            </tbody>
+
                         </table>
                     </div>
 
