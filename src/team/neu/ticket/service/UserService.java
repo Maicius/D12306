@@ -7,4 +7,6 @@ import team.neu.ticket.User.User;
  */
 public interface UserService {
     public User doUserLogin(User user) throws Exception;
+
+    public User doUserVerify(User user) throws Exception;
 }

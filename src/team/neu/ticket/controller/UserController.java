@@ -3,7 +3,9 @@ package team.neu.ticket.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import team.neu.ticket.User.User;
 import team.neu.ticket.service.UserService;
@@ -23,7 +25,7 @@ public class UserController {
     @RequestMapping("/userLogin")
     public ModelAndView userLogin(HttpServletRequest request, @RequestParam(value="phone_num") String phone_num,
                                   @RequestParam(value="password") String password) throws Exception{
-        user.setUserName(phone_num);
+        user.setPhone_num(phone_num);
         user.setPassword(password);
         ModelAndView modelAndView = new ModelAndView();
         User loginUser = userService.doUserLogin(user);
@@ -32,9 +34,26 @@ public class UserController {
         }else{
             HttpSession session = request.getSession();
             session.setAttribute("user", loginUser);
-            System.out.println("Login_success：" + loginUser.getUserName());
+            System.out.println("Login_success：" + loginUser.getUser_name());
         }
 
         return null;
+    }
+
+    @ResponseBody
+    @RequestMapping("/userVerify")
+    public String userVerify(HttpServletRequest request,
+                                   @RequestParam(value="phone_num") String phone_num) throws Exception{
+        user.setPhone_num(phone_num);
+        //System.out.println(user.getPhone_num());
+        User verifyUser = userService.doUserLogin(user);
+        if(verifyUser != null) {
+            System.out.println("Verify_success：" + verifyUser.getUser_name());
+            return verifyUser.getUser_name();
+        }else{
+            System.out.println("Verify_Failed");
+            return "该用户不存在";
+        }
+
     }
 }

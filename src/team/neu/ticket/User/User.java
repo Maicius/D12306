@@ -4,18 +4,18 @@ package team.neu.ticket.User;
  * Created by Maicius on 2017/3/13.
  */
 public class User {
-    private String userName;
+    private String user_name;
     private String password;
-    private String idCard;
+    private String user_idcard_num;
     private String job;
     private String phone_num;
 
-    public String getUserName() {
-        return userName;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public String getPassword() {
@@ -26,12 +26,12 @@ public class User {
         this.password = password;
     }
 
-    public String getIdCard() {
-        return idCard;
+    public String getUser_idcard_num() {
+        return user_idcard_num;
     }
 
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
+    public void setUser_idcard_num(String user_idcard_num) {
+        this.user_idcard_num = user_idcard_num;
     }
 
     public String getJob() {

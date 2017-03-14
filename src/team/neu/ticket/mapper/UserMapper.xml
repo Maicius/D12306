@@ -2,17 +2,24 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="team.neu.ticket.mapper.UserMapper">
+    <resultMap id="userLoginMap" type="User">
+        <result column="user_idcard_num" property="user_idcard_num" jdbcType="VARCHAR"/>
+        <result column="user_name" property="user_name" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="job" property="job" jdbcType="VARCHAR"/>
+        <result column="phone_num" property="phone_num" jdbcType="VARCHAR"/>
+    </resultMap>
     <sql id="user_all_column">
           user_idcard_num, user_name, phone_num, password, job
     </sql>
-<select id="doUserLogin" parameterType="User" resultType="User">
+<select id="doUserLogin" parameterType="User" resultMap="userLoginMap">
 
     SELECT
     <include refid="user_all_column"></include>
     FROM t_12306user
     <where>
         <if test="phone_num != null and phone_num !=''">
-                and email = #{email}
+                and phone_num = #{phone_num}
         </if>
         <if test="password !=null and password !=''">
             and password = #{password}

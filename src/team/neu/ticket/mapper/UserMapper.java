@@ -7,4 +7,5 @@ import team.neu.ticket.User.User;
  */
 public interface UserMapper {
     public User doUserLogin(User user) throws Exception;
+    public User doUserVerify(User user) throws Exception;
 }

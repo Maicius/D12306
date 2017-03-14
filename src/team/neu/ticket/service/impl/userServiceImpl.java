@@ -8,11 +8,16 @@ import team.neu.ticket.service.UserService;
 /**
  * Created by Maicius on 2017/3/13.
  */
-public class userServiceImp implements UserService {
+public class userServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
     @Override
     public User doUserLogin(User user) throws Exception {
         return userMapper.doUserLogin(user);
+    }
+
+    @Override
+    public User doUserVerify(User user) throws Exception {
+        return userMapper.doUserVerify(user);
     }
 }
