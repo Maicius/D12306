@@ -1,29 +1,30 @@
 /*
-*	Author: Pixel Art Inc.
-*	URL:	http://www.pixelartinc.com
-*/
+ *	Author: Pixel Art Inc.
+ *	URL:	http://www.pixelartinc.com
+ */
 
 
 jQuery(document).ready(function() {
 
     $ = jQuery;
-	
 
-	//Login 管理员
-		$('#login-link').click(function(){
-			$('.login-popup-wrapper').fadeIn('slow',function(){
-				$(this).children('#login-popup').fadeIn('fast');			
-			});
-		});
-		$('.close').click(function(){
-			$(this).parents('.login-popup-wrapper').fadeOut('slow');
-			$(this).parent('#login-popup').fadeOut('slow');
-		});
-
-    //用户登录
+    //管理员登陆
     $('#user_login').click(function(){
         $('.login-popup-wrapper').fadeIn('slow',function(){
             $(this).children('#login-popup').fadeIn('fast');
+            $(this).children('#login-popup').children('#title').innerHTML = "管理员入口";
+        });
+    });
+    $('.close').click(function(){
+        $(this).parents('.login-popup-wrapper').fadeOut('slow');
+        $(this).parent('#login-popup').fadeOut('slow');
+    });
+
+    //用户登录
+    $('#login-link').click(function(){
+        $('.login-popup-wrapper').fadeIn('slow',function(){
+            $(this).children('#login-popup').fadeIn('fast');
+            $(this).children('#login-popup').children('#title').innerHTML = "用户登陆";
         });
     });
     $('.close').click(function(){
@@ -33,32 +34,31 @@ jQuery(document).ready(function() {
 
 
     //Flex Slider
+    $('.flexslider').flexslider({
+        animation: "slide"
+    });
+    //Accordions
+    $( "#accordion" ).accordion();
+    $( "#widget_accordion" ).accordion();
+    $( "#slider_tabs" ).tabs();
 
-	$('.flexslider').flexslider({
-		animation: "slide"	
-	});
-	//Accordions
-	 $( "#accordion" ).accordion();
-	 $( "#widget_accordion" ).accordion();
-     $( "#slider_tabs" ).tabs();
-	
-	//For Reservation form
-	$( "#datepicker" ).datepicker();
-	$( "#clender" ).datepicker();		
-	$( "#spinner" ).spinner();
-	$( "#spinner-two" ).spinner();
-	$( "#spinner-three" ).spinner();
-	
-	//Carousal
-	$('#carousel').carouFredSel({
-		auto: false,
+    //For Reservation form
+    $( "#datepicker" ).datepicker();
+    $( "#clender" ).datepicker();
+    $( "#spinner" ).spinner();
+    $( "#spinner-two" ).spinner();
+    $( "#spinner-three" ).spinner();
+
+    //Carousal
+    $('#carousel').carouFredSel({
+        auto: false,
         prev: '.prev',
         next: '.next',
-		scroll:1
-	});
-	
-	//HOver  
-	$('#carousel li').mouseover(function () {
+        scroll:1
+    });
+
+    //HOver
+    $('#carousel li').mouseover(function () {
         $(this).siblings().css({
             opacity: 0.35
         })
@@ -67,11 +67,11 @@ jQuery(document).ready(function() {
             $(this).siblings().css({
                 opacity: 1
             })
-        });		
-	 
-	 $("#vcarousel").jCarouselLite({
+        });
+
+    $("#vcarousel").jCarouselLite({
         vertical: true,
-		btnPrev: '.d-down',
+        btnPrev: '.d-down',
         btnNext: '.d-up',
         auto: 500,
         speed: 1600,
@@ -143,26 +143,26 @@ jQuery(document).ready(function() {
             open_nav();
         });
     }
-	
-	//Cycle Slider
-	$('.testimonial').cycle({
-		next:   '#test-next',
-		prev:   '#test-prev'
-	});
-	$('.notify .slider').cycle({
-		next:   '.left',
-		prev:   '.right'
-	});
-	
-	$('.tweet').cycle({
-		fx: 'scrollHorz',
-		next:   '.tweet-l',
-		prev:   '.tweet-r'
-	});
+
+    //Cycle Slider
+    $('.testimonial').cycle({
+        next:   '#test-next',
+        prev:   '#test-prev'
+    });
+    $('.notify .slider').cycle({
+        next:   '.left',
+        prev:   '.right'
+    });
+
+    $('.tweet').cycle({
+        fx: 'scrollHorz',
+        next:   '.tweet-l',
+        prev:   '.tweet-r'
+    });
 
     /*****************************
      Portfolio Filtration
-    *****************************/
+     *****************************/
     var $container = $('#project-container');
     $container.isotope({
         itemSelector : '.element'
@@ -195,12 +195,12 @@ jQuery(document).ready(function() {
     });
 
     $( "#tabs_two" ).tabs();
-	
-	/*****************************
+
+    /*****************************
      HOver Background change
-    *****************************/
-	
-	 $('.crousal-btn a').hover(
+     *****************************/
+
+    $('.crousal-btn a').hover(
         function(){
             $(this).stop().animate(
                 {backgroundPosition: "(0 -38px)"},
@@ -214,8 +214,8 @@ jQuery(document).ready(function() {
             )
         }
     );
-	
-	$('.test-button a').hover(
+
+    $('.test-button a').hover(
         function(){
             $(this).stop().animate(
                 {backgroundPosition: "(0 -32px)"},
@@ -229,8 +229,8 @@ jQuery(document).ready(function() {
             )
         }
     );
-	
-	$('.social-nav a').hover(
+
+    $('.social-nav a').hover(
         function(){
             $(this).stop().animate(
                 {backgroundPosition: "(0 -40px)"},
@@ -244,8 +244,8 @@ jQuery(document).ready(function() {
             )
         }
     );
-	
-	$('.like').hover(
+
+    $('.like').hover(
         function(){
             $(this).stop().animate(
                 {backgroundPosition: "(0 -92px)"},
@@ -259,8 +259,8 @@ jQuery(document).ready(function() {
             )
         }
     );
-	
-	$('.tweet').hover(
+
+    $('.tweet').hover(
         function(){
             $(this).stop().animate(
                 {backgroundPosition: "(0 -58px)"},
@@ -274,8 +274,8 @@ jQuery(document).ready(function() {
             )
         }
     );
-	
-	 $.extend($.fx.step,{
+
+    $.extend($.fx.step,{
         backgroundPosition: function(fx) {
             if (fx.pos === 0 && typeof fx.end == 'string') {
                 var start = $.css(fx.elem,'backgroundPosition');
@@ -299,22 +299,22 @@ jQuery(document).ready(function() {
             }
         }
     });
-	
-	$.simpleWeather({
-		zipcode: '76309',
-		unit: 'c',
-		success: function(weather) {
-			html = '<h2>'+weather.city+', '+weather.region+'</h2>';
-			html += '<figure style="background-image: url('+weather.image+');"></figure>';
-			html += '<p>'+weather.temp+'&deg; '+weather.units.temp+'</p>';
-			$("#weather").html(html);
-		},
-		error: function(error) {
-			$("#weather").html('<p>'+error+'</p>');
-		}
-	});
-	
-	
 
-	
+    $.simpleWeather({
+        zipcode: '76309',
+        unit: 'c',
+        success: function(weather) {
+            html = '<h2>'+weather.city+', '+weather.region+'</h2>';
+            html += '<figure style="background-image: url('+weather.image+');"></figure>';
+            html += '<p>'+weather.temp+'&deg; '+weather.units.temp+'</p>';
+            $("#weather").html(html);
+        },
+        error: function(error) {
+            $("#weather").html('<p>'+error+'</p>');
+        }
+    });
+
+
+
+
 });
