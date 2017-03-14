@@ -10,5 +10,5 @@ public interface UserService {
 
     public User doUserVerify(User user) throws Exception;
 
-    public User doRegistUser(User user) throws Exception;
+    public int doRegistUser(User user) throws Exception;
 }

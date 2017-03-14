@@ -22,7 +22,7 @@ public class userServiceImpl implements UserService {
     }
 
     @Override
-    public User doRegistUser(User user) throws Exception {
+    public int doRegistUser(User user) throws Exception {
         return userMapper.doRegistUser(user);
     }
 }

@@ -56,8 +56,9 @@ public class UserController {
         }
     }
 
+    @ResponseBody
     @RequestMapping("/userRegister")
-    public ModelAndView userRegister(HttpServletRequest request,
+    public String userRegister(HttpServletRequest request,
                                      @RequestParam(value="loginUserDTO.user_name") String username,
                                      @RequestParam(value="loginUserDTO.name") String real_name,
                                      @RequestParam(value="loginUserDTO.id_type_code") String idcard_type,
@@ -69,7 +70,12 @@ public class UserController {
         ModelAndView mv = new ModelAndView();
         User user = new User(username, real_name,password, idcard_num
                 , "passenger", phone_num, idcard_type, passenger_type, email);
-        User registUser = userService.doRegistUser(user);
-        return mv;
+        int success = userService.doRegistUser(user);
+        if(success > 0){
+            System.out.println("success");
+            return user.getUser_name();
+        }else{
+            return "failed";
+        }
     }
 }
