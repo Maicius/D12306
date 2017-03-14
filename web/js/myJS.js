@@ -5,21 +5,17 @@
 jQuery(document).ready(function(){
     $ = jQuery;
 
-    //管理员登陆
-    $('#user_login').click(function(){
-        $('.login-popup-wrapper').fadeIn('slow',function(){
-            $(this).children('#login-popup').fadeIn('fast');
-            $(this).children('#login-popup').children('#title').innerHTML = "管理员入口";
-        });
-    });
-    $('.close').click(function(){
-        $(this).parents('.login-popup-wrapper').fadeOut('slow');
-        $(this).parent('#login-popup').fadeOut('slow');
-    });
+
 
     //订单详情出发弹窗
     $('.oder_info_more').click(function () {
-
+        $('.oder-detail-popup-wrapper').fadeIn('slow',function(){
+            $(this).children('#detail-popup').fadeIn('fast');
+        });
+    });
+    $('.detail_close').click(function(){
+        $(this).parents('.oder-detail-popup-wrapper').fadeOut('slow');
+        $(this).parent('#detail-popup').fadeOut('slow');
     });
 
 });

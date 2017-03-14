@@ -179,7 +179,7 @@
                                                     <td><p>成都</p></td>
                                                     <td><p>17/3/20</p></td>
                                                     <td><p>17/3/21</p></td>
-                                                    <td><p><a class="oder_info_more" href="#">订单详情</a></p></td>
+                                                    <td><p><a class="oder_info_more"  href="#">订单详情</a></p></td>
                                                 </tr>
                                                 <tr></tr>
                                                 <tr></tr>
@@ -254,6 +254,87 @@
 </div>
 
 
+<div class="oder-detail-popup-wrapper">
+    <div id="detail-popup">
+            <div class="lay-hd">
+                <strong><h4 style="color: white">订单信息</h4></strong>
+             </div>
+        <div>
+        <ul class="reg-list">
+            <li>
+                <div class="my_register_label">
+                    乘 客 名：
+                </div>
+                <div class="r-txt">
+                    <input id="user_realName" class="info_reset_class" type="text" value="叶珍">
+                </div>
+
+            </li>
+
+            <li>
+                <div class="my_register_label">
+                    车 次：
+                </div>
+                <div class="r-txt">
+                    <input class="info_reset_class" id="train_id" name="train_id"  value="D5678">
+                </div>
+            </li>
+
+            <li>
+                <div class="my_register_label">
+                    车厢号 ：
+                </div>
+                <div class="r-txt">
+                    <input class="info_reset_class" id="carriage_number" name="carriage_number"  value="67">
+                </div>
+            </li>
+
+            <li>
+                <div class="my_register_label">
+                    座位号 ：
+                </div>
+                <div class="r-txt">
+                    <input class="info_reset_class" id="seat_number" name="seat_number"  value="2">
+                </div>
+            </li>
+
+            <li>
+                <div class="my_register_label">
+                    出发地 ：
+                </div>
+                <div class="r-txt">
+                    <input class="info_reset_class" id="start_place" name="start_place"  value="沈阳">
+                </div>
+            </li>
+
+            <li>
+                <div class="my_register_label">
+                    目的地 ：
+                </div>
+                <div class="r-txt">
+                    <input class="info_reset_class" id="arrive_place" name="arrive_place"  value="成都">
+                </div>
+            </li>
+            <li>
+                <div class="my_register_label">
+                    历时 ：
+                </div>
+                <div class="r-txt">
+                    <input class="info_reset_class" id="during_time" name="during_time"  value="43h">
+                </div>
+            </li>
+
+        </ul>
+        </div>
+        <div class="oder_bottom_area">
+            <p><a href="#" class="detail_close">关闭</a></p>
+        </div>
+
+
+    </div>
+</div>
+
+
 <!-- Scripts -->
 <script src="js/jquery-1.7.1.min.js"></script>
 <script src="js/jquery.flexslider.js"></script>
@@ -268,6 +349,8 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.isotope.min.js"></script>
 <script src="js/jquery.tinyscrollbar.min.js"></script>
+<script src="js/myJS.js"></script>
+
 <script>
     function goToByScroll(id) {
         $ = jQuery;
