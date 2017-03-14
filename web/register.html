@@ -147,7 +147,7 @@
                                                    name="loginUserDTO.user_name" id="user_Name" maxlength="30"
                                                    style="color: rgb(51, 51, 51);" type="text">
                                         </div>
-                                        <div class="tips">
+                                        <div class="tips" id="username_tip">
                                             <span id="iok_userName" class="tips i-ok"
                                                   style="margin-top: 10px;margin-right: 5px;display:none;">
 
@@ -163,11 +163,11 @@
                                         </div>
                                         <div class="r-txt">
                                             <input placeholder="6-20位字母、数字或符号"
-                                                   onkeyup="checkPwdRank(this,'_div_password_rank','_span_password_rank')"
+                                                   onkeyup="PasswordStrength()"
                                                    class="inptxt w200" name="userDTO.password" id="pass_word"
-                                                   maxlength="25" style="color: rgb(51, 51, 51);" type="password">
+                                                   maxlength="25" style="color: rgb(51, 51, 51);" type="password" >
                                         </div>
-                                        <div class="tips">
+                                        <div class="tips" id="password_tip">
 
                                         </div>
                                     </li>
@@ -179,9 +179,9 @@
                                         <div class="r-txt">
                                             <input placeholder="再次输入您的登录密码" class="inptxt w200" name="confirmPassWord"
                                                    id="confirmPassWord" maxlength="25" style="color: rgb(51, 51, 51);"
-                                                   type="password">
+                                                   type="password" onblur="confirmPassword()">
                                         </div>
-                                        <div class="tips"><span id="iok_confirmPassWord" class="tips i-ok"
+                                        <div class="tips" id="password_confirm_tip"><span id="iok_confirmPassWord" class="tips i-ok"
                                                                 style="margin-top: 10px;margin-right: 5px;display:none;"></span>
                                         </div>
                                     </li>
@@ -192,7 +192,7 @@
                                         <div class="r-txt"><input placeholder="请输入姓名" class="inptxt w200"
                                                                   name="loginUserDTO.name" maxlength="30" type="text">
                                         </div>
-                                        <div class="tips" id="name_rule">
+                                        <div class="tips" id="real_name_tip">
                                         </div>
                                     </li>
                                     <li>
@@ -220,10 +220,14 @@
                                             <div class="pos-rel"><input placeholder="请输入您的证件号码"
                                                                         name="loginUserDTO.id_no" id="cardCode"
                                                                         class="inptxt w200 color333" maxlength="18"
-                                                                        value="" type="text">
+                                                                        value="" type="text"
+                                                                        onblur="testIdCard()">
                                                 <div class="inp-focus inp-focus-card" id="cardCode_div"
-                                                     style="display:none"></div>
+                                                     style="display: none"> </div>
                                             </div>
+                                        </div>
+                                        <div class="tips" id="idCard_tip">
+
                                         </div>
                                     </li>
                                     <li class="cardLi" style="display: none;">
@@ -667,9 +671,10 @@
                                             <ul style="position: absolute; margin-top: 30px; min-width: 200px; visibility: hidden; z-index: 11;"
                                                 class="emailist"></ul>
                                             <input placeholder="请正确填写邮箱地址" id="email" name="userDTO.email"
-                                                   class="inptxt w200 inp-transform" autocomplete="off" type="text">
+                                                   class="inptxt w200 inp-transform" autocomplete="off" type="text"
+                                            onblur="testEmail()">
                                         </div>
-                                        <div class="tips"></div>
+                                        <div class="tips" name="email_tip" id="email_tip"></div>
                                     </li>
                                     <li>
                                         <div class="my_register_label"><span class="required">*</span>
@@ -678,10 +683,10 @@
                                         <div class="r-txt">
                                             <div class="pos-rel"><input placeholder="请输入您的手机号码" name="userDTO.mobile_no"
                                                                         class="inptxt w200 color333" id="mobileNo"
-                                                                        maxlength="30" value="" type="text">
+                                                                        maxlength="30" value="" type="text" onblur="testMobile()">
                                             </div>
                                         </div>
-                                        <div class="tips" style="color: #FF7F00;">请正确填写手机号码，稍后将向该手机号码发送短信验证码</div>
+                                        <div class="tips" name="tip" id="phone_tip" style="color: #FF7F00;"> </div>
                                     </li>
                                     <li>
                                         <div class="my_register_label"><span class="required">*</span>
@@ -791,6 +796,53 @@
     $(document).ready(function () {
         $('.scrollbar1').tinyscrollbar();
     });
+</script>
+<script type="text/javascript">
+    function isCardNo(card)
+    {
+        // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X  
+        var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        if(reg.test(card) === false)
+        {
+            return  "错误的证件号码";
+        }
+        else{
+            return "";
+        }
+    }
+    function testIdCard() {
+        var Id =document.getElementById("cardCode").value;
+        var card = isCardNo(Id);
+        document.getElementById("idCard_tip").innerHTML=card;
+    }
+    function confirmPassword(){
+        var pass = document.getElementById("pass_word").value;
+        var passConfir = document.getElementById("confirmPassWord").value;
+        if(pass != passConfir){
+            document.getElementById("password_confirm_tip").innerHTML="两次密码不一致";
+        }else{
+            document.getElementById("password_confirm_tip").innerHTML="";
+        }
+    }
+    function testEmail(){
+        var email=document.getElementById("email").value;
+        var reg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+        if(!reg.test(email)){
+            document.getElementById("email_tip").innerHTML = "请输入正确的邮箱";
+        }else{
+            document.getElementById("email_tip").innerHTML = "";
+        }
+    }
+    function testMobile(){
+        var mobile = document.getElementById("mobileNo").value;
+        var reg=/^((13[0-9]{1})|159|153)+\d{8}$/;
+        alert(reg.test(mobile))
+        if(!reg.test(mobile)){
+            document.getElementById("phone_tip").innerHTML = "请输入正确的手机号";
+        }else{
+            document.getElementById("phone_tip").innerHTML = "";
+        }
+    }
 </script>
 <script src="js/custom.js"></script>
 

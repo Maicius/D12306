@@ -6,10 +6,13 @@ package team.neu.ticket.User;
 public class QueryInfo {
     private String train_id;
     private String start_station;
-    private String end_station;
+    private String arrive_station;
     private String ticket_date;
     private String start_time;
     private String arrive_time;
+    private String token_time;
+    private String mile;
+    private String price;
 
     public String getTicket_date() {
         return ticket_date;
@@ -27,12 +30,12 @@ public class QueryInfo {
         this.start_station = start_station;
     }
 
-    public String getEnd_station() {
-        return end_station;
+    public String getArrive_station() {
+        return arrive_station;
     }
 
-    public void setEnd_station(String end_station) {
-        this.end_station = end_station;
+    public void setArrive_station(String arrive_station) {
+        this.arrive_station = arrive_station;
     }
 
     public String getStart_time() {
@@ -57,5 +60,29 @@ public class QueryInfo {
 
     public void setTrain_id(String train_id) {
         this.train_id = train_id;
+    }
+
+    public String getToken_time() {
+        return token_time;
+    }
+
+    public void setToken_time(String token_time) {
+        this.token_time = token_time;
+    }
+
+    public String getMile() {
+        return mile;
+    }
+
+    public void setMile(String mile) {
+        this.mile = mile;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }
