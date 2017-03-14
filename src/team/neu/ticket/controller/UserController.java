@@ -54,6 +54,22 @@ public class UserController {
             System.out.println("Verify_Failed");
             return "该用户不存在";
         }
+    }
 
+    @RequestMapping("/userRegister")
+    public ModelAndView userRegister(HttpServletRequest request,
+                                     @RequestParam(value="loginUserDTO.user_name") String username,
+                                     @RequestParam(value="loginUserDTO.name") String real_name,
+                                     @RequestParam(value="loginUserDTO.id_type_code") String idcard_type,
+                                     @RequestParam(value="loginUserDTO.id_no") String idcard_num,
+                                     @RequestParam(value="userDTO.password") String password,
+                                     @RequestParam(value="userDTO.email") String email,
+                                     @RequestParam(value="userDTO.mobile_no") String phone_num,
+                                     @RequestParam(value="passenger_type") String passenger_type) throws Exception{
+        ModelAndView mv = new ModelAndView();
+        User user = new User(username, real_name,password, idcard_num
+                , "passenger", phone_num, idcard_type, passenger_type, email);
+        User registUser = userService.doRegistUser(user);
+        return mv;
     }
 }

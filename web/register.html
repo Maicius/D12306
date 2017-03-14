@@ -128,7 +128,7 @@
 
                     <div class="content_top">
 
-                        <form action="" method="post">
+                        <form action="userRegister.action" method="get">
 
                             <div class="my_top userInfoBorder">
                                 <div class="lay-hd">
@@ -164,7 +164,7 @@
                                         <div class="r-txt">
                                             <input placeholder="6-20位字母、数字或符号"
                                                    onkeyup="checkPwdRank(this,'_div_password_rank','_span_password_rank')"
-                                                   class="inptxt w200" name="userDTO.password" id="passWord"
+                                                   class="inptxt w200" name="userDTO.password" id="pass_word"
                                                    maxlength="25" style="color: rgb(51, 51, 51);" type="password">
                                         </div>
                                         <div class="tips">
@@ -710,7 +710,7 @@
 
                                 </ul>
                                 <div id="register_button_div" class="register_button_div">
-                                    <a id="register_submit_button" href="#" class="register_submit_button">注册</a>
+                                    <input type="submit" id="register"  class="register_submit_button">注册</input>
                                 </div>
                                 <div style="clear:both"></div> <!--消除float带来的问题，使父元素被撑起来-->
                             </div>
