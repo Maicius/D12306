@@ -2,17 +2,21 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="team.neu.ticket.mapper.UserMapper">
-    <resultMap id="userLoginMap" type="User">
+    <resultMap id="userMap" type="User">
         <result column="user_idcard_num" property="user_idcard_num" jdbcType="VARCHAR"/>
         <result column="user_name" property="user_name" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="job" property="job" jdbcType="VARCHAR"/>
         <result column="phone_num" property="phone_num" jdbcType="VARCHAR"/>
+        <result column="idcard_type" property="idcard_type"/>
+        <result column="email" property="email"/>
+        <result column="passenger_type" property="passenger_type"/>
+        <result column="real_name" property="real_name"/>
     </resultMap>
     <sql id="user_all_column">
           user_idcard_num, user_name, phone_num, password, job
     </sql>
-<select id="doUserLogin" parameterType="User" resultMap="userLoginMap">
+<select id="doUserLogin" parameterType="User" resultMap="userMap">
 
     SELECT
     <include refid="user_all_column"></include>
@@ -26,4 +30,10 @@
         </if>
     </where>
 </select>
+    <select id="doRegistUser" parameterType="User" resultMap="userMap">
+        INSERT INTO T_12306User(user_idcard_num, user_name, password, job, 
+                    phone_num, idcard_type, email, passenger_type, real_name)
+               VALUES (#{user_idcard_num}, #{user_name}, #{password}, #{job}, #{phone_num}, #{idcard_type},
+                        #{email}, #{passenger_type}, #{real_name})
+    </select>
 </mapper>

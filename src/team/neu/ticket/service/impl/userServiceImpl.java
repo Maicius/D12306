@@ -20,4 +20,9 @@ public class userServiceImpl implements UserService {
     public User doUserVerify(User user) throws Exception {
         return userMapper.doUserVerify(user);
     }
+
+    @Override
+    public User doRegistUser(User user) throws Exception {
+        return userMapper.doRegistUser(user);
+    }
 }
