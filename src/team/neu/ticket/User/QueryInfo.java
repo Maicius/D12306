@@ -1,5 +1,7 @@
 package team.neu.ticket.interceptor.User;
 
+import java.util.Date;
+
 /**
  * Created by Maicius on 2017/3/13.
  */
@@ -13,6 +15,11 @@ public class QueryInfo {
     private String token_time;
     private String mile;
     private String price;
+    private Date date;
+    private int standing_ticket;
+    private int ticket_num;
+    private String train_class;
+    private String train_style;
 
     public String getTicket_date() {
         return ticket_date;
@@ -84,5 +91,46 @@ public class QueryInfo {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+
+    public int getTicket_num() {
+        return ticket_num;
+    }
+
+    public void setTicket_num(int ticket_num) {
+        this.ticket_num = ticket_num;
+    }
+
+    public int getStanding_ticket() {
+        return standing_ticket;
+    }
+
+    public void setStanding_ticket(int standing_ticket) {
+        this.standing_ticket = standing_ticket;
+    }
+
+    public String getTrain_class() {
+        return train_class;
+    }
+
+    public void setTrain_class(String train_class) {
+        this.train_class = train_class;
+    }
+
+    public String getTrain_style() {
+        return train_style;
+    }
+
+    public void setTrain_style(String train_style) {
+        this.train_style = train_style;
     }
 }

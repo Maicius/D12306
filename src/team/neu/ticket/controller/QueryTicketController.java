@@ -21,8 +21,7 @@ public class QueryTicketController {
     QueryInfo queryInfo = new QueryInfo();
 
     @RequestMapping(value = "/queryTicket")
-    public ModelAndView queryTicket(HttpServletRequest request,
-                                    @RequestParam(value="from_station") String start_station,
+    public ModelAndView queryTicket(@RequestParam(value="from_station") String start_station,
                                     @RequestParam(value="to_station") String arrive_station,
                                     @RequestParam(value="ticket_date") String ticket_date) throws Exception{
         ModelAndView mv = new ModelAndView();
