@@ -1,12 +1,12 @@
-package team.neu.ticket.service;
+package team.neu.ticket.interceptor.mapper;
 
-import team.neu.ticket.User.QueryInfo;
+import team.neu.ticket.interceptor.User.QueryInfo;
 
 import java.util.List;
 
 /**
  * Created by Maicius on 2017/3/13.
  */
-public interface TicketService {
+public interface TicketMapper {
     public List<QueryInfo> doFirstQuery(QueryInfo queryInfo) throws Exception;
 }
