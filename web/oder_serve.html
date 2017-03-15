@@ -134,10 +134,10 @@
                                 <div class="left_div">
                                     <div class="ul_wraper">
                                     <ul class="left_ul">
-                                        <li><a class="left_list_class " href="#">订单</a></li>
-                                        <li><a class="left_list_class" href="#">退票</a></li>
-                                        <li><a class="left_list_class" href="#">改签</a></li>
-                                        <li><a class="left_list_class" href="#">售后</a></li>
+                                        <li><a class="left_list_class " href="#" id="oder_show_button">订单</a></li>
+                                        <li><a class="left_list_class" href="#" id="refund_show_button">退票</a></li>
+                                        <li><a class="left_list_class" href="#" id="endorse_show_button">改签</a></li>
+                                        <li><a class="left_list_class" href="#" id="afterSale_show_button">售后</a></li>
                                     </ul>
                                     </div>
                                 </div>
@@ -188,14 +188,41 @@
                                         </table>
                                     </div>
 
-                                    <div id="oder_detail_view_div" class="right_view_class" style="display: none">
 
-                                    </div>
 
                                     <div id="refund_view_div" class="right_view_class" style="display: none">
-
+                                        <div class="refund_detail"><p>退票须知</p></div>
+                                        <div class="refund_notice_area">
+                                            <span><h4>据国家相关法律规定</h4></span>
+                                        </div>
+                                        <div class="refund_detail_bottom_area">
+                                            <p><a href="#" class="ticket_refund_serve">确定退票</a>
+                                                <a href="#" class="detail_close">取消</a></p>
+                                        </div>
                                     </div>
-                                    <div id="endorse_view_div" class="right_view_class" style="display: none"></div>
+
+                                    <div id="endorse_view_div" class="right_view_class" style="display: none">
+                                        <div class="refund_detail"><p>改签须知</p></div>
+                                        <div class="refund_notice_area">
+                                            <span><h4>据国家相关法律规定</h4></span>
+                                        </div>
+                                        <div class="refund_detail_bottom_area">
+                                            <p><a href="#" class="ticket_refund_serve" >确定改签</a>
+                                                <a href="#" class="detail_close">取消</a></p>
+                                        </div>
+                                    </div>
+
+                                    <div id="afterSale_view_div" class="right_view_class" style="display: none">
+                                        <div class="refund_detail"><p>售后咨询</p></div>
+                                        <div class="refund_notice_area">
+                                            <p>售后联系电话：</p>
+                                            <p>400-189-1234567</p>
+                                        </div>
+                                        <div class="refund_detail_bottom_area">
+                                            <p><a href="#" class="detail_close">取消</a></p>
+                                        </div>
+                                    </div>
+
                                     <div></div>
                                 </div>
 
@@ -266,7 +293,7 @@
                     乘 客 名：
                 </div>
                 <div class="r-txt">
-                    <input id="user_realName" class="info_reset_class" type="text" value="叶珍">
+                    <input id="user_realName" class="info_reset_class" disabled="true" type="text" value="叶珍">
                 </div>
 
             </li>
@@ -276,7 +303,7 @@
                     车 次：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" id="train_id" name="train_id"  value="D5678">
+                    <input class="info_reset_class" disabled="true" id="train_id" name="train_id"  value="D5678">
                 </div>
             </li>
 
@@ -285,7 +312,7 @@
                     车厢号 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" id="carriage_number" name="carriage_number"  value="67">
+                    <input class="info_reset_class" disabled="true" id="carriage_number" name="carriage_number"  value="67">
                 </div>
             </li>
 
@@ -294,7 +321,7 @@
                     座位号 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" id="seat_number" name="seat_number"  value="2">
+                    <input class="info_reset_class" disabled="true" id="seat_number" name="seat_number"  value="2">
                 </div>
             </li>
 
@@ -303,7 +330,7 @@
                     出发地 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" id="start_place" name="start_place"  value="沈阳">
+                    <input class="info_reset_class" disabled="true" id="start_place" name="start_place"  value="沈阳">
                 </div>
             </li>
 
@@ -312,7 +339,7 @@
                     目的地 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" id="arrive_place" name="arrive_place"  value="成都">
+                    <input class="info_reset_class" disabled="true" id="arrive_place" name="arrive_place"  value="成都">
                 </div>
             </li>
             <li>
@@ -320,14 +347,16 @@
                     历时 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" id="during_time" name="during_time"  value="43h">
+                    <input class="info_reset_class" disabled="true" id="during_time" name="during_time"  value="43h">
                 </div>
             </li>
 
         </ul>
         </div>
         <div class="oder_bottom_area">
-            <p><a href="#" class="detail_close">关闭</a></p>
+            <p><a href="#" class="ticket_refund_serve" id="refund_floatWindow_button">退票</a>
+            <a href="#" class="ticket_endorse_serve" id="endorse_floatWindow_button">改签</a>
+            <a href="#" class="detail_close">取消</a></p>
         </div>
 
 

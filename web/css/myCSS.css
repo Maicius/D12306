@@ -43,11 +43,12 @@
     background-color: midnightblue;
 }
 .right_view_class{
+
     height:95%;
     width: 95%;
     margin: 1% ;
     border: 1px solid darkgrey;
-    background-color: lightgrey;
+    background-color: lightgray;
 }
 .oder_table_class{
     border-top: 1px solid #ddd;
@@ -160,6 +161,26 @@ tbody {
     text-align: center;
 }
 
+.ticket_refund_serve{
+    width: 122px;
+    height: 30px;
+    line-height: 30px;
+    background-color: orangered;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+
+.ticket_endorse_serve{
+    width: 122px;
+    height: 30px;
+    line-height: 30px;
+    background-color: orangered;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+
 .oder_bottom_area{
 
     height: 32px;
@@ -168,11 +189,39 @@ tbody {
     margin-top: 30px;
     margin-bottom: 10px;
 }
-.oder_bottom_area p{
+
+.refund_detail_bottom_area{
+    height: 32px;
+    line-height: 32px;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.refund_notice_area{
+    height: 75%;
+    background-color: gainsboro;
+}
+.oder_bottom_area p, .refund_detail_bottom_area p{
     text-align: center;
 }
 .reg-list .info_reset_class{
     border: none;
     background: none;
     color: green;
+}
+
+.refund_detail{
+    height: 40px;
+    background-color: #1a546f;
+    line-height: 40px;
+}
+
+.refund_detail p{
+    width: inherit;
+    line-height: 40px;
+    height: 40px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
 }
