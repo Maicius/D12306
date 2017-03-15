@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Maicius on 2017/3/13.
  */
-public class TicketServiceImpl implements TicketService{
+public class TicketServiceImpl implements TicketService {
     @Autowired
     TicketMapper ticketMapper;
     public List<QueryInfo> doFirstQuery(QueryInfo queryInfo) throws Exception{

@@ -8,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 import team.neu.ticket.User.QueryInfo;
 import team.neu.ticket.service.TicketService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -21,19 +20,19 @@ public class QueryTicketController {
     QueryInfo queryInfo = new QueryInfo();
 
     @RequestMapping(value = "/queryTicket")
-    public ModelAndView queryTicket(HttpServletRequest request,
-                                    @RequestParam(value="from_station") String start_station,
-                                    @RequestParam(value="to_station") String end_station,
+    public ModelAndView queryTicket(@RequestParam(value="from_station") String start_station,
+                                    @RequestParam(value="to_station") String arrive_station,
                                     @RequestParam(value="ticket_date") String ticket_date) throws Exception{
         ModelAndView mv = new ModelAndView();
 
         queryInfo.setStart_station(start_station);
-        queryInfo.setEnd_station(end_station);
+        queryInfo.setArrive_station(arrive_station);
         queryInfo.setTicket_date(ticket_date);
 
         List<QueryInfo> queryInfos =  ticketService.doFirstQuery(queryInfo);
-
-        mv.addObject(queryInfos);
+        mv.addObject("queryInfos",queryInfos);
+        mv.setViewName("purchase");
+        System.out.println("Query Server Finished!"+ queryInfos.toString());
         return mv;
     }
 

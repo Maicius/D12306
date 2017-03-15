@@ -4,18 +4,31 @@
 <mapper namespace="team.neu.ticket.mapper.TicketMapper">
     <resultMap id = "FirstQueryMap" type = "QueryInfo">
         <result column="train_id" property="train_id"/>
-        <result column="start_time" property="start_time"/>
+        <result column="start_clock" property="start_time"/>
         <result column="start_station" property="start_station"/>
-        <result column="end_station" property="end_station"/>
-        <result column="arrive_time" property="arrive_time"/>
+        <result column="arrive_station" property="arrive_station"/>
+        <result column="arrive_clock" property="arrive_time"/>
+        <result column="mile" property="mile"/>
+        <result column="standing_ticket" property="standing_ticket"/>
+        <result column="train_style" property="train_style"/>
+        <result column="train_class" property="train_class"/>
+        <result column="price" property="price"/>
     </resultMap>
 
     <select id="doFirstQuery" parameterType="QueryInfo" resultMap="FirstQueryMap">
-    SELECT    s.train_id, s.station_name start_station, E.station_name end_station,
-          s.start_time start_time, E.arrive_time arrive_time
-    FROM T_route S, T_route E
-    WHERE s.route_num = E.route_num
-    AND (S.station_name =#{start_station}) AND (E.station_name = #{end_station})
+    select i.train_id, s.station_name start_station,
+            t.station_name arrive_station, r.start_clock,
+            r.arrive_clock, r.mile,
+            i.standing_ticket, i.train_style,
+            i.train_class, r.mile*ra.ticket_rate price
+    from T_route r, T_station s, T_station t, T_train_info i, T_ticket_rate ra
+    where (r.station_id=s.station_id)
+          AND r.arrive_station = t.station_id
+          AND s.station_name=#{start_station}
+          AND t.station_name=#{arrive_station}
+          AND r.train_id = i.train_id
+          AND r.start_date = #{ticket_date}
+          AND i.train_class = ra.ticket_class
     </select>
 
 </mapper>
