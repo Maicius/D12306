@@ -1,4 +1,7 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -125,9 +128,9 @@
                 <div class="top ">
 
                     <div class="content_top">
-                        <form action="" method="post">
+                        <form action="/manageStation.action" method="get">
                             <div class="my_top">
-                                <form action="" method="post">
+                            <%--    <form action="/manageStation.action" method="get">--%>
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
@@ -143,19 +146,20 @@
 
                                         <tr>
                                             <td><p>所属铁路局<input type="text" placeholder="所属铁路局" name="railway_admin"></p></td>
-                                            <td><p>车站等级<select class="w200sel valid" name="station_class_id" id="station_class_id">
-                                                <option value="0">特等
+                                            <td><p>车站等级<select class="w200sel valid" name="station_class" id="station_class">
+                                                <option value="">不限
                                                 </option>
-                                                <option value="1">一等
+                                                <option value="一等">一等
                                                 </option>
-                                                <option value="2">二等
+                                                <option value="二等">二等
                                                 </option>
-                                                <option value="3">三等
+                                                <option value="三等">三等
                                                 </option>
-                                                <option value="4">四等
+                                                <option value="四等">四等
                                                 </option>
-                                                <option value="5">五等
+                                                <option value="五等">五等
                                                 </option>
+
                                             </select></p></td>
 
                                             <td><p>所属行政区域<input type="text" placeholder="所属行政区域" name="station_region"></p></td>
@@ -169,7 +173,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                </form>
+                               <%-- </form>--%>
                             </div>
                         </form>
                     </div>
@@ -191,30 +195,19 @@
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
-
+                            <c:forEach items="${stationInfos}" var = "info">
                             <tr>
-                                <td>D12306</td>
-                                <td>成都东站</td>
-                                <td>CDDZ</td>
-                                <td>中国二铁</td>
-                                <td>国家级</td>
-                                <td>四川省</td>
-                                <td>四川省成都市</td>
+                                <td>${info.station_id}</td>
+                                <td>${info.station_name}</td>
+                                <td>${info.station_code}</td>
+                                <td>${info.railway_admin}</td>
+                                <td>${info.station_class}</td>
+                                <td>${info.station_region}</td>
+                                <td>${info.station_addr}</td>
                                 <td><a href="#">删除</a></td>
                                 <td><a href="#">修改</a></td>
                             </tr>
-
-                            <tr>
-                                <td>D12306</td>
-                                <td>成都东站</td>
-                                <td>CDDZ</td>
-                                <td>中国二铁</td>
-                                <td>国家级</td>
-                                <td>四川省</td>
-                                <td>四川省成都市</td>
-                                <td><a href="#">删除</a></td>
-                                <td><a href="#">修改</a></td>
-                            </tr>
+                            </c:forEach>
                             </tbody>
 
                         </table>

@@ -291,7 +291,6 @@
                         }else if(window.activeXObject){
                             ajaxRequest = new activeXObject("Microsoft.XMLHTTP");
                         }
-                        alert("enter ajax");
                         if(ajaxRequest){
                             ajaxRequest.onreadystatechange = function(){
                                 alert("status:"+ajaxRequest.status);
