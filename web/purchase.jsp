@@ -102,14 +102,19 @@ pageEncoding="UTF-8"%>
                 <nav>
                     <ul>
                         <li><a href="index.html">首页 </a></li>
+<<<<<<< HEAD:web/purchase.html
+                        <li><a href="purchase.html">购票</a></li>
+                        <li><a href="oder_serve.html" id="refund_head_button">退票</a></li>
+=======
                         <li><a href="purchase.jsp">购票</a></li>
                         <li><a href="#">退票</a></li>
+>>>>>>> e6b85fc1a7e865b07a29e87aabc58e85bd6f6a63:web/purchase.jsp
                         <li><a href="#">余票查询</a></li>
                         <li><a href="#">列车时刻表查询</a></li>
                         <li><a href="#">票价查询</a></li>
                         <li><a href="#">改签</a></li>
                         <li><a href="userInfoPage.html">个人中心</a></li>
-                        <li  class="last"><a href="#">我的订单</a></li>
+                        <li  class="last"><a href="oder_serve.html">我的订单</a></li>
                     </ul>
                 </nav>
 
