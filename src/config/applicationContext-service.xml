@@ -7,4 +7,5 @@
 
     <bean id="userService" class="team.neu.ticket.service.impl.userServiceImpl"/>
     <bean id="ticketService" class="team.neu.ticket.service.impl.TicketServiceImpl"/>
+    <bean id="managerService" class="team.neu.ticket.service.impl.ManagerServiceImpl"/>
 </beans>
