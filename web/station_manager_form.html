@@ -1,7 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -21,6 +18,7 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/myCSS.css">
 
     <!-- favicon -->
     <link rel="shortcut icon" href="images/favicon.png">
@@ -101,10 +99,10 @@ pageEncoding="UTF-8"%>
 
                 <nav>
                     <ul>
-                        <li><a href="index.html">首页 </a></li>
+                        <li><a href="#">基础数据管理 </a></li>
 
-                        <li><a href="purchase.jsp">购票</a></li>
-                        <li><a href="#">退票</a></li>
+                        <li><a href="#">车站管理</a></li>
+                        <li><a href="#">列车管理</a></li>
                         <li><a href="#">余票查询</a></li>
                         <li><a href="#">列车时刻表查询</a></li>
                         <li><a href="#">票价查询</a></li>
@@ -129,34 +127,49 @@ pageEncoding="UTF-8"%>
                     <div class="content_top">
                         <form action="" method="post">
                             <div class="my_top">
-                                <div class="my_places">
-                                    <div class="my_start">
-                                        <p><span class="my_span">出发地</span> <input type="text" name="start_place" id="start_place" class="my_input" /></p>
-                                        <p><span class="my_span">目的地 </span><input type="text" name="end_place" id="end_place" class="my_input" /></p>
-                                    </div>
-                                </div>
+                                <form action="" method="post">
+                                <table>
+                                    <tbody class="my_top_tbody">
+                                        <tr>
+                                            <td><p>车站代码<input type="text" placeholder="车站代码" name="station_id"></p></td>
+                                            <td><p>车站名<input type="text" placeholder="车站名" name="station_name"></p></td>
+                                            <td><p>拼音码<input type="text" placeholder="拼音码" name="station_code"></p></td>
 
+                                            <td rowspan="3">
+                                                <p><input type="submit" value="查询" class="register_submit_button"></p>
+                                                <p><input type="submit" value="增加" class="register_submit_button"></p>
+                                            </td>
+                                        </tr>
 
-                                <div class="my_time">
-                                    <div class="my_start">
-                                        <p><span class="my_span">出发时间</span><input type="text" name="start_time" id="start_time" class="my_input" /></p>
-                                        <p><span class="my_span">到达时间 </span><input type="text" name="end_time" id="end_time" class="my_input" /></p>
-                                    </div>
-                                </div>
+                                        <tr>
+                                            <td><p>所属铁路局<input type="text" placeholder="所属铁路局" name="railway_admin"></p></td>
+                                            <td><p>车站等级<select class="w200sel valid" name="station_class_id" id="station_class_id">
+                                                <option value="0">特等
+                                                </option>
+                                                <option value="1">一等
+                                                </option>
+                                                <option value="2">二等
+                                                </option>
+                                                <option value="3">三等
+                                                </option>
+                                                <option value="4">四等
+                                                </option>
+                                                <option value="5">五等
+                                                </option>
+                                            </select></p></td>
 
-                                <div class="my_person">
-                                    <div class="my_start">
-                                    				<span id="">
-                                    					<p><label><input name="person_style" type="radio" value="" />&nbsp;学生</label></p>
-                                             			<p><label><input name="person_style" type="radio" value="" />&nbsp;普通 </label></p>
-                                    				</span>
-                                    </div>
-                                </div>
-                                <div class="my_search" >
-                                    <input class="btn" type="submit" value="查询"/>
-                                    <input class="btn" type="reset" value="重置"/>
-                                </div>
-                                <div style="clear:both"></div> <!--消除float带来的问题，使父元素被撑起来-->
+                                            <td><p>所属行政区域<input type="text" placeholder="所属行政区域" name="station_region"></p></td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td colspan="3"><p><input type="text" placeholder="联系地址" class="address_area_1" name="station_addr"></p></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </form>
                             </div>
                         </form>
                     </div>
@@ -166,35 +179,42 @@ pageEncoding="UTF-8"%>
                         <table>
                             <thead>
                             <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>车次</p></th>
-                                <th colspan="1" rowspan="1" ><p>出发站</p></th>
-                                <th colspan="1" rowspan="1" ><p>到达站</p></th>
-                                <th colspan="1" rowspan="1" ><p>出发时间</p></th>
-                                <th colspan="1" rowspan="1"><p>到达时间</p></th>
-                                <th colspan="1" rowspan="1" ><p>里程</p></th>
-                                <th colspan="1" rowspan="1" ><p>车型</p></th>
-                                <th colspan="1" rowspan="1" ><p>车类</p></th>
-                                <th colspan="1" rowspan="1" ><p>票价</p></th>
-                                <th colspan="1" rowspan="1" ><p>余票</p></th>
-                                <th colspan="1" rowspan="1" ><p>购买</p></th>
+                                <th colspan="1" rowspan="1" ><p>车站代码</p></th>
+                                <th colspan="1" rowspan="1" ><p>车站名</p></th>
+                                <th colspan="1" rowspan="1" ><p>拼音码</p></th>
+                                <th colspan="1" rowspan="1" ><p>所属铁路局</p></th>
+                                <th colspan="1" rowspan="1"><p>车站等级</p></th>
+                                <th colspan="1" rowspan="1" ><p>所属行政区域</p></th>
+                                <th colspan="1" rowspan="1" ><p>联系地址</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作一</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作二</p></th>
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
-                            <c:forEach items="${queryInfos}" var = "info">
+
                             <tr>
-                                <td>${info.train_id}</td>
-                                <td>${info.start_station}</td>
-                                <td>${info.arrive_station}</td>
-                                <td>${info.start_time}</td>
-                                <td>${info.arrive_time}</td>
-                                <td>${info.mile}</td>
-                                <td>${info.train_style}</td>
-                                <td>${info.train_class}</td>
-                                <td>${info.price}</td>
-                                <td>${info.standing_ticket}</td>
-                                <td><a href="#">点击购买</a></td>
+                                <td>D12306</td>
+                                <td>成都东站</td>
+                                <td>CDDZ</td>
+                                <td>中国二铁</td>
+                                <td>国家级</td>
+                                <td>四川省</td>
+                                <td>四川省成都市</td>
+                                <td><a href="#">删除</a></td>
+                                <td><a href="#">修改</a></td>
                             </tr>
-                            </c:forEach>
+
+                            <tr>
+                                <td>D12306</td>
+                                <td>成都东站</td>
+                                <td>CDDZ</td>
+                                <td>中国二铁</td>
+                                <td>国家级</td>
+                                <td>四川省</td>
+                                <td>四川省成都市</td>
+                                <td><a href="#">删除</a></td>
+                                <td><a href="#">修改</a></td>
+                            </tr>
                             </tbody>
 
                         </table>

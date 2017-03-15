@@ -225,3 +225,98 @@ tbody {
     font-size: 20px;
     text-align: center;
 }
+
+/************以下三个样式是对单独的注册界面的设计************/
+.login_body_class{
+    background: url("../images/01.jpg") no-repeat;
+    background-size: 100%;
+}
+
+.container_class{
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    background: url(../images/bg.png) repeat;
+}
+
+.login_panel_class{
+    position: fixed;
+    top:40%;
+    left:45%;
+    width:400px;
+    margin: -45px 0 0 -185px;
+    height: 300px;
+    background:#fff;
+    border:3px solid #017eba;
+}
+
+.my_start p{
+    height: 40px;
+    line-height: 40px;
+}
+
+.content_result .th th p{
+    color: whitesmoke;
+    font-size: 20px;
+    height: 30px;
+    line-height: 30px;
+
+    text-align: center;
+
+    font-weight: bold;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.content_result tr{
+    border: 1px solid lightgrey;
+}
+
+.my_top_tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+
+}
+
+.my_top_tbody td{
+
+}
+
+
+.my_top table{
+    width: 100%;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #f3e7f5;
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+}
+
+
+
+.my_top_tbody p{
+    text-align: center;
+    font-size: 15px;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.my_top_tbody tr{
+    vertical-align: inherit;
+}
+
+
+
+.my_top_tbody .address_area_1{
+    width: 90%;
+}
