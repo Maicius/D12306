@@ -1,14 +1,13 @@
-package team.neu.ticket.interceptor.controller;
+package team.neu.ticket.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import team.neu.ticket.interceptor.User.QueryInfo;
-import team.neu.ticket.interceptor.service.TicketService;
+import team.neu.ticket.User.QueryInfo;
+import team.neu.ticket.service.TicketService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**

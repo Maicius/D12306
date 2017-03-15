@@ -171,7 +171,11 @@ pageEncoding="UTF-8"%>
                                 <th colspan="1" rowspan="1" >出发时间</th>
                                 <th colspan="1" rowspan="1">到达时间</th>
                                 <th colspan="1" rowspan="1" >里程</th>
-                                <th colspan="1" rowspan="1" >详情</th>
+                                <th colspan="1" rowspan="1" >车型</th>
+                                <th colspan="1" rowspan="1" >车类</th>
+                                <th colspan="1" rowspan="1" >票价</th>
+                                <th colspan="1" rowspan="1" >余票</th>
+                                <th colspan="1" rowspan="1" >购买</th>
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
@@ -183,7 +187,11 @@ pageEncoding="UTF-8"%>
                                 <td>${info.start_time}</td>
                                 <td>${info.arrive_time}</td>
                                 <td>${info.mile}</td>
-                                <td><a href="#">点击查看详情</a></td>
+                                <td>${info.train_style}</td>
+                                <td>${info.train_class}</td>
+                                <td>${info.price}</td>
+                                <td>${info.standing_ticket}</td>
+                                <td><a href="#">点击购买</a></td>
                             </tr>
                             </c:forEach>
                             </tbody>

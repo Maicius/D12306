@@ -1,6 +1,6 @@
-package team.neu.ticket.interceptor.mapper;
+package team.neu.ticket.mapper;
 
-import team.neu.ticket.interceptor.User.User;
+import team.neu.ticket.User.User;
 
 /**
  * Created by Maicius on 2017/3/13.

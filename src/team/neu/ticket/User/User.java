@@ -1,4 +1,4 @@
-package team.neu.ticket.interceptor.User;
+package team.neu.ticket.User;
 
 /**
  * Created by Maicius on 2017/3/13.

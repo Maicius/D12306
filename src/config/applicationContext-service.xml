@@ -5,6 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
 
-    <bean id="userService" class="team.neu.ticket.interceptor.service.impl.userServiceImpl"/>
-    <bean id="ticketService" class="team.neu.ticket.interceptor.service.impl.TicketServiceImpl"/>
+    <bean id="userService" class="team.neu.ticket.service.impl.userServiceImpl"/>
+    <bean id="ticketService" class="team.neu.ticket.service.impl.TicketServiceImpl"/>
 </beans>

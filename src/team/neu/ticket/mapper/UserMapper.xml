@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="team.neu.ticket.interceptor.mapper.UserMapper">
+<mapper namespace="team.neu.ticket.mapper.UserMapper">
     <resultMap id="userMap" type="User">
         <result column="user_idcard_num" property="user_idcard_num" jdbcType="VARCHAR"/>
         <result column="user_name" property="user_name" jdbcType="VARCHAR"/>

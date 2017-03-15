@@ -1,6 +1,6 @@
-package team.neu.ticket.interceptor.mapper;
+package team.neu.ticket.mapper;
 
-import team.neu.ticket.interceptor.User.QueryInfo;
+import team.neu.ticket.User.QueryInfo;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="team.neu.ticket.interceptor.mapper.TicketMapper">
+<mapper namespace="team.neu.ticket.mapper.TicketMapper">
     <resultMap id = "FirstQueryMap" type = "QueryInfo">
         <result column="train_id" property="train_id"/>
         <result column="start_clock" property="start_time"/>
@@ -9,7 +9,7 @@
         <result column="arrive_station" property="arrive_station"/>
         <result column="arrive_clock" property="arrive_time"/>
         <result column="mile" property="mile"/>
-        <result column="standing_ticket" property="=standing_ticket"/>
+        <result column="standing_ticket" property="standing_ticket"/>
         <result column="train_style" property="train_style"/>
         <result column="train_class" property="train_class"/>
         <result column="price" property="price"/>
@@ -20,7 +20,7 @@
             t.station_name arrive_station, r.start_clock,
             r.arrive_clock, r.mile,
             i.standing_ticket, i.train_style,
-            i.train_class,r.mile*ra.ticket_rate price
+            i.train_class, r.mile*ra.ticket_rate price
     from T_route r, T_station s, T_station t, T_train_info i, T_ticket_rate ra
     where (r.station_id=s.station_id)
           AND r.arrive_station = t.station_id
