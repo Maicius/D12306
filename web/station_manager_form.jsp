@@ -196,8 +196,8 @@ pageEncoding="UTF-8"%>
                             </thead>
                             <tbody id="queryLeftTable">
                             <c:forEach items="${stationInfos}" var = "info">
-                            <tr>
-                                <td>${info.station_id}</td>
+                            <tr id="station_info">
+                                <td><input type="text" value="${info.station_id}" readonly = "true"></td>
                                 <td>${info.station_name}</td>
                                 <td>${info.station_code}</td>
                                 <td>${info.railway_admin}</td>
