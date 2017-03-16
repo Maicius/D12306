@@ -1,3 +1,4 @@
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -78,13 +79,29 @@
                             
                             <!--top Menu -->
                             <div class="span8">
-                            	<div class="top-menu">
+                            	<div class="top-menu" id="top_menu_log">
                                 	<ul>
                                 		
                                 		<li><a href="#"  id="user_login">用户登录</a></li>
                                 		<li><a href="register.jsp" class="last" id="user_register">注册</a></li>
                                 	</ul>
                                 </div>
+
+                                <div class="top-menu" id="top_menu_logout" style="display: none">
+                                    <ul>
+
+                                        <li>欢迎您！<a href="#"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                                        <li><a href="#" class="last" id="user_logout">注销</a></li>
+                                    </ul>
+                                </div>
+                                <%
+                                    String value = request.getParameter("user_name_show");
+                                    if(value != null){
+                                        //切换DIV
+                                        
+                                    }
+                                %>
+
                             </div>
                             <!--top Menu -->
                         
@@ -310,6 +327,8 @@
                                     }else{
                                        document.getElementById("login_tip").innerHTML="欢迎您,"+msg;
                                        document.getElementById("login_tip").style.color="green";
+
+
                                     }
                                 }
                             }
