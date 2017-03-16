@@ -9,7 +9,7 @@
         <result column="arrive_station" property="arrive_station"/>
         <result column="arrive_clock" property="arrive_time"/>
         <result column="mile" property="mile"/>
-        <result column="standing_ticket" property="standing_ticket"/>
+        <result column="ticket_num" property="ticket_num"/>
         <result column="train_style" property="train_style"/>
         <result column="train_class" property="train_class"/>
         <result column="price" property="price"/>
@@ -23,7 +23,7 @@
             t.station_name arrive_station, r.start_clock,
             r.arrive_clock, r.mile,
             lt.ticket_num, i.train_style,
-            i.train_class, r.mile*ra.ticket_rate price
+            i.train_class, r.mile*ra.ticket_rate price, r.start_date ticket_date
     from T_route r, T_station s, T_station t, T_train_info i, T_ticket_rate ra, LeftTicket lt
     where (r.station_id=s.station_id)
           AND r.arrive_station = t.station_id
