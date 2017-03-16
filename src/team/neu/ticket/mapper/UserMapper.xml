@@ -3,11 +3,11 @@
         "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="team.neu.ticket.mapper.UserMapper">
     <resultMap id="userMap" type="User">
-        <result column="user_idcard_num" property="user_idcard_num" jdbcType="VARCHAR"/>
-        <result column="user_name" property="user_name" jdbcType="VARCHAR"/>
-        <result column="password" property="password" jdbcType="VARCHAR"/>
-        <result column="job" property="job" jdbcType="VARCHAR"/>
-        <result column="phone_num" property="phone_num" jdbcType="VARCHAR"/>
+        <result column="user_idcard_num" property="user_idcard_num"/>
+        <result column="user_name" property="user_name"/>
+        <result column="password" property="password"/>
+        <result column="job" property="job"/>
+        <result column="phone_num" property="phone_num"/>
         <result column="idcard_type" property="idcard_type"/>
         <result column="email" property="email"/>
         <result column="passenger_type" property="passenger_type"/>
@@ -18,22 +18,26 @@
     </sql>
 <select id="doUserLogin" parameterType="User" resultMap="userMap">
 
-    SELECT
-    <include refid="user_all_column"></include>
+    SELECT *
     FROM t_12306user
-    <where>
-        <if test="phone_num != null and phone_num !=''">
-                and phone_num = #{phone_num}
-        </if>
-        <if test="password !=null and password !=''">
-            and password = #{password}
-        </if>
-    </where>
+    WHERE phone_num = #{phone_num} AND password = #{password}
 </select>
-    <select id="doRegistUser" parameterType="User" resultMap="userMap">
+    <select id="doUserVerify" parameterType="User" resultMap="userMap">
+        SELECT *
+        FROM t_12306user
+        <where>
+            <if test="phone_num != null and phone_num !=''">
+                and phone_num = #{phone_num}
+            </if>
+            <if test="password !=null and password !=''">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+    <insert id="doRegistUser" parameterType="User">
         INSERT INTO T_12306User(user_idcard_num, user_name, password, job, 
                     phone_num, idcard_type, email, passenger_type, real_name)
                VALUES (#{user_idcard_num}, #{user_name}, #{password}, #{job}, #{phone_num}, #{idcard_type},
                         #{email}, #{passenger_type}, #{real_name})
-    </select>
+    </insert>
 </mapper>

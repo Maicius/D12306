@@ -2,6 +2,7 @@ package team.neu.ticket.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import team.neu.ticket.User.QueryInfo;
+import team.neu.ticket.User.TicketInfo;
 import team.neu.ticket.mapper.TicketMapper;
 import team.neu.ticket.service.TicketService;
 
@@ -17,7 +18,17 @@ public class TicketServiceImpl implements TicketService {
         return ticketMapper.doFirstQuery(queryInfo);
     }
 
-    public int buyTicket(QueryInfo queryInfo) throws Exception{
-        return ticketMapper.doBuyTicket(queryInfo);
+    public int buyTicket(TicketInfo ticketInfo) throws Exception{
+        return ticketMapper.doBuyTicket(ticketInfo);
+    }
+
+    @Override
+    public int updateTickets(TicketInfo ticketInfo) throws Exception {
+        return ticketMapper.doUpdateTickets(ticketInfo);
+    }
+
+    @Override
+    public int updateOrder(TicketInfo ticketInfo) throws Exception {
+        return ticketMapper.doUpdateOrder(ticketInfo);
     }
 }

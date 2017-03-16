@@ -83,7 +83,7 @@ pageEncoding="UTF-8"%>
                     <ul>
 
                         <li><a href="#" id="user_login">用户登录</a></li>
-                        <li><a href="register.html" class="last" id="user_register">注册</a></li>
+                        <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
                     </ul>
                 </div>
             </div>
@@ -109,7 +109,7 @@ pageEncoding="UTF-8"%>
                         <li><a href="#">列车时刻表查询</a></li>
                         <li><a href="#">票价查询</a></li>
                         <li><a href="#">改签</a></li>
-                        <li><a href="userInfoPage.html">个人中心</a></li>
+                        <li><a href="userInfoPage.jsp">个人中心</a></li>
                         <li  class="last"><a href="oder_serve.html">我的订单</a></li>
                     </ul>
                 </nav>
