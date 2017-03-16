@@ -96,5 +96,17 @@ jQuery(document).ready(function(){
         $('#endorse_view_div').show('slow');
     });
 
+    //点击修改后切换div
+    $('.modify_calss').click(function () {
+        $('.modify_result_show_div').fadeOut('fast');
+        $('.modify_show_div').fadeIn('slow');
+    });
+
+    $('.modify_affirm_class').click(function () {
+        $('.modify_show_div').fadeOut('fast');
+        $('.modify_result_show_div').fadeIn('slow');
+    });
+
+
 
 });
