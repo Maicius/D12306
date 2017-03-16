@@ -15,26 +15,26 @@
         SELECT *
         FROM T_station
         <where>
-            <if test="station_id !=null and station_id !='' ">
+            <if test="station_id != 0 and station_id !='' ">
                 AND station_id=#{station_id}
             </if>
             <if test="station_name !=null and station_name !=''">
-                AND station_name = #{station_name}
+                AND station_name LIKE '%${station_name}%'
             </if>
             <if test="station_code !=null and station_code !=''">
                 AND station_code = #{station_code}
             </if>
             <if test="station_class !=null and station_class !=''">
-                AND station_class = #{station_class}
+                AND station_class LIKE '%${station_class}%'
             </if>
             <if test="station_region !=null and station_region !=''">
-                AND station_region = #{station_region}
+                AND station_region LIKE '%${station_region}%'
             </if>
             <if test="station_addr !=null and station_addr !=''">
-                AND station_addr = #{station_addr}
+                AND station_addr LIKE '%${station_addr}%'
             </if>
             <if test="railway_admin !=null and railway_admin !=''">
-                AND railway_admin = #{railway_admin}
+                AND railway_admin LIKE '%${railway_admin}%'
             </if>
         </where>
     </select>
