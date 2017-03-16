@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>
 <html class="ie7"> <![endif]-->
@@ -835,8 +839,8 @@
     }
     function testMobile(){
         var mobile = document.getElementById("mobileNo").value;
-        var reg=/^((13[0-9]{1})|159|153)+\d{8}$/;
-        alert(reg.test(mobile))
+        var reg=/^[1][3578]\d{9}$/;
+        //alert(reg.test(mobile))
         if(!reg.test(mobile)){
             document.getElementById("phone_tip").innerHTML = "请输入正确的手机号";
         }else{

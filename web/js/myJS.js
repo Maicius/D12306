@@ -97,19 +97,19 @@ jQuery(document).ready(function(){
     });
 
     //点击修改后切换div
-    $('.modify_calss').click(function () {
-        $('.modify_result_show_div').fadeOut('fast');
+    /*$('.modify_calss').click(function () {
+        var id = $(this).attr('id');
+        $("#"+id+"_tr1").hide();
+        $("#"+id+"_tr2").show();
 
-        $('.modify_show_div').fadeIn('slow');
-        alert("开始跳转");
-    });
-
-    $('.modify_affirm_class').click(function () {
-        $('.modify_show_div').fadeOut('fast');
-        alert("结束跳转");
-        $('.modify_result_show_div').fadeIn('slow');
-    });
-
+    });*/
 
 
 });
+
+
+function update(index) {
+    $("#"+index+"_tr1").hide();
+    $("#"+index+"_tr2").show();
+}
+

@@ -50,17 +50,35 @@ public class StationManagerController {
     }
 
     @RequestMapping(value="/modifyStation")
-    public ModelAndView modifyStation(@RequestParam(value="station_id") String station_id_s) throws Exception{
+    public ModelAndView modifyStation(@RequestParam(value="station_id") String station_id_S,
+                                      @RequestParam(value="station_name") String station_name,
+                                      @RequestParam(value="station_code") String station_code,
+                                      @RequestParam(value="railway_admin") String railway_admin,
+                                      @RequestParam(value="station_class") String station_class,
+                                      @RequestParam(value="station_region") String station_region,
+                                      @RequestParam(value="station_addr") String station_addr) throws Exception{
         int station_id;
         try{
-            station_id = Integer.parseInt(station_id_s);
+            station_id = Integer.parseInt(station_id_S);
         }catch(Exception e){
             station_id = 0;
         }
-        StationInfo returnInfo = managerService.modifyStationInfo(station_id);
-        System.out.println(returnInfo.getStation_name());
+
+        StationInfo stationInfo = new StationInfo(station_id, station_name, station_code,
+                railway_admin, station_class, station_region,
+                station_addr);
+
+        int returnInfo = managerService.modifyStationInfo(stationInfo);
+
+        if (returnInfo>0){
+            System.out.println("车站信息修改成功！");
+        }else{
+            System.out.println("车站信息修改失败！");
+        }
+
+
         ModelAndView mv = new ModelAndView();
-        mv.addObject("ModifyInfo", returnInfo);
+
         mv.setViewName("station_manager_form");
         return mv;
     }

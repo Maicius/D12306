@@ -35,7 +35,7 @@ public class LoginIntercepter implements HandlerInterceptor{
 
         //执行这里表示用户身份需要认证，跳转登陆页面,此处重定向有错误，必须请求转发
 //		response.sendRedirect(request.getContextPath()+"/WEB-INF/jsp/login.jsp");
-        request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
 
         return false;
     }

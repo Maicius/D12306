@@ -13,7 +13,10 @@
         <result column="train_style" property="train_style"/>
         <result column="train_class" property="train_class"/>
         <result column="price" property="price"/>
+        <result column="ticketDate" property="ticket_date"/>
+        <result column="username" property="user_name"/>
     </resultMap>
+
 
     <select id="doFirstQuery" parameterType="QueryInfo" resultMap="FirstQueryMap">
     select i.train_id, s.station_name start_station,
@@ -33,11 +36,25 @@
           AND lt.ticketDate = #{ticket_date}
     </select>
 
-    <select id="doBuyTicket" parameterType="QueryInfo" resultType="int">
+    <insert id="doBuyTicket" parameterType="TicketInfo">
+
+        INSERT INTO T_ticket_info(compart_id, seat_no, begin_zone_station, arrive_zone_station, ticket_price,
+                                  username, user_type,user_idcard_num, purchase_way, purchase_time,
+                                  ticket_state, train_id, train_date, train_time, train_style, train_class)
+              VALUES (#{compart_id}, #{seat_id}, #{begin_zone_station}, #{arrive_zone_station}, #{ticket_price},
+                                  #{user_name}, #{user_type}, #{user_idcard_num}, #{purchase_way}, #{purchase_time},
+                                  #{ticket_state}, #{train_id}, #{train_date}, #{train_time}, #{train_style}, #{train_class})
+    </insert>
+    <update id="doUpdateTickets" parameterType="TicketInfo">
         UPDATE LeftTicket
         SET ticket_num= ticket_num-1
         WHERE train_id=#{train_id}
-        AND ticketDate = #{ticketDate}
-    </select>
+        AND ticketDate = #{train_date}
+    </update>
+
+    <insert id="doUpdateOrder" parameterType="TicketInfo">
+        INSERT INTO T_order(user_id, username, order_state, order_time, ticket_id)
+        VALUES(#{user_idcard_num}, #{user_name}, #{ticket_state}, #{purchase_time}, #{ticket_price})
+    </insert>
 
 </mapper>

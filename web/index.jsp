@@ -82,7 +82,7 @@
                                 	<ul>
                                 		
                                 		<li><a href="#"  id="user_login">用户登录</a></li>
-                                		<li><a href="register.html" class="last" id="user_register">注册</a></li>
+                                		<li><a href="register.jsp" class="last" id="user_register">注册</a></li>
                                 	</ul>
                                 </div>
                             </div>

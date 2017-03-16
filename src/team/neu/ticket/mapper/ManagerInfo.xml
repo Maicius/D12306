@@ -39,9 +39,22 @@
         </where>
     </select>
 
-    <select id="modifyStationInfo" parameterType="StationInfo" resultMap="stationInfoMap">
+    <select id="modifyStationInfo_" parameterType="StationInfo" resultMap="stationInfoMap">
         SELECT *
         FROM T_station
         WHERE station_id=#{station_id}
     </select>
+
+    <update id="modifyStationInfo" parameterType="StationInfo" >
+        UPDATE T_station
+        <trim prefix="set" suffixOverrides=",">
+            <if test="station_name!=null">station_name=#{station_name},</if>
+            <if test="station_code!=null">station_code=#{station_code},</if>
+            <if test="station_class!=null">station_class=#{station_class},</if>
+            <if test="station_region!=null">station_region=#{station_region},</if>
+            <if test="station_addr!=null">station_addr=#{station_addr},</if>
+            <if test="railway_admin!=null">railway_admin=#{railway_admin},</if>
+        </trim>
+        WHERE station_id = #{station_id}
+    </update>
 </mapper>
