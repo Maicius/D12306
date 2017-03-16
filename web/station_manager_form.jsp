@@ -179,10 +179,10 @@ pageEncoding="UTF-8"%>
                     </div>
 
                     <!--查询结果显示区域-->
-                    <div class="content_result">
+                    <div class="content_result modify_result_show_div">
                         <table>
                             <thead>
-                            <tr class="th" id="float">
+                            <tr class="th" id="float_1">
                                 <th colspan="1" rowspan="1" ><p>车站代码</p></th>
                                 <th colspan="1" rowspan="1" ><p>车站名</p></th>
                                 <th colspan="1" rowspan="1" ><p>拼音码</p></th>
@@ -195,6 +195,16 @@ pageEncoding="UTF-8"%>
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
+
+                            <td>hello</td>
+                            <td>s</td>
+                            <td>nihao</td>
+                            <td>dddd</td>
+                            <td>sss</td>
+                            <td>q</td>
+                            <td>d</td>
+                            <td><a href="#">删除</a></td>
+                            <td><a href="#" class="modify_calss" >修改</td>
                             <c:forEach items="${stationInfos}" var = "info">
                             <tr id="station_info">
                                 <td><input type="text" value="${info.station_id}" readonly = "true"></td>
@@ -205,13 +215,45 @@ pageEncoding="UTF-8"%>
                                 <td>${info.station_region}</td>
                                 <td>${info.station_addr}</td>
                                 <td><a href="#">删除</a></td>
-                                <td><a href="#">修改</a></td>
+                                <td><a href="#" class="modify_calss">修改</a></td>
                             </tr>
                             </c:forEach>
                             </tbody>
 
                         </table>
                     </div>
+
+                    <!-- 查询结果修改显示区域-->
+                    <div class="content_result modify_show_div" style="display: none;">
+                        <table>
+                            <thead>
+                            <tr class="th" id="float">
+                                <th colspan="1" rowspan="1" ><p>车站代码</p></th>
+                                <th colspan="1" rowspan="1" ><p>车站名</p></th>
+                                <th colspan="1" rowspan="1" ><p>拼音码</p></th>
+                                <th colspan="1" rowspan="1" ><p>所属铁路局</p></th>
+                                <th colspan="1" rowspan="1"><p>车站等级</p></th>
+                                <th colspan="1" rowspan="1" ><p>所属行政区域</p></th>
+                                <th colspan="1" rowspan="1" ><p>联系地址</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作</p></th>
+                            </tr>
+                            </thead>
+                            <form action="" method="get" id="modifyForm">
+                            <tbody id="queryLeftTable_2">
+
+                            <td><input type="text" value="hello" name=""></td>
+                            <td><input type="text" value="hello" name=""></td>
+                            <td><input type="text" value="hello" name=""></td>
+                            <td><input type="text" value="hello" name=""></td>
+                            <td><input type="text" value="hello" name=""></td>
+                            <td><input type="text" value="hello" name=""></td>
+                            <td><input type="text" value="hello" name=""></td>
+                            <td><a href="javascript:document.getElementById('modifyForm').submit();" class=" modify_affirm_class">确认修改</a></td>
+                            </tbody>
+                            </form>
+                        </table>
+                    </div>
+
 
                 </div>
 
@@ -289,6 +331,8 @@ pageEncoding="UTF-8"%>
     });
 </script>
 <script src="js/custom.js"></script>
+<script src="js/myJS.js"></script>
+
 
 </body>
 </html>
