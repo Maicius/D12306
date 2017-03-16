@@ -38,4 +38,10 @@
             </if>
         </where>
     </select>
+
+    <select id="modifyStationInfo" parameterType="StationInfo" resultMap="stationInfoMap">
+        SELECT *
+        FROM T_station
+        WHERE station_id=#{station_id}
+    </select>
 </mapper>

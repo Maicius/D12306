@@ -195,19 +195,9 @@ pageEncoding="UTF-8"%>
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
-
-                            <td>hello</td>
-                            <td>s</td>
-                            <td>nihao</td>
-                            <td>dddd</td>
-                            <td>sss</td>
-                            <td>q</td>
-                            <td>d</td>
-                            <td><a href="#">删除</a></td>
-                            <td><a href="#" class="modify_calss" >修改</td>
                             <c:forEach items="${stationInfos}" var = "info">
                             <tr id="station_info">
-                                <td><input type="text" value="${info.station_id}" readonly = "true"></td>
+                                <td>${info.station_id}</td>
                                 <td>${info.station_name}</td>
                                 <td>${info.station_code}</td>
                                 <td>${info.railway_admin}</td>
@@ -215,7 +205,7 @@ pageEncoding="UTF-8"%>
                                 <td>${info.station_region}</td>
                                 <td>${info.station_addr}</td>
                                 <td><a href="#">删除</a></td>
-                                <td><a href="#" class="modify_calss">修改</a></td>
+                                <td><a href="${pageContext.request.contextPath}/modifyStation.action?station_id=${info.station_id}" class="modify_calss">修改</a></td>
                             </tr>
                             </c:forEach>
                             </tbody>
@@ -233,21 +223,20 @@ pageEncoding="UTF-8"%>
                                 <th colspan="1" rowspan="1" ><p>拼音码</p></th>
                                 <th colspan="1" rowspan="1" ><p>所属铁路局</p></th>
                                 <th colspan="1" rowspan="1"><p>车站等级</p></th>
-                                <th colspan="1" rowspan="1" ><p>所属行政区域</p></th>
+                                <th colspan="1" rowspan="1" ><p>所属 行政区域</p></th>
                                 <th colspan="1" rowspan="1" ><p>联系地址</p></th>
                                 <th colspan="1" rowspan="1" ><p>操作</p></th>
                             </tr>
                             </thead>
                             <form action="" method="get" id="modifyForm">
                             <tbody id="queryLeftTable_2">
-
-                            <td><input type="text" value="hello" name=""></td>
-                            <td><input type="text" value="hello" name=""></td>
-                            <td><input type="text" value="hello" name=""></td>
-                            <td><input type="text" value="hello" name=""></td>
-                            <td><input type="text" value="hello" name=""></td>
-                            <td><input type="text" value="hello" name=""></td>
-                            <td><input type="text" value="hello" name=""></td>
+                            <td><input type="text" value="${ModifyInfo.station_id}" name=""></td>
+                            <td><input type="text" value="${ModifyInfo.station_name}" name=""></td>
+                            <td><input type="text" value="${ModifyInfo.station_code}" name=""></td>
+                            <td><input type="text" value="${ModifyInfo.railway_admin}" name=""></td>
+                            <td><input type="text" value="${ModifyInfo.station_class}" name=""></td>
+                            <td><input type="text" value="${ModifyInfo.station_region}" name=""></td>
+                            <td><input type="text" value="${ModifyInfo.station_addr}" name=""></td>
                             <td><a href="javascript:document.getElementById('modifyForm').submit();" class=" modify_affirm_class">确认修改</a></td>
                             </tbody>
                             </form>
