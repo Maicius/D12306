@@ -19,9 +19,9 @@
     select i.train_id, s.station_name start_station,
             t.station_name arrive_station, r.start_clock,
             r.arrive_clock, r.mile,
-            i.standing_ticket, i.train_style,
+            lt.ticket_num, i.train_style,
             i.train_class, r.mile*ra.ticket_rate price
-    from T_route r, T_station s, T_station t, T_train_info i, T_ticket_rate ra
+    from T_route r, T_station s, T_station t, T_train_info i, T_ticket_rate ra, LeftTicket lt
     where (r.station_id=s.station_id)
           AND r.arrive_station = t.station_id
           AND s.station_name=#{start_station}
@@ -29,6 +29,15 @@
           AND r.train_id = i.train_id
           AND r.start_date = #{ticket_date}
           AND i.train_class = ra.ticket_class
+          AND lt.train_id = i.train_id
+          AND lt.ticketDate = #{ticket_date}
+    </select>
+
+    <select id="doBuyTicket" parameterType="QueryInfo" resultType="int">
+        UPDATE LeftTicket
+        SET ticket_num= ticket_num-1
+        WHERE train_id=#{train_id}
+        AND ticketDate = #{ticketDate}
     </select>
 
 </mapper>

@@ -2,12 +2,16 @@ package team.neu.ticket.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import team.neu.ticket.User.QueryInfo;
 import team.neu.ticket.service.TicketService;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,6 +38,21 @@ public class QueryTicketController {
         mv.setViewName("purchase");
         System.out.println("Query Server Finished!"+ queryInfos.toString());
         return mv;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/buyTicket")
+    public int buyTicket(HttpServletRequest request,
+                         @RequestParam(value="train_id") String train_id,
+                         @RequestParam(value="date")Date date) throws  Exception{
+        ModelAndView mv = new ModelAndView();
+
+        QueryInfo queryInfo = new QueryInfo();
+        queryInfo.setDate(date);
+        queryInfo.setTrain_id(train_id);
+
+        int returnInfo = ticketService.buyTicket(queryInfo);
+        return returnInfo;
     }
 
 }

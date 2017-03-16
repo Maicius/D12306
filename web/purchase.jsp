@@ -72,7 +72,7 @@ pageEncoding="UTF-8"%>
             <!-- Logo -->
             <div class="span4">
                 <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                    <a href="index.jsp"><img src="images/logo.png" alt="Logo"></a>
                 </div>
             </div>
             <!-- Logo -->
@@ -101,7 +101,7 @@ pageEncoding="UTF-8"%>
 
                 <nav>
                     <ul>
-                        <li><a href="index.html">首页 </a></li>
+                        <li><a href="index.jsp">首页 </a></li>
 
                         <li><a href="purchase.jsp">购票</a></li>
                         <li><a href="#">退票</a></li>

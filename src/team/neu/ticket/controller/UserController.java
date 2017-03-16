@@ -11,6 +11,8 @@ import team.neu.ticket.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Maicius on 2017/3/12.
@@ -40,7 +42,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping("/userVerify")
+    @RequestMapping(value="/userVerify", produces="text/html;charset=UTF-8")
     public String userVerify(HttpServletRequest request,
                                    @RequestParam(value="phone_num") String phone_num) throws Exception{
         user.setPhone_num(phone_num);
@@ -51,7 +53,7 @@ public class UserController {
             return verifyUser.getUser_name();
         }else{
             System.out.println("Verify_Failed");
-            return "该用户不存在";
+            return "";
         }
     }
 

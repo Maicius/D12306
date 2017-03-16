@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface TicketService {
     public List<QueryInfo> doFirstQuery(QueryInfo queryInfo) throws Exception;
+    public int buyTicket(QueryInfo queryInfo) throws Exception;
 }

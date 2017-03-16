@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface TicketMapper {
     public List<QueryInfo> doFirstQuery(QueryInfo queryInfo) throws Exception;
-    public int doSecondQuery(QueryInfo queryInfo) throws Exception;
+    public int doBuyTicket(QueryInfo queryInfo) throws Exception;
 }

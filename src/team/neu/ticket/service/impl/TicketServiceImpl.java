@@ -16,4 +16,8 @@ public class TicketServiceImpl implements TicketService {
     public List<QueryInfo> doFirstQuery(QueryInfo queryInfo) throws Exception{
         return ticketMapper.doFirstQuery(queryInfo);
     }
+
+    public int buyTicket(QueryInfo queryInfo) throws Exception{
+        return ticketMapper.doBuyTicket(queryInfo);
+    }
 }

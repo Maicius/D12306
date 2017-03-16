@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -67,7 +71,7 @@
                         	<!-- Logo -->
                             <div class="span4">
                             	<div class="logo">
-                                	<a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                                	<a href="index.jsp"><img src="images/logo.png" alt="Logo"></a>
                                 </div>
                             </div>
                         	<!-- Logo -->
@@ -96,7 +100,7 @@
                             
                             	<nav>
                                     <ul>
-                                        <li><a href="index.html">首页 </a></li>
+                                        <li><a href="index.jsp">首页 </a></li>
                                         <li><a href="purchase.jsp">购票</a></li>
                                         <li><a href="#">退票</a></li>
                                         <li><a href="#">余票查询</a></li>
@@ -293,22 +297,24 @@
                         }
                         if(ajaxRequest){
                             ajaxRequest.onreadystatechange = function(){
-                                alert("status:"+ajaxRequest.status);
+                               //alert("status:"+ajaxRequest.status);
                                 if(ajaxRequest.readyState == 4 && ajaxRequest.status ==200){
-                                    var msg =ajaxRequest.responseText;
-                                    alert(msg);
-                                   // alert(document.getElementById("login_tip").innerHTML + "\n msg:" + msg);
 
-                                    if(msg=="该用户不存在" ){
+                                    var msg = ajaxRequest.responseText;
+                                   // alert(msg);
+                                   // alert(document.getElementById("login_tip").innerHTML + "\n msg:" + msg);
+                                   if(msg=="" ){
+                                        document.getElementById("login_tip").innerHTML="当前用户不存在";
                                         document.getElementById("login_tip").style.color="red";
-                                        document.getElementById("login_tip").innerHTML=msg;
+
                                     }else{
-                                        document.getElementById("login_tip").style.color="red";
+                                       document.getElementById("login_tip").innerHTML="欢迎您,"+msg;
+                                       document.getElementById("login_tip").style.color="green";
                                     }
                                 }
                             }
                             ajaxRequest.open("get", "/userVerify.action?phone_num="+phone_num, true);
-                            ajaxRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                            ajaxRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
                             ajaxRequest.send();
                         }
                     }
