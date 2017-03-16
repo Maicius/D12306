@@ -32,12 +32,19 @@ public class UserController {
         User loginUser = userService.doUserLogin(user);
         if(loginUser == null){
             System.out.println("登陆失败");
+            System.out.println("Email"+loginUser.getEmail());
         }else{
+            System.out.println("Email"+loginUser.getPhone_num());
             HttpSession session = request.getSession();
-            session.setAttribute("user", loginUser);
-            System.out.println("Login_success：" + loginUser.getUser_name());
+            session.setAttribute("username", loginUser.getUser_name());
+            session.setAttribute("real_name", loginUser.getReal_name());
+            session.setAttribute("user_idcard_num", loginUser.getUser_idcard_num());
+            session.setAttribute("job", loginUser.getJob());
+            session.setAttribute("passenger_type", loginUser.getPassenger_type());
+            modelAndView.addObject("user", loginUser);
+            modelAndView.setViewName("purchase");
+            return modelAndView;
         }
-
         return null;
     }
 
@@ -46,8 +53,8 @@ public class UserController {
     public String userVerify(HttpServletRequest request,
                                    @RequestParam(value="phone_num") String phone_num) throws Exception{
         user.setPhone_num(phone_num);
-        //System.out.println(user.getPhone_num());
-        User verifyUser = userService.doUserLogin(user);
+        System.out.println(user.getPhone_num());
+        User verifyUser = userService.doUserVerify(user);
         if(verifyUser != null) {
             System.out.println("Verify_success：" + verifyUser.getUser_name());
             return verifyUser.getUser_name();
@@ -58,8 +65,8 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping("/userRegister")
-    public String userRegister(HttpServletRequest request,
+    @RequestMapping(value= "/userRegister", produces="text/html;charset=UTF-8")
+    public ModelAndView userRegister(HttpServletRequest request,
                                      @RequestParam(value="loginUserDTO.user_name") String username,
                                      @RequestParam(value="loginUserDTO.name") String real_name,
                                      @RequestParam(value="loginUserDTO.id_type_code") String idcard_type,
@@ -72,11 +79,20 @@ public class UserController {
         User user = new User(username, real_name,password, idcard_num
                 , "passenger", phone_num, idcard_type, passenger_type, email);
         int success = userService.doRegistUser(user);
+        System.out.println("success??:"+success);
         if(success > 0){
             System.out.println("success");
-            return user.getUser_name();
+            HttpSession session = request.getSession();
+            session.setAttribute("username", user.getUser_name());
+            session.setAttribute("real_name", user.getReal_name());
+            session.setAttribute("user_idcard_num", user.getUser_idcard_num());
+            session.setAttribute("job", user.getJob());
+            session.setAttribute("passenger_type", user.getPassenger_type());
+            mv.setViewName("purchase");
+            return mv;
         }else{
-            return "failed";
+            mv.setViewName("register");
+            return mv;
         }
     }
 }
