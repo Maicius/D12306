@@ -1,5 +1,6 @@
+<%@ page import="org.apache.taglibs.standard.lang.jstl.test.PageContextImpl" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
@@ -194,9 +195,11 @@ pageEncoding="UTF-8"%>
                                 <th colspan="1" rowspan="1" ><p>操作二</p></th>
                             </tr>
                             </thead>
+
                             <tbody id="queryLeftTable">
-                            <c:forEach items="${stationInfos}" var = "info">
-                            <tr id="station_info">
+
+                            <c:forEach items="${stationInfos}" var = "info" >
+                            <tr class="station_info" id="${info.station_id}_tr1">
                                 <td>${info.station_id}</td>
                                 <td>${info.station_name}</td>
                                 <td>${info.station_code}</td>
@@ -205,43 +208,28 @@ pageEncoding="UTF-8"%>
                                 <td>${info.station_region}</td>
                                 <td>${info.station_addr}</td>
                                 <td><a href="#">删除</a></td>
-                                <td><a href="${pageContext.request.contextPath}/modifyStation.action?station_id=${info.station_id}" class="modify_calss">修改</a></td>
+                                <td><a href="javascript:void(0);" class="modify_calss" onclick="update(${info.station_id})">修改</a></td>
                             </tr>
+                        <form action="/modifyStation.action" method="get">
+                            <tr id="${info.station_id}_tr2" style="display: none" class="station_info_modify">
+                                <td><input type="text" value="${info.station_id}" name="station_id" style="display: none"></td>
+                                <td><input type="text" value="${info.station_name}" name="station_name"></td>
+                                <td><input type="text" value="${info.station_code}" name="station_code"></td>
+                                <td><input type="text" value="${info.railway_admin}" name="railway_admin"></td>
+                                <td><input type="text" value="${info.station_class}" name="station_class"></td>
+                                <td><input type="text" value="${info.station_region}" name="station_region"></td>
+                                <td><input type="text" value="${info.station_addr}" name="station_addr"></td>
+                                <td></td>
+                                <td><input type="submit" class=" register_submit_button" value="确认修改"></td>
+
+                            </tr>
+                        </form>
                             </c:forEach>
                             </tbody>
 
                         </table>
                     </div>
 
-                    <!-- 查询结果修改显示区域-->
-                    <div class="content_result modify_show_div" style="display: none;">
-                        <table>
-                            <thead>
-                            <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>车站代码</p></th>
-                                <th colspan="1" rowspan="1" ><p>车站名</p></th>
-                                <th colspan="1" rowspan="1" ><p>拼音码</p></th>
-                                <th colspan="1" rowspan="1" ><p>所属铁路局</p></th>
-                                <th colspan="1" rowspan="1"><p>车站等级</p></th>
-                                <th colspan="1" rowspan="1" ><p>所属 行政区域</p></th>
-                                <th colspan="1" rowspan="1" ><p>联系地址</p></th>
-                                <th colspan="1" rowspan="1" ><p>操作</p></th>
-                            </tr>
-                            </thead>
-                            <form action="" method="get" id="modifyForm">
-                            <tbody id="queryLeftTable_2">
-                            <td><input type="text" value="${ModifyInfo.station_id}" name=""></td>
-                            <td><input type="text" value="${ModifyInfo.station_name}" name=""></td>
-                            <td><input type="text" value="${ModifyInfo.station_code}" name=""></td>
-                            <td><input type="text" value="${ModifyInfo.railway_admin}" name=""></td>
-                            <td><input type="text" value="${ModifyInfo.station_class}" name=""></td>
-                            <td><input type="text" value="${ModifyInfo.station_region}" name=""></td>
-                            <td><input type="text" value="${ModifyInfo.station_addr}" name=""></td>
-                            <td><a href="javascript:document.getElementById('modifyForm').submit();" class=" modify_affirm_class">确认修改</a></td>
-                            </tbody>
-                            </form>
-                        </table>
-                    </div>
 
 
                 </div>
@@ -318,6 +306,9 @@ pageEncoding="UTF-8"%>
     $(document).ready(function(){
         $('.scrollbar1').tinyscrollbar();
     });
+
+
+
 </script>
 <script src="js/custom.js"></script>
 <script src="js/myJS.js"></script>

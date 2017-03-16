@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface ManagerInfo {
     public List<StationInfo> queryStationInfo(StationInfo stationInfo) throws Exception;
-    public StationInfo modifyStationInfo(int station_id) throws Exception;
+    public int modifyStationInfo(StationInfo stationInfo) throws Exception;
 }
