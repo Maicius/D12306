@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import team.neu.ticket.User.StationInfo;
 import team.neu.ticket.service.ManagerService;
 
+import javax.management.Query;
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -44,6 +45,22 @@ public class StationManagerController {
         List<StationInfo> stationInfos = managerService.queryStationInfo(stationInfo);
         System.out.println(stationInfos.toString());
         mv.addObject("stationInfos", stationInfos);
+        mv.setViewName("station_manager_form");
+        return mv;
+    }
+
+    @RequestMapping(value="/modifyStation")
+    public ModelAndView modifyStation(@RequestParam(value="station_id") String station_id_s) throws Exception{
+        int station_id;
+        try{
+            station_id = Integer.parseInt(station_id_s);
+        }catch(Exception e){
+            station_id = 0;
+        }
+        StationInfo returnInfo = managerService.modifyStationInfo(station_id);
+        System.out.println(returnInfo.getStation_name());
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("ModifyInfo", returnInfo);
         mv.setViewName("station_manager_form");
         return mv;
     }

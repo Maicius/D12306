@@ -17,4 +17,9 @@ public class ManagerServiceImpl implements ManagerService{
     public List<StationInfo> queryStationInfo(StationInfo stationInfo) throws Exception {
         return managerInfo.queryStationInfo(stationInfo);
     }
+
+    @Override
+    public StationInfo modifyStationInfo(int station_id) throws Exception {
+        return managerInfo.modifyStationInfo(station_id);
+    }
 }

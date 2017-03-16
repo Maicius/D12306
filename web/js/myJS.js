@@ -99,11 +99,14 @@ jQuery(document).ready(function(){
     //点击修改后切换div
     $('.modify_calss').click(function () {
         $('.modify_result_show_div').fadeOut('fast');
+
         $('.modify_show_div').fadeIn('slow');
+        alert("开始跳转");
     });
 
     $('.modify_affirm_class').click(function () {
         $('.modify_show_div').fadeOut('fast');
+        alert("结束跳转");
         $('.modify_result_show_div').fadeIn('slow');
     });
 
