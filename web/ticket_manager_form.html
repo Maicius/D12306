@@ -165,9 +165,12 @@
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p><input type="text" placeholder="票价率编号" name=""></p></td>
-                                            <td><p><input type="text" placeholder="票种" name=""></p></td>
-                                            <td rowspan="2">
+                                            <td rowspan="3"><p><input type="text" placeholder="车票ID" name=""></p></td>
+                                            <td><p><input type="text" placeholder="时间" name=""></p></td>
+                                            <td><p><input type="text" placeholder="车厢ID" name=""></p></td>
+
+                                            <td rowspan="3">
+                                                <p><input type="submit" value="增加" class="register_submit_button"></p>
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
                                             </td>
 
@@ -175,8 +178,14 @@
                                         </tr>
 
                                         <tr>
-                                            <td><p><input type="text" placeholder="票价率" name=""></p></td>
-                                            <td><p><input type="text" placeholder="比例" name=""></p></td>
+                                            <td><p><input type="text" placeholder="票价" name=""></p></td>
+                                            <td><p><input type="text" placeholder="座位号" name=""></p></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><p><input type="text" placeholder="起始站" name=""></p></td>
+                                            <td><p><input type="text" placeholder="终点站" name=""></p></td>
 
                                         </tr>
 
@@ -192,21 +201,28 @@
                         <table>
                             <thead>
                             <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>票价率编号</p></th>
-                                <th colspan="1" rowspan="1" ><p>票种</p></th>
-                                <th colspan="1" rowspan="1" ><p>票价率</p></th>
-                                <th colspan="1" rowspan="1" ><p>比例</p></th>
-                                <th colspan="1" rowspan="1" ><p>操作</p></th>
-
+                                <th colspan="1" rowspan="1" ><p>车票ID</p></th>
+                                <th colspan="1" rowspan="1" ><p>车厢ID</p></th>
+                                <th colspan="1" rowspan="1" ><p>时间</p></th>
+                                <th colspan="1" rowspan="1" ><p>票价</p></th>
+                                <th colspan="1" rowspan="1" ><p>座位号</p></th>
+                                <th colspan="1" rowspan="1"><p>起始站</p></th>
+                                <th colspan="1" rowspan="1"><p>终点站</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作一</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作二</p></th>
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
 
                             <tr>
+                                <td>D12306</td>
+                                <td>成都东站</td>
+                                <td>CDDZ</td>
+                                <td>CDDZ</td>
+                                <td>CDDZ</td>
                                 <td>中国二铁</td>
                                 <td>国家级</td>
-                                <td>四川省</td>
-                                <td>四川省成都市</td>
+                                <td><a href="#">删除</a></td>
                                 <td><a href="#">修改</a></td>
                             </tr>
 

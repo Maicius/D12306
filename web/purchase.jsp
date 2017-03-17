@@ -79,13 +79,21 @@ pageEncoding="UTF-8"%>
 
             <!--top Menu -->
             <div class="span8">
-                <div class="top-menu">
+                <div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
                     <ul>
-
-                        <li><a href="#" id="user_login">用户登录</a></li>
+                        <li><a href="#"  id="user_login">用户登录</a></li>
                         <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
                     </ul>
                 </div>
+
+                <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+                    <ul>
+                        <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                        <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+                    </ul>
+                </div>
+
+
             </div>
             <!--top Menu -->
 
@@ -102,13 +110,11 @@ pageEncoding="UTF-8"%>
                 <nav>
                     <ul>
                         <li><a href="index.jsp">首页 </a></li>
-
                         <li><a href="purchase.jsp">购票</a></li>
-                        <li><a href="#">退票</a></li>
-                        <li><a href="#">余票查询</a></li>
-                        <li><a href="#">列车时刻表查询</a></li>
-                        <li><a href="#">票价查询</a></li>
-                        <li><a href="#">改签</a></li>
+                        <li><a href="oder_serve.html">退票</a></li>
+                        <li><a href="purchase.jsp">余票查询</a></li>
+                        <li><a href="purchase.jsp">票价查询</a></li>
+                        <li><a href="oder_serve.html">改签</a></li>
                         <li><a href="userInfoPage.jsp">个人中心</a></li>
                         <li  class="last"><a href="oder_serve.html">我的订单</a></li>
                     </ul>

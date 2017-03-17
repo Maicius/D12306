@@ -70,7 +70,7 @@
             <!-- Logo -->
             <div class="span4">
                 <div class="logo">
-                    <a href="index.jsp"><img src="images/logo.png" alt="Logo"></a>
+                    <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
                 </div>
             </div>
             <!-- Logo -->
@@ -165,8 +165,8 @@
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p><input type="text" placeholder="票价率编号" name=""></p></td>
-                                            <td><p><input type="text" placeholder="票种" name=""></p></td>
+                                            <td><p><input type="text" placeholder="计划编号" name=""></p></td>
+                                            <td><p><input type="text" placeholder="车次" name=""></p></td>
                                             <td rowspan="2">
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
                                             </td>
@@ -174,13 +174,16 @@
 
                                         </tr>
 
-                                        <tr>
+                                       <!--  <tr>
                                             <td><p><input type="text" placeholder="票价率" name=""></p></td>
                                             <td><p><input type="text" placeholder="比例" name=""></p></td>
 
                                         </tr>
+                                         -->
 
                                     </tbody>
+                               
+
                                 </table>
                                <!-- </form>-->
                             </div>
@@ -192,10 +195,11 @@
                         <table>
                             <thead>
                             <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>票价率编号</p></th>
-                                <th colspan="1" rowspan="1" ><p>票种</p></th>
-                                <th colspan="1" rowspan="1" ><p>票价率</p></th>
-                                <th colspan="1" rowspan="1" ><p>比例</p></th>
+                                <th colspan="1" rowspan="1" ><p>计划代码</p></th>
+                                <th colspan="1" rowspan="1" ><p>车次代码</p></th>
+                                <th colspan="1" rowspan="1" ><p>车厢号</p></th>
+                                <th colspan="1" rowspan="1" ><p>比较</p></th>
+                                <th colspan="1" rowspan="1" ><p>车站  </p></th>
                                 <th colspan="1" rowspan="1" ><p>操作</p></th>
 
                             </tr>
@@ -203,16 +207,40 @@
                             <tbody id="queryLeftTable">
 
                             <tr>
-                                <td>中国二铁</td>
-                                <td>国家级</td>
-                                <td>四川省</td>
-                                <td>四川省成都市</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td> <= </td>
+                                <td>成都站</td>
                                 <td><a href="#">修改</a></td>
                             </tr>
 
 
                             </tbody>
-
+							     <!-- 在这里进行增加，删除，修改操作 -->
+							<tfoot>
+    						<tr>
+								<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+							</tr>
+							
+							<tr>
+    							<th></th>
+        						<th><a href="#">增加新计划</a></th>
+        						<th><a href="#">删除计划</a></th>
+        						<th><a href="#">修改计划</a></th>
+        						<th><a href="#">查询计划</a></th>
+        						<th></th>
+        						<th></th>
+   							 </tr>
+    						</tfoot>
+    							<!-- 在这里进行增加，删除，修改操作 -->
                         </table>
                     </div>
 
