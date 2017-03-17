@@ -176,7 +176,7 @@
                         		<div class="date clearfix">
                         			<div class="Depart-Date">
                                     	<label>出发时间</label>
-                        				<input id="ticket_date" type="text" name="ticket_date" value="03/20/2017" id="datepicker">
+                                        <input name="Location" value="30.01.2013" id="datepicker" class="hasDatepicker" type="text">
                                     </div>
                                     
                         		</div>
@@ -280,7 +280,7 @@
                 <script src="js/jquery.isotope.min.js"></script>
                 <script src="js/jquery.tinyscrollbar.min.js"></script>
                 <script>
-                    function goToByScroll(id){
+                    function goToByScroll(id){]
                         $ = jQuery;
                         $('html,body').animate({scrollTop: $("#"+id).offset().top},3000);
                     }
@@ -329,6 +329,5 @@
                         }
                     }
                 </script>
-
-		</body>
+        </body>
 </html>

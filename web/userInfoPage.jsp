@@ -153,7 +153,7 @@
                                             用 户 名：
                                         </div>
                                         <div class="r-txt">
-                                            <input class="info_reset_class" id="username_input" name="username" disabled="true" value="比珍珠还真">
+                                            <input class="info_reset_class" id="username_input" name="username" disabled="true" value="${sessionScope.user.user_name}">
                                         </div>
 
                                     </li>
@@ -163,7 +163,7 @@
                                             姓 名：
                                         </div>
                                         <div class="r-txt">
-                                            <input  class="info_reset_class" id="truename_input" name="real_name" disabled="true" value="叶珍">
+                                            <input  class="info_reset_class" id="truename_input" name="real_name" disabled="true" value="${sessionScope.user.real_name}">
                                         </div>
                                     </li>
                                     <li>
@@ -171,47 +171,25 @@
                                             证件类型：
                                         </div>
                                         <div class="r-txt">
-                                            <input  class="info_reset_class" id="card_type_input" name="idcard_type"disabled="true" value="第二代身份证">
+                                            <input  class="info_reset_class" id="card_type_input" name="idcard_type"disabled="true" value="${sessionScope.user.idcard_type}">
                                         </div>
+
                                     </li>
                                     <li>
                                         <div class="my_register_label">
                                             证件号码：
                                         </div>
                                         <div class="r-txt">
-                                            <input  class="info_reset_class" id="card_number_input" name="idcard_num" disabled="true" value="510***********4320">
+                                            <input  class="info_reset_class" id="card_number_input" name="idcard_num" disabled="true" value="${sessionScope.user.user_idcard_num}">
                                         </div>
                                     </li>
-                                    <li class="cardLi">
-                                        <div class="my_register_label">
-                                            性 别：
-                                        </div>
-                                        <div class="r-txt">
-                                            <input  class="info_reset_class" id="gender_input" name="sex" disabled="true" value="女">
-                                        </div>
-                                    </li>
-                                    <li  class="gjLi">
-                                        <div class="my_register_label">
-                                            国家/地区：
-                                        </div>
-                                        <div class="r-txt">
-                                            <input  class="info_reset_class" id="area_input" name="nation" disabled="true" value="中国">
-                                        </div>
-                                    </li>
-                                    <li  class="cardLi">
-                                        <div class="my_register_label">
-                                            出生日期：
-                                        </div>
-                                        <div class="r-txt">
-                                            <input  class="info_reset_class" id="birthday_input" name="birthday" disabled="true" value="*******">
-                                        </div>
-                                    </li>
+
                                     <li>
                                         <div class="my_register_label">
                                             邮 箱：
                                         </div>
                                         <div class="r-txt">
-                                            <input  class="info_reset_class" id="email_address_input" name="email" disabled="true" value="7833*****@qq.com">
+                                            <input  class="info_reset_class" id="email_address_input" name="email" disabled="true" value="${sessionScope.user.email}">
                                         </div>
                                     </li>
                                     <li>
@@ -219,17 +197,21 @@
                                             手机号码：
                                         </div>
                                         <div class="r-txt">
-                                            <input  class="info_reset_class" id="phone_number_input" name="phone_num" disabled="true" value="158******42">
+                                            <input  class="info_reset_class" id="phone_number_input" name="phone_num" disabled="true" value="${sessionScope.user.phone_num}">
                                         </div>
 
                                     </li>
                                     <li>
                                         <div class="my_register_label">
                                             旅客类型：
+                                        </div>${sessionScope.user.user_name}
+
+                                        <div class="r-txt" id="click_hidden">
+                                            <input  class="info_reset_class" id="passenger_type_input" name="passenger_type_input" disabled="true" value="${sessionScope.user.passenger_type}">
                                         </div>
-                                        <div class="r-txt">
+                                        <div class="r-txt " id="hidden_part" style="display: none">
                                             <select class="w200sel info_reset_class" id="passengerType"
-                                                    name="passenger_type" disabled="true">
+                                                    name="passenger_type" disabled="true" >
                                                 <option value="1">成人</option>
                                                 <option value="2">儿童</option>
                                                 <option value="3">学生</option>
@@ -242,11 +224,11 @@
 
                                 </ul>
                                 <div id="register_button_div" class="register_button_div">
-                                    <a id="info_reset_button" href="#" class="register_submit_button">修改信息</a>
+                                    <a id="info_reset_button" href="javascript:void(0);" class="register_submit_button" >修改信息</a>
                                     <!--
                                         点击修改信息后显示确认按钮
                                     -->
-                                    <a id="info_reset_submit" href="#" class="register_submit_button" style="display: none">确认</a>
+                                    <a id="info_reset_submit" href="javascript:void(0);" class="register_submit_button" style="display: none">确认</a>
 
                                 </div>
                                 <div style="clear:both"></div> <!--消除float带来的问题，使父元素被撑起来-->
@@ -330,6 +312,7 @@
     });
 </script>
 <script src="js/custom.js"></script>
+<script src="js/myJS.js"></script>
 
 </body>
 </html>

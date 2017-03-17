@@ -190,3 +190,24 @@ function checkUser(){
         ajaxRequest.send();
     }
 }
+
+//个人信息修改控制
+document.getElementById("info_reset_button").onclick=function () {
+    alert("修改按钮");
+    var elements =document.getElementsByClassName("info_reset_class");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+
+        elements[i].removeAttribute("disabled");
+    }
+    document.getElementById("hidden_part").style.display = "block";
+    document.getElementById("click_hidden").style.display = "none";
+    document.getElementById("info_reset_submit").style.display = "inline-block";
+    document.getElementById("info_reset_button").style.display = "none";
+
+}
+
+//用户信息修改确认提交表单
+document.getElementById("info_reset_submit").onclick=function () {
+
+}
