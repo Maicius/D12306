@@ -57,14 +57,19 @@ public class QueryTicketController {
         ModelAndView mv = new ModelAndView();
         int compart_id = (int)(Math.random()*10) +1;
         int seat_id = (int)(Math.random()*100)+1;
+
         HttpSession session = request.getSession();
         Object real_name = session.getAttribute("real_name");
         Object user_idcard_num = session.getAttribute("user_idcard_num");
         Object passenger_type = session.getAttribute("passenger_type");
         //System.out.println(real_name.toString());
-        long price = Long.parseLong(price_S);
+        double price;
+        try {
+            price = Long.parseLong(price_S);
+        }catch(Exception e){
+            price = Double.parseDouble(price_S);
+        }
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
         TicketInfo ticketInfo = new TicketInfo(train_id, ticket_date, start_time,
                                                 compart_id, seat_id, start_station,
                                                 arrive_station, price, String.valueOf(real_name),

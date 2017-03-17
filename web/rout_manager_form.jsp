@@ -1,4 +1,8 @@
-
+<%@ page import="org.apache.taglibs.standard.lang.jstl.test.PageContextImpl" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -159,15 +163,15 @@
                 <div class="top ">
 
                     <div class="content_top">
-                        <form action="" method="post">
+                        <form action="/routeManage.action" method="get">
                             <div class="my_top">
                                 <!--<form action="" method="post">-->
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p><input type="text" placeholder="线路编号" name=""></p></td>
-                                            <td><p><input type="text" placeholder="车次代码" name=""></p></td>
-                                            <td><p><input type="text" placeholder="车站名" name=""></p></td>
+                                            <td><p><input type="text" placeholder="线路编号" name="route_id"></p></td>
+                                            <td><p><input type="text" placeholder="车次代码" name="train_id"></p></td>
+                                            <td><p><input type="text" placeholder="始发站" name="station_id"></p></td>
                                             <td rowspan="3">
                                                 <p><input type="submit" value="增加" class="register_submit_button"></p>
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
@@ -177,16 +181,16 @@
                                         </tr>
 
                                         <tr>
-                                            <td><p><input type="text" placeholder="发车时间" name=""></p></td>
-                                            <td><p><input type="text" placeholder="到站时间" name=""></p></td>
-                                            <td><p><input type="text" placeholder="停留时间" name=""></p></td>
+                                            <td><p><input type="text" placeholder="发车时间" name="start_clock"></p></td>
+                                            <td><p><input type="text" placeholder="到站时间" name="arrive_clock"></p></td>
+                                            <td><p><input type="text" placeholder="停留时间" name="stay_time"></p></td>
 
                                         </tr>
 
                                         <tr>
-                                            <td><p><input type="text" placeholder="里程" name=""></p></td>
-                                            <td><p><input type="text" placeholder="历时" name=""></p></td>
-                                            <td><p><input type="text" placeholder="车站序号" name=""></p></td>
+                                            <td><p><input type="text" placeholder="里程" name="mile"></p></td>
+                                            <td><p><input type="text" placeholder="历时" name="token_time"></p></td>
+                                            <td><p><input type="text" placeholder="终点站" name="arrive_station"></p></td>
 
                                         </tr>
                                     </tbody>
@@ -209,27 +213,27 @@
                                 <th colspan="1" rowspan="1" ><p>历时</p></th>
                                 <th colspan="1" rowspan="1" ><p>里程</p></th>
                                 <th colspan="1" rowspan="1" ><p>停留时间</p></th>
-                                <th colspan="1" rowspan="1" ><p>车站序号</p></th>
+                                <th colspan="1" rowspan="1" ><p>终点站</p></th>
                                 <th colspan="1" rowspan="1" ><p>操作一</p></th>
                                 <th colspan="1" rowspan="1" ><p>操作二</p></th>
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
-
+                            <c:forEach items="${routeInfo}" var="info">
                             <tr>
-                                <td>D12306</td>
-                                <td>成都东站</td>
-                                <td>CDDZ</td>
-                                <td>中国二铁</td>
-                                <td>国家级</td>
-                                <td>四川省</td>
-                                <td>四川省成都市</td>
-                                <td>四川省成都市</td>
-                                <td>四川省成都市</td>
+                                <td>${info.route_id}</td>
+                                <td>${info.train_id}</td>
+                                <td>${info.station_name}</td>
+                                <td>${info.start_clock}</td>
+                                <td>${info.arrive_clock}</td>
+                                <td>${info.token_time}</td>
+                                <td>${info.mile}</td>
+                                <td>${info.stay_time}</td>
+                                <td>${info.arrive_station_name}</td>
                                 <td><a href="#">删除</a></td>
                                 <td><a href="#">修改</a></td>
                             </tr>
-
+                            </c:forEach>
 
                             </tbody>
 

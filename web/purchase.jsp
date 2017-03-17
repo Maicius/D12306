@@ -175,8 +175,9 @@ pageEncoding="UTF-8"%>
                                 <th colspan="1" rowspan="1" ><p>车次</p></th>
                                 <th colspan="1" rowspan="1" ><p>出发站</p></th>
                                 <th colspan="1" rowspan="1" ><p>到达站</p></th>
+                                <th colspan="1" rowspan="1" ><p>日期</p></th>
                                 <th colspan="1" rowspan="1" ><p>出发时间</p></th>
-                                <th colspan="1" rowspan="1"><p>到达时间</p></th>
+                                <th colspan="1" rowspan="1" ><p>到达时间</p></th>
                                 <th colspan="1" rowspan="1" ><p>里程</p></th>
                                 <th colspan="1" rowspan="1" ><p>车型</p></th>
                                 <th colspan="1" rowspan="1" ><p>车类</p></th>
@@ -191,14 +192,15 @@ pageEncoding="UTF-8"%>
                                 <td>${info.train_id}</td>
                                 <td>${info.start_station}</td>
                                 <td>${info.arrive_station}</td>
+                                <td>${info.ticket_date}</td>
                                 <td>${info.start_time}</td>
                                 <td>${info.arrive_time}</td>
                                 <td>${info.mile}</td>
                                 <td>${info.train_style}</td>
                                 <td>${info.train_class}</td>
                                 <td>${info.price}</td>
-                                <td>${info.standing_ticket}</td>
-                                <td><a href="#">点击购买</a></td>
+                                <td>${info.ticket_num}</td>
+                                <td><a href="${pageContext.request.contextPath}/buyTicket.action?train_id=${info.train_id}&ticket_date=${info.ticket_date}&start_station=${info.start_station}&start_time=${info.start_time}&train_style=${info.train_style}&train_class=${info.train_class}&arrive_station=${info.arrive_station}&price=${info.price}">点击购买</a></td>
                             </tr>
                             </c:forEach>
                             </tbody>
