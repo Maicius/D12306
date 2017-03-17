@@ -11,6 +11,21 @@
         <result column="station_region" property="station_region"/>
         <result column="station_addr" property="station_addr"/>
     </resultMap>
+
+    <resultMap id="routeInfoMap" type="RouteInfo">
+        <result column="route_id" property="route_id"/>
+        <result column="stay_time" property="stay_time"/>
+        <result column="token_time" property="token_time"/>
+        <result column="train_id" property="train_id"/>
+        <result column="start_date" property="start_date"/>
+        <result column="arrive_clock" property="arrive_clock"/>
+        <result column="arrive_date" property="arrive_date"/>
+        <result column="start_clock" property="start_clock"/>
+        <result column="mile" property="mile"/>
+        <result column="station_name" property="station_name"/>
+        <result column="arrive_station_name" property="arrive_station_name"/>
+
+    </resultMap>
     <select id="queryStationInfo" parameterType="StationInfo" resultMap="stationInfoMap">
         SELECT *
         FROM T_station
@@ -57,4 +72,40 @@
         </trim>
         WHERE station_id = #{station_id}
     </update>
+
+    <select id = "queryRouteInfo" parameterType="RouteInfo" resultMap="routeInfoMap">
+        SELECT *
+        FROM T_route r
+        <where>
+            <if test="route_id !=0">
+                AND  route_id = #{route_id}
+            </if>
+            <if test="station_name !=null and station_name !=''">
+                AND station_name = #{station_name}
+            </if>
+            <if test="arrive_station_name !=null and arrive_station_name !=''">
+                AND arrive_station_name = #{arrive_station_name}
+            </if>
+            <if test="stay_time !=null and stay_time !=''">
+                AND stay_time = #{stay_time}
+            </if>
+            <if test="train_id !=null and train_id !=''">
+                AND train_id = #{train_id}
+            </if>
+            <if test="start_clock !=null and start_clock !=''">
+                AND start_clock =#{start_clock}
+            </if>
+            <if test="arrive_clock !=null and arrive_clock !=''">
+                AND arrive_clock = #{arrive_clock}
+            </if>
+            <if test="mile !=null and mile !=''">
+                AND mile = #{mile}
+            </if>
+            <if test="token_time !=null and token_time !=''">
+                AND token_time = #{token_time}
+            </if>
+        </where>
+    </select>
+
+
 </mapper>

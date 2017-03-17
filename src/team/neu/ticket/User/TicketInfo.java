@@ -12,7 +12,7 @@ public class TicketInfo {
     private int seat_id;
     private String begin_zone_station;
     private String arrive_zone_station;
-    private Long ticket_price;
+    private double ticket_price;
     private String user_name;
     private String user_type;
     private String user_idcard_num;
@@ -25,7 +25,7 @@ public class TicketInfo {
 
     public TicketInfo( String train_id, String train_date, String train_time,
             int compart_id, int seat_id, String begin_zone_station, String arrive_zone_station,
-            Long ticket_price, String user_name, String user_type, String user_idcard_num,
+            double ticket_price, String user_name, String user_type, String user_idcard_num,
             String purchase_way, String purchase_time, String train_style, String train_class,
                        String ticket_state){
         this.train_id = train_id;
@@ -109,11 +109,11 @@ public class TicketInfo {
         this.arrive_zone_station = arrive_zone_station;
     }
 
-    public Long getTicket_price() {
+    public double getTicket_price() {
         return ticket_price;
     }
 
-    public void setTicket_price(Long ticket_price) {
+    public void setTicket_price(double ticket_price) {
         this.ticket_price = ticket_price;
     }
 
