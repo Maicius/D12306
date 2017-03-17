@@ -1,6 +1,7 @@
 package team.neu.ticket.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import team.neu.ticket.User.RouteInfo;
 import team.neu.ticket.User.StationInfo;
 import team.neu.ticket.mapper.ManagerInfo;
 import team.neu.ticket.service.ManagerService;
@@ -22,5 +23,10 @@ public class ManagerServiceImpl implements ManagerService{
     public int modifyStationInfo(StationInfo stationInfo) throws Exception {
         //
         return managerInfo.modifyStationInfo(stationInfo);
+    }
+
+    @Override
+    public List<RouteInfo> queryRouteInfo(RouteInfo routeInfo) throws Exception {
+        return managerInfo.queryRouteInfo(routeInfo);
     }
 }

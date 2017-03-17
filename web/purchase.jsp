@@ -171,7 +171,7 @@ pageEncoding="UTF-8"%>
                                 <th colspan="1" rowspan="1" ><p>到达站</p></th>
                                 <th colspan="1" rowspan="1" ><p>日期</p></th>
                                 <th colspan="1" rowspan="1" ><p>出发时间</p></th>
-                                <th colspan="1" rowspan="1"><p>到达时间</p></th>
+                                <th colspan="1" rowspan="1" ><p>到达时间</p></th>
                                 <th colspan="1" rowspan="1" ><p>里程</p></th>
                                 <th colspan="1" rowspan="1" ><p>车型</p></th>
                                 <th colspan="1" rowspan="1" ><p>车类</p></th>
