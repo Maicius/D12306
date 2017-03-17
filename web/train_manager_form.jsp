@@ -1,4 +1,8 @@
-
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -110,37 +114,37 @@
                         <li><a href="#">基础数据管理 </a>
                             <ul class="clearfix" style="display: none;">
                                 <li><a href="station_manager_form.jsp">车站管理</a></li>
-                                <li><a href="train_manager_form.html">列车管理</a></li>
+                                <li><a href="train_manager_form.jsp">列车管理</a></li>
                                 <li><a href="rout_manager_form.html">线路管理</a></li>
-                                <li><a href="traingroup_manager_form.html">列车编组管理</a></li>
-                                <li><a href="ticket_rate_manager_form.html">票价率管理</a></li>
-                                <li><a href="ticket_affair_manager_form.html">票价旅程区管理</a></li>
-                                <li><a href="decreasing_increase_rate_manager_form.html">递远递减率管理</a></li>
+                                <li><a href="traingroup_manager_form.jsp">列车编组管理</a></li>
+                                <li><a href="ticket_rate_manager_form.jsp">票价率管理</a></li>
+                                <li><a href="ticket_affair_manager_form.jsp">票价旅程区管理</a></li>
+                                <li><a href="decreasing_increase_rate_manager_form.jsp">递远递减率管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">计划管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="plan_manager_form.html">计划管理</a></li>
+                                <li><a href="plan_manager_form.jsp">计划管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">调度管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="dispatching_manager.html">调度管理</a></li>
+                                <li><a href="dispatching_manager.jsp">调度管理</a></li>
                             </ul>
                             </a>
                         </li>
                         <li><a href="#">财务管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="financial_statistics_manager.html">财务统计</a></li>
+                                <li><a href="financial_statistics_manager.jsp">财务统计</a></li>
                             </ul>
                         </li>
                         <li><a href="#">客服</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="userinfo_manager_form.html">用户管理</a></li>
-                                <li><a href="oder_manager_form.html">订单维护</a></li>
-                                <li><a href="ticket_manager_form.html">车票维护</a></li>
+                                <li><a href="userinfo_manager_form.jsp">用户管理</a></li>
+                                <li><a href="oder_manager_form.jsp">订单维护</a></li>
+                                <li><a href="ticket_manager_form.jsp">车票维护</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -165,26 +169,36 @@
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p><input type="text" placeholder="里程区段From" name=""></p></td>
-                                            <td><p><input type="text" placeholder="递减率" name=""></p></td>
-                                            <td><p><input type="text" placeholder="各区段全程票价" name=""></p></td>
-                                            <td rowspan="2">
-                                                <p><input type="submit" value="查询" class="register_submit_button"></p>
-                                            </td>
+
+                                            <td><p><input type="text" placeholder="车次代码" name=""></p></td>
+                                            <td><p><input type="text" placeholder="始发站" name=""></p></td>
+                                            <td><p><input type="text" placeholder="终到站" name=""></p></td>
+                                            <td><p><input type="text" placeholder="始发时间" name=""></p></td>
+                                            <td><p><input type="text" placeholder="到达时间" name=""></p></td>
+
+
 
 
                                         </tr>
 
                                         <tr>
-                                            <td><p><input type="text" placeholder="里程区段To" name=""></p></td>
-                                            <td><p><input type="text" placeholder="票价率" name=""></p></td>
-                                            <td><p><input type="text" placeholder="区段累计票价" name=""></p></td>
+
+                                            <td><p><input type="text" placeholder="无座票数量" name=""></p></td>
+                                            <td><p><input type="text" placeholder="车体分类" name=""></p></td>
+                                            <td><p><input type="text" placeholder="列车类型" name=""></p></td>
+                                            <td><p><input type="text" placeholder="历时" name=""></p></td>
+                                            <td><p><input type="text" placeholder="里程" name=""></p></td>
 
                                         </tr>
 
+                                        <tr>
+                                            <td colspan="5">
+                                                <p><input type="submit" value="增加" class="register_submit_button"><input type="submit" value="查询" class="register_submit_button"></p>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
-                               <!-- </form>-->
+                                <!--</form>-->
                             </div>
                         </form>
                     </div>
@@ -194,26 +208,33 @@
                         <table>
                             <thead>
                             <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>递远递减率编号</p></th>
-                                <th colspan="1" rowspan="1" ><p>里程区段From</p></th>
-                                <th colspan="1" rowspan="1" ><p>里程区段Trom</p></th>
-                                <th colspan="1" rowspan="1" ><p>递减率</p></th>
-                                <th colspan="1" rowspan="1" ><p>票价率</p></th>
-                                <th colspan="1" rowspan="1" ><p>各区段全程票价</p></th>
-                                <th colspan="1" rowspan="1" ><p>区段累计票价</p></th>
-                                <th colspan="1" rowspan="1" ><p>操作</p></th>
+                                <th colspan="1" rowspan="1" ><p>车次代码</p></th>
+                                <th colspan="1" rowspan="1" ><p>始发站</p></th>
+                                <th colspan="1" rowspan="1" ><p>终到站</p></th>
+                                <th colspan="1" rowspan="1" ><p>始发时间</p></th>
+                                <th colspan="1" rowspan="1"><p>终到时间</p></th>
+                                <th colspan="1" rowspan="1" ><p>历时</p></th>
+                                <th colspan="1" rowspan="1" ><p>里程</p></th>
+                                <th colspan="1" rowspan="1" ><p>无座票数量</p></th>
+                                <th colspan="1" rowspan="1" ><p>车体分类</p></th>
+                                <th colspan="1" rowspan="1" ><p>列车类型</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作一</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作二</p></th>
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
 
                             <tr>
-                                <td>中国二铁</td>
-                                <td>中国二铁</td>
-                                <td>中国二铁</td>
+                                <td>D12306</td>
+                                <td>成都东站</td>
+                                <td>CDDZ</td>
                                 <td>中国二铁</td>
                                 <td>国家级</td>
                                 <td>四川省</td>
                                 <td>四川省成都市</td>
+                                <td>四川省成都市</td>
+                                <td>四川省成都市</td>
+                                <td><a href="#">删除</a></td>
                                 <td><a href="#">修改</a></td>
                             </tr>
 

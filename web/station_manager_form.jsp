@@ -114,37 +114,37 @@
                         <li><a href="#">基础数据管理 </a>
                             <ul class="clearfix" style="display: none;">
                                 <li><a href="station_manager_form.jsp">车站管理</a></li>
-                                <li><a href="train_manager_form.html">列车管理</a></li>
+                                <li><a href="train_manager_form.jsp">列车管理</a></li>
                                 <li><a href="rout_manager_form.html">线路管理</a></li>
-                                <li><a href="traingroup_manager_form.html">列车编组管理</a></li>
-                                <li><a href="ticket_rate_manager_form.html">票价率管理</a></li>
-                                <li><a href="ticket_affair_manager_form.html">票价旅程区管理</a></li>
-                                <li><a href="decreasing_increase_rate_manager_form.html">递远递减率管理</a></li>
+                                <li><a href="traingroup_manager_form.jsp">列车编组管理</a></li>
+                                <li><a href="ticket_rate_manager_form.jsp">票价率管理</a></li>
+                                <li><a href="ticket_affair_manager_form.jsp">票价旅程区管理</a></li>
+                                <li><a href="decreasing_increase_rate_manager_form.jsp">递远递减率管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">计划管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="plan_manager_form.html">计划管理</a></li>
+                                <li><a href="plan_manager_form.jsp">计划管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">调度管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="dispatching_manager.html">调度管理</a></li>
+                                <li><a href="dispatching_manager.jsp">调度管理</a></li>
                             </ul>
                         </a>
                         </li>
                         <li><a href="#">财务管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="financial_statistics_manager.html">财务统计</a></li>
+                                <li><a href="financial_statistics_manager.jsp">财务统计</a></li>
                             </ul>
                         </li>
                         <li><a href="#">客服</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="userinfo_manager_form.html">用户管理</a></li>
-                                <li><a href="oder_manager_form.html">订单维护</a></li>
-                                <li><a href="ticket_manager_form.html">车票维护</a></li>
+                                <li><a href="userinfo_manager_form.jsp">用户管理</a></li>
+                                <li><a href="oder_manager_form.jsp">订单维护</a></li>
+                                <li><a href="ticket_manager_form.jsp">车票维护</a></li>
                             </ul>
                         </li>
                     </ul>

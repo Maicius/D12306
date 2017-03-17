@@ -1,4 +1,8 @@
-
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -70,7 +74,7 @@
             <!-- Logo -->
             <div class="span4">
                 <div class="logo">
-                    <a href="index.jsp"><img src="images/logo.png" alt="Logo"></a>
+                    <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
                 </div>
             </div>
             <!-- Logo -->
@@ -110,37 +114,37 @@
                         <li><a href="#">基础数据管理 </a>
                             <ul class="clearfix" style="display: none;">
                                 <li><a href="station_manager_form.jsp">车站管理</a></li>
-                                <li><a href="train_manager_form.html">列车管理</a></li>
+                                <li><a href="train_manager_form.jsp">列车管理</a></li>
                                 <li><a href="rout_manager_form.html">线路管理</a></li>
-                                <li><a href="traingroup_manager_form.html">列车编组管理</a></li>
-                                <li><a href="ticket_rate_manager_form.html">票价率管理</a></li>
-                                <li><a href="ticket_affair_manager_form.html">票价旅程区管理</a></li>
-                                <li><a href="decreasing_increase_rate_manager_form.html">递远递减率管理</a></li>
+                                <li><a href="traingroup_manager_form.jsp">列车编组管理</a></li>
+                                <li><a href="ticket_rate_manager_form.jsp">票价率管理</a></li>
+                                <li><a href="ticket_affair_manager_form.jsp">票价旅程区管理</a></li>
+                                <li><a href="decreasing_increase_rate_manager_form.jsp">递远递减率管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">计划管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="plan_manager_form.html">计划管理</a></li>
+                                <li><a href="plan_manager_form.jsp">计划管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">调度管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="dispatching_manager.html">调度管理</a></li>
+                                <li><a href="dispatching_manager.jsp">调度管理</a></li>
                             </ul>
                             </a>
                         </li>
                         <li><a href="#">财务管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="financial_statistics_manager.html">财务统计</a></li>
+                                <li><a href="financial_statistics_manager.jsp">财务统计</a></li>
                             </ul>
                         </li>
                         <li><a href="#">客服</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="userinfo_manager_form.html">用户管理</a></li>
-                                <li><a href="oder_manager_form.html">订单维护</a></li>
-                                <li><a href="ticket_manager_form.html">车票维护</a></li>
+                                <li><a href="userinfo_manager_form.jsp">用户管理</a></li>
+                                <li><a href="oder_manager_form.jsp">订单维护</a></li>
+                                <li><a href="ticket_manager_form.jsp">车票维护</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -165,31 +169,25 @@
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td rowspan="3"><p><input type="text" placeholder="车票ID" name=""></p></td>
-                                            <td><p><input type="text" placeholder="时间" name=""></p></td>
-                                            <td><p><input type="text" placeholder="车厢ID" name=""></p></td>
-
-                                            <td rowspan="3">
-                                                <p><input type="submit" value="增加" class="register_submit_button"></p>
+                                            <td><p><input type="text" placeholder="计划编号" name=""></p></td>
+                                            <td><p><input type="text" placeholder="车次" name=""></p></td>
+                                            <td rowspan="2">
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
                                             </td>
 
 
                                         </tr>
 
-                                        <tr>
-                                            <td><p><input type="text" placeholder="票价" name=""></p></td>
-                                            <td><p><input type="text" placeholder="座位号" name=""></p></td>
+                                       <!--  <tr>
+                                            <td><p><input type="text" placeholder="票价率" name=""></p></td>
+                                            <td><p><input type="text" placeholder="比例" name=""></p></td>
 
                                         </tr>
-
-                                        <tr>
-                                            <td><p><input type="text" placeholder="起始站" name=""></p></td>
-                                            <td><p><input type="text" placeholder="终点站" name=""></p></td>
-
-                                        </tr>
+                                         -->
 
                                     </tbody>
+                               
+
                                 </table>
                                <!-- </form>-->
                             </div>
@@ -201,34 +199,52 @@
                         <table>
                             <thead>
                             <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>车票ID</p></th>
-                                <th colspan="1" rowspan="1" ><p>车厢ID</p></th>
-                                <th colspan="1" rowspan="1" ><p>时间</p></th>
-                                <th colspan="1" rowspan="1" ><p>票价</p></th>
-                                <th colspan="1" rowspan="1" ><p>座位号</p></th>
-                                <th colspan="1" rowspan="1"><p>起始站</p></th>
-                                <th colspan="1" rowspan="1"><p>终点站</p></th>
-                                <th colspan="1" rowspan="1" ><p>操作一</p></th>
-                                <th colspan="1" rowspan="1" ><p>操作二</p></th>
+                                <th colspan="1" rowspan="1" ><p>计划代码</p></th>
+                                <th colspan="1" rowspan="1" ><p>车次代码</p></th>
+                                <th colspan="1" rowspan="1" ><p>车厢号</p></th>
+                                <th colspan="1" rowspan="1" ><p>比较</p></th>
+                                <th colspan="1" rowspan="1" ><p>车站  </p></th>
+                                <th colspan="1" rowspan="1" ><p>操作</p></th>
+
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
 
                             <tr>
-                                <td>D12306</td>
-                                <td>成都东站</td>
-                                <td>CDDZ</td>
-                                <td>CDDZ</td>
-                                <td>CDDZ</td>
-                                <td>中国二铁</td>
-                                <td>国家级</td>
-                                <td><a href="#">删除</a></td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td> <= </td>
+                                <td>成都站</td>
                                 <td><a href="#">修改</a></td>
                             </tr>
 
 
                             </tbody>
-
+							     <!-- 在这里进行增加，删除，修改操作 -->
+							<tfoot>
+    						<tr>
+								<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+        						<th></th>
+							</tr>
+							
+							<tr>
+    							<th></th>
+        						<th><a href="#">增加新计划</a></th>
+        						<th><a href="#">删除计划</a></th>
+        						<th><a href="#">修改计划</a></th>
+        						<th><a href="#">查询计划</a></th>
+        						<th></th>
+        						<th></th>
+   							 </tr>
+    						</tfoot>
+    							<!-- 在这里进行增加，删除，修改操作 -->
                         </table>
                     </div>
 

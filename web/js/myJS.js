@@ -155,3 +155,38 @@ if (document.getElementById("flag").innerHTML == "1"){
     document.getElementById("top_menu_log").style.display = "block";
 }
 */
+
+function checkUser(){
+    var phone_num = document.getElementById("username").value;
+    var ajaxRequest;
+    //alert("enter ajax："+phone_num);
+    if(window.XMLHttpRequest){
+        ajaxRequest = new XMLHttpRequest();
+    }else if(window.activeXObject){
+        ajaxRequest = new activeXObject("Microsoft.XMLHTTP");
+    }
+    if(ajaxRequest){
+        ajaxRequest.onreadystatechange = function(){
+            //alert("status:"+ajaxRequest.status);
+            if(ajaxRequest.readyState == 4 && ajaxRequest.status ==200){
+
+                var msg = ajaxRequest.responseText;
+                // alert(msg);
+                // alert(document.getElementById("login_tip").innerHTML + "\n msg:" + msg);
+                if(msg=="" ){
+                    document.getElementById("login_tip").innerHTML="当前用户不存在";
+                    document.getElementById("login_tip").style.color="red";
+
+                }else{
+                    document.getElementById("login_tip").innerHTML="欢迎您,"+msg;
+                    document.getElementById("login_tip").style.color="green";
+
+
+                }
+            }
+        }
+        ajaxRequest.open("get", "/userVerify.action?phone_num="+phone_num, true);
+        ajaxRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+        ajaxRequest.send();
+    }
+}

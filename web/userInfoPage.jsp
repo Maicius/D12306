@@ -116,12 +116,12 @@
                     <ul>
                         <li><a href="index.jsp">首页 </a></li>
                         <li><a href="purchase.jsp">购票</a></li>
-                        <li><a href="oder_serve.html">退票</a></li>
+                        <li><a href="oder_serve.jsp">退票</a></li>
                         <li><a href="purchase.jsp">余票查询</a></li>
                         <li><a href="purchase.jsp">票价查询</a></li>
-                        <li><a href="oder_serve.html">改签</a></li>
+                        <li><a href="oder_serve.jsp">改签</a></li>
                         <li><a href="userInfoPage.jsp">个人中心</a></li>
-                        <li  class="last"><a href="oder_serve.html">我的订单</a></li>
+                        <li  class="last"><a href="oder_serve.jsp">我的订单</a></li>
                     </ul>
                 </nav>
 

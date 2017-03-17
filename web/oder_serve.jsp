@@ -1,3 +1,8 @@
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>
 <html class="ie7"> <![endif]-->
@@ -96,6 +101,16 @@
 
 
     </div>
+
+            <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+            <ul>
+                <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+            </ul>
+        </div>
+
+
+    </div>
             <!--top Menu -->
 
         </div>
@@ -112,12 +127,12 @@
                     <ul>
                         <li><a href="index.jsp">首页 </a></li>
                         <li><a href="purchase.jsp">购票</a></li>
-                        <li><a href="oder_serve.html">退票</a></li>
+                        <li><a href="oder_serve.jsp">退票</a></li>
                         <li><a href="purchase.jsp">余票查询</a></li>
                         <li><a href="purchase.jsp">票价查询</a></li>
-                        <li><a href="oder_serve.html">改签</a></li>
+                        <li><a href="oder_serve.jsp">改签</a></li>
                         <li><a href="userInfoPage.jsp">个人中心</a></li>
-                        <li  class="last"><a href="oder_serve.html">我的订单</a></li>
+                        <li  class="last"><a href="oder_serve.jsp">我的订单</a></li>
                     </ul>
                 </nav>
 

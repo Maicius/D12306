@@ -1,4 +1,8 @@
-
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -110,37 +114,37 @@
                         <li><a href="#">基础数据管理 </a>
                             <ul class="clearfix" style="display: none;">
                                 <li><a href="station_manager_form.jsp">车站管理</a></li>
-                                <li><a href="train_manager_form.html">列车管理</a></li>
+                                <li><a href="train_manager_form.jsp">列车管理</a></li>
                                 <li><a href="rout_manager_form.html">线路管理</a></li>
-                                <li><a href="traingroup_manager_form.html">列车编组管理</a></li>
-                                <li><a href="ticket_rate_manager_form.html">票价率管理</a></li>
-                                <li><a href="ticket_affair_manager_form.html">票价旅程区管理</a></li>
-                                <li><a href="decreasing_increase_rate_manager_form.html">递远递减率管理</a></li>
+                                <li><a href="traingroup_manager_form.jsp">列车编组管理</a></li>
+                                <li><a href="ticket_rate_manager_form.jsp">票价率管理</a></li>
+                                <li><a href="ticket_affair_manager_form.jsp">票价旅程区管理</a></li>
+                                <li><a href="decreasing_increase_rate_manager_form.jsp">递远递减率管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">计划管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="plan_manager_form.html">计划管理</a></li>
+                                <li><a href="plan_manager_form.jsp">计划管理</a></li>
                             </ul>
                         </li>
 
                         <li><a href="#">调度管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="dispatching_manager.html">调度管理</a></li>
+                                <li><a href="dispatching_manager.jsp">调度管理</a></li>
                             </ul>
                             </a>
                         </li>
                         <li><a href="#">财务管理</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="financial_statistics_manager.html">财务统计</a></li>
+                                <li><a href="financial_statistics_manager.jsp">财务统计</a></li>
                             </ul>
                         </li>
                         <li><a href="#">客服</a>
                             <ul class="clearfix" style="display: none;">
-                                <li><a href="userinfo_manager_form.html">用户管理</a></li>
-                                <li><a href="oder_manager_form.html">订单维护</a></li>
-                                <li><a href="ticket_manager_form.html">车票维护</a></li>
+                                <li><a href="userinfo_manager_form.jsp">用户管理</a></li>
+                                <li><a href="oder_manager_form.jsp">订单维护</a></li>
+                                <li><a href="ticket_manager_form.jsp">车票维护</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -165,8 +169,8 @@
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p><input type="text" placeholder="计划编号" name=""></p></td>
-                                            <td><p><input type="text" placeholder="车次" name=""></p></td>
+                                            <td><p><input type="text" placeholder="开始时间" name=""></p></td>
+                                            <td><p><input type="text" placeholder="结束时间" name=""></p></td>
                                             <td rowspan="2">
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
                                             </td>
@@ -174,16 +178,12 @@
 
                                         </tr>
 
-                                       <!--  <tr>
-                                            <td><p><input type="text" placeholder="票价率" name=""></p></td>
-                                            <td><p><input type="text" placeholder="比例" name=""></p></td>
-
+                                        <tr>
+                                            <td><p><input type="text" placeholder="车站  " name=""></p></td>
+                                            <td><p><input type="text" placeholder="车次 " name=""></p></td>
                                         </tr>
-                                         -->
 
                                     </tbody>
-                               
-
                                 </table>
                                <!-- </form>-->
                             </div>
@@ -195,11 +195,12 @@
                         <table>
                             <thead>
                             <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>计划代码</p></th>
-                                <th colspan="1" rowspan="1" ><p>车次代码</p></th>
-                                <th colspan="1" rowspan="1" ><p>车厢号</p></th>
-                                <th colspan="1" rowspan="1" ><p>比较</p></th>
-                                <th colspan="1" rowspan="1" ><p>车站  </p></th>
+                                <th colspan="1" rowspan="1" ><p>车站</p></th>
+                                <th colspan="1" rowspan="1" ><p>车次</p></th>
+                                <th colspan="1" rowspan="1" ><p>人数</p></th>
+                                <th colspan="1" rowspan="1" ><p>金额</p></th>
+                                <th colspan="1" rowspan="1" ><p>售票时间</p></th>
+                                <th colspan="1" rowspan="1" ><p>退票人数</p></th>
                                 <th colspan="1" rowspan="1" ><p>操作</p></th>
 
                             </tr>
@@ -207,40 +208,28 @@
                             <tbody id="queryLeftTable">
 
                             <tr>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td> <= </td>
-                                <td>成都站</td>
+                                <td>长春站</td>
+                                <td>K23</td>
+                                <td>3000</td>
+                                <td>12000</td>
+                                <td>12:30</td>
+                                <td>33</td>
                                 <td><a href="#">修改</a></td>
                             </tr>
 
 
                             </tbody>
-							     <!-- 在这里进行增加，删除，修改操作 -->
 							<tfoot>
-    						<tr>
-								<th></th>
+   							 <tr>
+        						<th>总计：</th>
         						<th></th>
+        						<th>人数总数</th>
+        						<th>金额总数</th>
         						<th></th>
+        						<th>退票人数总数</th>
         						<th></th>
-        						<th></th>
-        						<th></th>
-        						<th></th>
-        						<th></th>
-							</tr>
-							
-							<tr>
-    							<th></th>
-        						<th><a href="#">增加新计划</a></th>
-        						<th><a href="#">删除计划</a></th>
-        						<th><a href="#">修改计划</a></th>
-        						<th><a href="#">查询计划</a></th>
-        						<th></th>
-        						<th></th>
-   							 </tr>
-    						</tfoot>
-    							<!-- 在这里进行增加，删除，修改操作 -->
+    </tr>
+    </tfoot>
                         </table>
                     </div>
 
