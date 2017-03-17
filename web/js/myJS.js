@@ -113,3 +113,13 @@ function update(index) {
     $("#"+index+"_tr2").show();
 }
 
+window.onload=function () {
+
+    var value =  document.getElementById("user_name_show").innerHTML;
+    if(value != null){
+        document.getElementById("top_menu_log").style.display = "none";
+        document.getElementById("top_menu_logout").style.display = "block";
+    }
+};
+
+
