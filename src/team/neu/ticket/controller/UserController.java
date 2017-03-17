@@ -42,7 +42,7 @@ public class UserController {
             session.setAttribute("job", loginUser.getJob());
             session.setAttribute("passenger_type", loginUser.getPassenger_type());
             modelAndView.addObject("user", loginUser);
-            modelAndView.setViewName("purchase");
+            modelAndView.setViewName("index");
             return modelAndView;
         }
         return null;
@@ -94,5 +94,14 @@ public class UserController {
             mv.setViewName("register");
             return mv;
         }
+    }
+
+
+    @RequestMapping(value = "/logout", produces="text/html;charset=UTF-8")
+    public @ResponseBody String logout(HttpServletRequest request){
+
+        request.getSession().invalidate();
+        System.out.println("清空了session");
+        return  "清除返回";
     }
 }

@@ -79,28 +79,22 @@
                             
                             <!--top Menu -->
                             <div class="span8">
-                            	<div class="top-menu" id="top_menu_log">
+                            	<div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
                                 	<ul>
-                                		
                                 		<li><a href="#"  id="user_login">用户登录</a></li>
                                 		<li><a href="register.jsp" class="last" id="user_register">注册</a></li>
                                 	</ul>
                                 </div>
 
-                                <div class="top-menu" id="top_menu_logout" style="display: none">
-                                    <ul>
+                                <span id="flag" style="display: none">0</span>
 
-                                        <li>欢迎您！<a href="#"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
-                                        <li><a href="#" class="last" id="user_logout">注销</a></li>
+                                <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+                                    <ul>
+                                        <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                                        <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
                                     </ul>
                                 </div>
-                                <%
-                                    String value = request.getParameter("user_name_show");
-                                    if(value != null){
-                                        //切换DIV
 
-                                    }
-                                %>
 
                             </div>
                             <!--top Menu -->
@@ -301,7 +295,7 @@
                 </script>
                 <script src="js/custom.js"></script>
                 <script src="js/ajaxVerify.js"></script>
-
+                <script src="js/myJS.js"></script>
                 <script type="text/javascript">
                     function checkUser(){
                         var phone_num = document.getElementById("username").value;

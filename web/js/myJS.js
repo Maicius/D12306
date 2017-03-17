@@ -101,7 +101,6 @@ jQuery(document).ready(function(){
         var id = $(this).attr('id');
         $("#"+id+"_tr1").hide();
         $("#"+id+"_tr2").show();
-
     });*/
 
 
@@ -113,13 +112,46 @@ function update(index) {
     $("#"+index+"_tr2").show();
 }
 
-window.onload=function () {
+document.getElementById("login-button").onclick =  function () {
 
-    var value =  document.getElementById("user_name_show").innerHTML;
-    if(value != null){
-        document.getElementById("top_menu_log").style.display = "none";
-        document.getElementById("top_menu_logout").style.display = "block";
-    }
+        var value = document.getElementById("user_name_show").innerHTML;
+        if (value != null) {
+            document.getElementById("flag").innerHTML = "1";
+        }
+
 };
 
 
+document.getElementById("user_logout").onclick = function () {
+    //清空session的值
+    alert("点击触发");
+    $.ajax({
+        url:"/logout.action",
+        type:"get",
+        //data:{username:'',password:""},
+
+        success:function (data) {
+            var returnData = data;
+
+            document.getElementById("top_menu_log").style.display = "block";
+
+            document.getElementById("top_menu_logout").style.display = "none";
+
+
+
+        }
+    });
+
+
+};
+
+
+/*
+if (document.getElementById("flag").innerHTML == "1"){
+    document.getElementById("top_menu_log").style.display = "none";
+    document.getElementById("top_menu_logout").style.display = "block";
+}else if(document.getElementById("flag").innerHTML == "0"){
+    document.getElementById("top_menu_logout").style.display = "none";
+    document.getElementById("top_menu_log").style.display = "block";
+}
+*/
