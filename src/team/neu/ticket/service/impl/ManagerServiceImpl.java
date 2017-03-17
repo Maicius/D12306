@@ -29,4 +29,14 @@ public class ManagerServiceImpl implements ManagerService{
     public List<RouteInfo> queryRouteInfo(RouteInfo routeInfo) throws Exception {
         return managerInfo.queryRouteInfo(routeInfo);
     }
+
+    @Override
+    public int deleteRoute(int route_id) throws Exception {
+        return managerInfo.doDeleteRoute(route_id);
+    }
+
+    @Override
+    public int addRoute(RouteInfo routeInfo) throws Exception {
+        return managerInfo.doAddRoute(routeInfo);
+    }
 }

@@ -13,9 +13,6 @@
         <result column="passenger_type" property="passenger_type"/>
         <result column="real_name" property="real_name"/>
     </resultMap>
-    <sql id="user_all_column">
-          user_idcard_num, user_name, phone_num, password, job
-    </sql>
 <select id="doUserLogin" parameterType="User" resultMap="userMap">
 
     SELECT *

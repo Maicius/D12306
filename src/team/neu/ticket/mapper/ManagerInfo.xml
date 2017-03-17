@@ -107,5 +107,16 @@
         </where>
     </select>
 
+    <delete id="doDeleteRoute" parameterType="int">
+        delete FROM T_route
+        WHERE route_id = #{route_id}
+    </delete>
 
+    <insert id="doAddRoute" parameterType="RouteInfo">
+        INSERT INTO T_route( station_name, arrive_station_name, stay_time, token_time,
+                                    train_id,start_clock, arrive_clock, mile)
+              VALUES (#{station_name}, #{arrive_station_name}, #{stay_time}, #{token_time},
+                                    #{train_id}, #{start_clock}, #{arrive_clock}, #{mile})
+
+    </insert>
 </mapper>

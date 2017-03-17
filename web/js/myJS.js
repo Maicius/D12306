@@ -141,9 +141,9 @@ document.getElementById("user_logout").onclick = function () {
 
         }
     });
-
-
 };
+
+
 
 
 /*

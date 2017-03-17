@@ -84,10 +84,7 @@ public class UserController {
             System.out.println("success");
             HttpSession session = request.getSession();
             session.setAttribute("username", user.getUser_name());
-            session.setAttribute("real_name", user.getReal_name());
-            session.setAttribute("user_idcard_num", user.getUser_idcard_num());
-            session.setAttribute("job", user.getJob());
-            session.setAttribute("passenger_type", user.getPassenger_type());
+            session.setAttribute("user", user);
             mv.setViewName("purchase");
             return mv;
         }else{
