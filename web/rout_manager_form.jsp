@@ -230,7 +230,7 @@
                                 <td>${info.mile}</td>
                                 <td>${info.stay_time}</td>
                                 <td>${info.arrive_station_name}</td>
-                                <td><a href="#">删除</a></td>
+                                <td><a href="/deleteRoute.action?route_id=${info.route_id}" id="deleteRoute">删除</a></td>
                                 <td><a href="#">修改</a></td>
                             </tr>
                             </c:forEach>
@@ -304,6 +304,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.isotope.min.js"></script>
 <script src="js/jquery.tinyscrollbar.min.js"></script>
+<script src="js/myJS.js"></script>
 <script>
     function goToByScroll(id){
         $ = jQuery;
@@ -315,7 +316,24 @@
         $('.scrollbar1').tinyscrollbar();
     });
 </script>
-<script src="js/custom.js"></script>
+<%--<script type="text/javascript">
+    document.getElementById("deleteRoute").onclick=function () {
+        alert("即将删除线路");
+        $.ajax({
+            url:"/deleteRoute.action",
+            type:"get",
+            data:${train_id},
+            success:function (data) {
+                if(data =='0'){
+                    alert("错误:该线路已有票售出，不能删除");
+                }else{
+                    alert("成果删除该线路");
+                }
+            }
 
+        });
+    };
+</script>--%>
+<script src="js/custom.js"></script>
 </body>
 </html>
