@@ -41,7 +41,7 @@ public class UserController {
             session.setAttribute("user_idcard_num", loginUser.getUser_idcard_num());
             session.setAttribute("job", loginUser.getJob());
             session.setAttribute("passenger_type", loginUser.getPassenger_type());
-            modelAndView.addObject("user", loginUser);
+            session.setAttribute("user", loginUser);
             modelAndView.setViewName("index");
             return modelAndView;
         }

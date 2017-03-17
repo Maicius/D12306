@@ -204,7 +204,7 @@
                                     <li>
                                         <div class="my_register_label">
                                             旅客类型：
-                                        </div>${sessionScope.user.user_name}
+                                        </div>
 
                                         <div class="r-txt" id="click_hidden">
                                             <input  class="info_reset_class" id="passenger_type_input" name="passenger_type_input" disabled="true" value="${sessionScope.user.passenger_type}">

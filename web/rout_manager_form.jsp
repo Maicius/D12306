@@ -163,7 +163,7 @@
                 <div class="top ">
 
                     <div class="content_top">
-                        <form action="/routeManage.action" method="get">
+                        <form action="" method="get" name="myform">
                             <div class="my_top">
                                 <!--<form action="" method="post">-->
                                 <table>
@@ -173,8 +173,8 @@
                                             <td><p><input type="text" placeholder="车次代码" name="train_id"></p></td>
                                             <td><p><input type="text" placeholder="始发站" name="station_id"></p></td>
                                             <td rowspan="3">
-                                                <p><input type="submit" value="增加" class="register_submit_button"></p>
-                                                <p><input type="submit" value="查询" class="register_submit_button"></p>
+                                                <p><input type="submit" value="增加" class="register_submit_button" onclick="javascript:myform.action='/addRoute.action'"></p>
+                                                <p><input type="submit" value="查询" class="register_submit_button" onclick="javascript:myform.action='/routeManage.action'"></p>
                                             </td>
 
 
