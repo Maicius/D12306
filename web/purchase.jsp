@@ -244,16 +244,19 @@ pageEncoding="UTF-8"%>
 
 <!-- Footer -->
 
+
+
 <div class="login-popup-wrapper">
     <div id="login-popup">
-        <h2 >sign in</h2>
-        <form method="get" action="#">
-            <input type="text" value="" id="username" placeholder="用户名" />
-            <input type="text" value="" id="password" placeholder="密码" />
+        <h2>login Panel</h2>
+        <form method="get" action="/userLogin.action">
+            <p id="login_tip">登陆提示</p>
+            <input type="text" value="" id="username" name="phone_num" placeholder="您的手机号" onblur ="checkUser()" />
+            <input type="password" value="" id="password" name="password" placeholder="您的密码" />
 
             <input type="submit" value="sıgn ın" id="login-button"/>
         </form>
-        <a href="#" class="close">关闭</a>
+        <a href="#" class="close">Close</a>
     </div>
 </div>
 
@@ -284,6 +287,7 @@ pageEncoding="UTF-8"%>
     });
 </script>
 <script src="js/custom.js"></script>
+<script src="js/myJS.js"></script>
 
 </body>
 </html>
