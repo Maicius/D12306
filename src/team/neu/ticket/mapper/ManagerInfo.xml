@@ -119,4 +119,30 @@
                                     #{train_id}, #{start_clock}, #{arrive_clock}, #{mile})
 
     </insert>
+
+    <delete id="doDeleteStation" parameterType="StationInfo">
+        DELETE  FROM  T_station
+        WHERE station_id = #{station_id}
+    </delete>
+
+    <insert id="doAddStation" parameterType="StationInfo">
+        INSERT INTO T_station(station_name, station_code, railway_admin, station_class, station_region, station_addr)
+        VALUES(#{station_name}, #{station_code}, #{railway_station}, #{station_class}, #{station_region}, #{station_addr})
+
+   </insert>
+
+    <update id="doModifyRoute" parameterType="StationInfo" >
+        UPDATE T_route
+        <trim prefix="set" suffixOverrides=",">
+            <if test="arrive_clock!=null">arrive_clock=#{arrive_clock},</if>
+            <if test="station_name!=null">station_name=#{station_name},</if>
+            <if test="arrive_station_name!=null">arrive_station_name=#{arrive_station_name},</if>
+            <if test="token_time!=null">token_time=#{token_time},</if>
+            <if test="stay_time!=null">stay_time=#{stay_time},</if>
+            <if test="mile!=null">mile=#{mile},</if>
+            <if test="start_clock!=null">start_clock=#{start_clock},</if>
+            <if test="arrive_clock!=null">arrive_clock=#{arrive_clock},</if>
+        </trim>
+        WHERE route_id = #{route_id}
+    </update>
 </mapper>
