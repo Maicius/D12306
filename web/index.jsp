@@ -134,7 +134,6 @@
                           <div class="detail-one">
                             <h3>MY12306</h3>
                             <h2>欢迎您的光临</h2>
-                           	<span>$ 2.400</span>
                           	<a href="#"></a> 	
                           </div>
                         </li>
