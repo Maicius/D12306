@@ -101,7 +101,6 @@ jQuery(document).ready(function(){
         var id = $(this).attr('id');
         $("#"+id+"_tr1").hide();
         $("#"+id+"_tr2").show();
-
     });*/
 
 
@@ -113,3 +112,102 @@ function update(index) {
     $("#"+index+"_tr2").show();
 }
 
+document.getElementById("login-button").onclick =  function () {
+
+        var value = document.getElementById("user_name_show").innerHTML;
+        if (value != null) {
+            document.getElementById("flag").innerHTML = "1";
+        }
+
+};
+
+
+document.getElementById("user_logout").onclick = function () {
+    //清空session的值
+    alert("点击触发");
+    $.ajax({
+        url:"/logout.action",
+        type:"get",
+        //data:{username:'',password:""},
+
+        success:function (data) {
+            var returnData = data;
+
+            document.getElementById("top_menu_log").style.display = "block";
+
+            document.getElementById("top_menu_logout").style.display = "none";
+
+
+
+        }
+    });
+};
+
+
+
+
+/*
+if (document.getElementById("flag").innerHTML == "1"){
+    document.getElementById("top_menu_log").style.display = "none";
+    document.getElementById("top_menu_logout").style.display = "block";
+}else if(document.getElementById("flag").innerHTML == "0"){
+    document.getElementById("top_menu_logout").style.display = "none";
+    document.getElementById("top_menu_log").style.display = "block";
+}
+*/
+
+function checkUser(){
+    var phone_num = document.getElementById("username").value;
+    var ajaxRequest;
+    //alert("enter ajax："+phone_num);
+    if(window.XMLHttpRequest){
+        ajaxRequest = new XMLHttpRequest();
+    }else if(window.activeXObject){
+        ajaxRequest = new activeXObject("Microsoft.XMLHTTP");
+    }
+    if(ajaxRequest){
+        ajaxRequest.onreadystatechange = function(){
+            //alert("status:"+ajaxRequest.status);
+            if(ajaxRequest.readyState == 4 && ajaxRequest.status ==200){
+
+                var msg = ajaxRequest.responseText;
+                // alert(msg);
+                // alert(document.getElementById("login_tip").innerHTML + "\n msg:" + msg);
+                if(msg=="" ){
+                    document.getElementById("login_tip").innerHTML="当前用户不存在";
+                    document.getElementById("login_tip").style.color="red";
+
+                }else{
+                    document.getElementById("login_tip").innerHTML="欢迎您,"+msg;
+                    document.getElementById("login_tip").style.color="green";
+
+
+                }
+            }
+        }
+        ajaxRequest.open("get", "/userVerify.action?phone_num="+phone_num, true);
+        ajaxRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+        ajaxRequest.send();
+    }
+}
+
+//个人信息修改控制
+document.getElementById("info_reset_button").onclick=function () {
+    alert("修改按钮");
+    var elements =document.getElementsByClassName("info_reset_class");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+
+        elements[i].removeAttribute("disabled");
+    }
+    document.getElementById("hidden_part").style.display = "block";
+    document.getElementById("click_hidden").style.display = "none";
+    document.getElementById("info_reset_submit").style.display = "inline-block";
+    document.getElementById("info_reset_button").style.display = "none";
+
+}
+
+//用户信息修改确认提交表单
+document.getElementById("info_reset_submit").onclick=function () {
+
+}

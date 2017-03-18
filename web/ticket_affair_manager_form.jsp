@@ -1,4 +1,4 @@
-<%@ page import="org.apache.taglibs.standard.lang.jstl.test.PageContextImpl" %>
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -74,7 +74,7 @@
             <!-- Logo -->
             <div class="span4">
                 <div class="logo">
-                    <a href="index.jsp"><img src="images/logo.png" alt="Logo"></a>
+                    <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
                 </div>
             </div>
             <!-- Logo -->
@@ -82,21 +82,21 @@
             <!--top Menu -->
             <div class="span8">
                 <div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
-                    <ul>
-                        <li><a href="#"  id="user_login">用户登录</a></li>
-                        <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
-                    </ul>
-                </div>
-
-                <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
-                    <ul>
-                        <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
-                        <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
-                    </ul>
-                </div>
-
-
+                <ul>
+                    <li><a href="#"  id="user_login">用户登录</a></li>
+                    <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
+                </ul>
             </div>
+
+            <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+            <ul>
+                <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+            </ul>
+        </div>
+
+
+    </div>
             <!--top Menu -->
 
         </div>
@@ -133,7 +133,7 @@
                             <ul class="clearfix" style="display: none;">
                                 <li><a href="dispatching_manager.jsp">调度管理</a></li>
                             </ul>
-                        </a>
+                            </a>
                         </li>
 
                         <li><a href="#">票务管理</a>
@@ -170,108 +170,82 @@
                 <div class="top ">
 
                     <div class="content_top">
-                        <form action="/manageStation.action" method="get">
+                        <form action="" method="post">
                             <div class="my_top">
-                            <%--    <form action="/manageStation.action" method="get">--%>
+                                <!--<form action="" method="post">-->
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p>车站代码<input type="text" placeholder="车站代码" name="station_id"></p></td>
-                                            <td><p>车站名<input type="text" placeholder="车站名" name="station_name"></p></td>
-                                            <td><p>拼音码<input type="text" placeholder="拼音码" name="station_code"></p></td>
-
-                                            <td rowspan="3">
+                                            <td><p><input type="text" placeholder="身份证号码" name=""></p></td>
+                                            <td><p><input type="text" placeholder="姓名" name=""></p></td>
+                                            <td rowspan="2">
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
-                                                <p><input type="submit" value="增加" class="register_submit_button"></p>
                                             </td>
-                                        </tr>
 
-                                        <tr>
-                                            <td><p>所属铁路局<input type="text" placeholder="所属铁路局" name="railway_admin"></p></td>
-                                            <td><p>车站等级<select class="w200sel valid" name="station_class" id="station_class">
-                                                <option value="">不限
-                                                </option>
-                                                <option value="一等">一等
-                                                </option>
-                                                <option value="二等">二等
-                                                </option>
-                                                <option value="三等">三等
-                                                </option>
-                                                <option value="四等">四等
-                                                </option>
-                                                <option value="五等">五等
-                                                </option>
-
-                                            </select></p></td>
-
-                                            <td><p>所属行政区域<input type="text" placeholder="所属行政区域" name="station_region"></p></td>
 
                                         </tr>
 
                                         <tr>
-
-                                            <td colspan="3"><p><input type="text" placeholder="联系地址" class="address_area_1" name="station_addr"></p></td>
+                                            <td><p><input type="text" placeholder="取票状态" name=""></p></td>
+                                            <td><p><input type="text" placeholder="乘客类型" name=""></p></td>
 
                                         </tr>
+
                                     </tbody>
                                 </table>
-                               <%-- </form>--%>
+                               <!-- </form>-->
                             </div>
                         </form>
                     </div>
 
                     <!--查询结果显示区域-->
-                    <div class="content_result modify_result_show_div">
+                    <div class="content_result">
                         <table>
                             <thead>
-                            <tr class="th" id="float_1">
-                                <th colspan="1" rowspan="1" ><p>车站代码</p></th>
-                                <th colspan="1" rowspan="1" ><p>车站名</p></th>
-                                <th colspan="1" rowspan="1" ><p>拼音码</p></th>
-                                <th colspan="1" rowspan="1" ><p>所属铁路局</p></th>
-                                <th colspan="1" rowspan="1"><p>车站等级</p></th>
-                                <th colspan="1" rowspan="1" ><p>所属行政区域</p></th>
-                                <th colspan="1" rowspan="1" ><p>联系地址</p></th>
-                                <th colspan="1" rowspan="1" ><p>操作一</p></th>
-                                <th colspan="1" rowspan="1" ><p>操作二</p></th>
+                            <tr class="th" id="float">
+                                <th colspan="1" rowspan="1" ><p>乘客姓名</p></th>
+                                <th colspan="1" rowspan="1" ><p>身份证号码</p></th>
+                                <th colspan="1" rowspan="1" ><p>车次</p></th>
+                                <th colspan="1" rowspan="1" ><p>日期</p></th>
+                                <th colspan="1" rowspan="1" ><p>车厢</p></th>
+                                <th colspan="1" rowspan="1" ><p>座位号</p></th>
+                                <th colspan="1" rowspan="1" ><p>车票状态</p></th>
+                                <th colspan="1" rowspan="1" ><p>乘客类型</p></th>
+                                
+
                             </tr>
                             </thead>
-
                             <tbody id="queryLeftTable">
 
-                            <c:forEach items="${stationInfos}" var = "info" >
-                            <tr class="station_info" id="${info.station_id}_tr1">
-                                <td>${info.station_id}</td>
-                                <td>${info.station_name}</td>
-                                <td>${info.station_code}</td>
-                                <td>${info.railway_admin}</td>
-                                <td>${info.station_class}</td>
-                                <td>${info.station_region}</td>
-                                <td>${info.station_addr}</td>
-                                <td><a href="#">删除</a></td>
-                                <td><a href="javascript:void(0);" class="modify_calss" onclick="update(${info.station_id})">修改</a></td>
+                            <tr>
+                                <td>春华</td>
+                                <td>243564199510300035</td>
+                                <td>K23</td>
+                                <td>3.19</td>
+                                <td>12</td>
+                                <td>12A</td>
+                                <td>取票</td> 
+                                <td>成人</td> 
+                                
                             </tr>
-                        <form action="/modifyStation.action" method="get">
-                            <tr id="${info.station_id}_tr2" style="display: none" class="station_info_modify">
-                                <td><input type="text" value="${info.station_id}" name="station_id" style="display: none"></td>
-                                <td><input type="text" value="${info.station_name}" name="station_name"></td>
-                                <td><input type="text" value="${info.station_code}" name="station_code"></td>
-                                <td><input type="text" value="${info.railway_admin}" name="railway_admin"></td>
-                                <td><input type="text" value="${info.station_class}" name="station_class"></td>
-                                <td><input type="text" value="${info.station_region}" name="station_region"></td>
-                                <td><input type="text" value="${info.station_addr}" name="station_addr"></td>
-                                <td></td>
-                                <td><input type="submit" class=" register_submit_button" value="确认修改"></td>
-
-                            </tr>
-                        </form>
-                            </c:forEach>
+<!-- 在这里进行取票、退票、转签并更新席位表操作 -->
+							<tfoot>
+    						<tr>
+    							<th></th>
+    							<th></th>
+        						<th><a href="#">确认取票</a></th>
+        						<th><a href="#">确认退票</a></th>
+        						<th><a href="#">改票</a></th>
+        						<th><a href="#">转签</a></th>
+        						<th></th>
+        						<th></th>
+   							 </tr>
+    						</tfoot>
+<!--  -->
                             </tbody>
-
+							
                         </table>
                     </div>
-
-
 
                 </div>
 
@@ -347,13 +321,8 @@
     $(document).ready(function(){
         $('.scrollbar1').tinyscrollbar();
     });
-
-
-
 </script>
 <script src="js/custom.js"></script>
-<script src="js/myJS.js"></script>
-
 
 </body>
 </html>

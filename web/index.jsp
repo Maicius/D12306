@@ -1,3 +1,4 @@
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -78,13 +79,21 @@
                             
                             <!--top Menu -->
                             <div class="span8">
-                            	<div class="top-menu">
+                            	<div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
                                 	<ul>
-                                		
                                 		<li><a href="#"  id="user_login">用户登录</a></li>
                                 		<li><a href="register.jsp" class="last" id="user_register">注册</a></li>
                                 	</ul>
                                 </div>
+
+                                <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+                                    <ul>
+                                        <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                                        <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+                                    </ul>
+                                </div>
+
+
                             </div>
                             <!--top Menu -->
                         
@@ -97,18 +106,17 @@
                 	<div class="container">
                     	<div class="row">
                         	<div class="span12">
-                            
-                            	<nav>
+
+                                <nav>
                                     <ul>
                                         <li><a href="index.jsp">首页 </a></li>
                                         <li><a href="purchase.jsp">购票</a></li>
-                                        <li><a href="#">退票</a></li>
-                                        <li><a href="#">余票查询</a></li>
-                                        <li><a href="#">列车时刻表查询</a></li>
-                                        <li><a href="#">票价查询</a></li>
-                                        <li><a href="#">改签</a></li>
-                                        <li><a href="#">个人中心</a></li>
-                                        <li  class="last"><a href="#">我的订单</a></li>
+                                        <li><a href="oder_serve.jsp">退票</a></li>
+                                        <li><a href="purchase.jsp">余票查询</a></li>
+                                        <li><a href="purchase.jsp">票价查询</a></li>
+                                        <li><a href="oder_serve.jsp">改签</a></li>
+                                        <li><a href="userInfoPage.jsp">个人中心</a></li>
+                                        <li  class="last"><a href="oder_serve.jsp">我的订单</a></li>
                                     </ul>
                                 </nav>
 
@@ -168,7 +176,7 @@
                         		<div class="date clearfix">
                         			<div class="Depart-Date">
                                     	<label>出发时间</label>
-                        				<input id="ticket_date" type="text" name="ticket_date" value="03/20/2017" id="datepicker">
+                                        <input name="ticket_date" value="30.01.2013" id="datepicker" class="hasDatepicker" type="text">
                                     </div>
                                     
                         		</div>
@@ -272,7 +280,7 @@
                 <script src="js/jquery.isotope.min.js"></script>
                 <script src="js/jquery.tinyscrollbar.min.js"></script>
                 <script>
-                    function goToByScroll(id){
+                    function goToByScroll(id){]
                         $ = jQuery;
                         $('html,body').animate({scrollTop: $("#"+id).offset().top},3000);
                     }
@@ -284,7 +292,7 @@
                 </script>
                 <script src="js/custom.js"></script>
                 <script src="js/ajaxVerify.js"></script>
-
+                <script src="js/myJS.js"></script>
                 <script type="text/javascript">
                     function checkUser(){
                         var phone_num = document.getElementById("username").value;
@@ -310,6 +318,8 @@
                                     }else{
                                        document.getElementById("login_tip").innerHTML="欢迎您,"+msg;
                                        document.getElementById("login_tip").style.color="green";
+
+
                                     }
                                 }
                             }
@@ -319,6 +329,5 @@
                         }
                     }
                 </script>
-
-		</body>
+        </body>
 </html>

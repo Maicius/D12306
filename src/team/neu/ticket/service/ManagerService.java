@@ -11,6 +11,12 @@ import java.util.List;
 public interface ManagerService {
      List<StationInfo> queryStationInfo(StationInfo stationInfo) throws Exception;
      int modifyStationInfo(StationInfo stationInfo) throws Exception;
-     List<RouteInfo> queryRouteInfo(RouteInfo routeInfo) throws Exception;
+     int deleteStationInfo(int station_id) throws  Exception;
+     int addStation(StationInfo stationInfo)  throws Exception;
 
+
+     List<RouteInfo> queryRouteInfo(RouteInfo routeInfo) throws Exception;
+     int modifyRouteInfo(RouteInfo routeInfo) throws Exception;
+     int deleteRoute(int route_id) throws Exception;
+     int addRoute(RouteInfo routeInfo) throws Exception;
 }

@@ -26,7 +26,32 @@ public class ManagerServiceImpl implements ManagerService{
     }
 
     @Override
+    public int deleteStationInfo(int station_id) throws Exception {
+        return managerInfo.doDeleteStation(station_id);
+    }
+
+    @Override
+    public int addStation(StationInfo stationInfo) throws Exception {
+        return managerInfo.doAddStation(stationInfo);
+    }
+
+    @Override
     public List<RouteInfo> queryRouteInfo(RouteInfo routeInfo) throws Exception {
         return managerInfo.queryRouteInfo(routeInfo);
+    }
+
+    @Override
+    public int modifyRouteInfo(RouteInfo routeInfo) throws Exception {
+        return managerInfo.doModifyRoute(routeInfo);
+    }
+
+    @Override
+    public int deleteRoute(int route_id) throws Exception {
+        return managerInfo.doDeleteRoute(route_id);
+    }
+
+    @Override
+    public int addRoute(RouteInfo routeInfo) throws Exception {
+        return managerInfo.doAddRoute(routeInfo);
     }
 }

@@ -1,4 +1,8 @@
-
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>    <html class="ie7" > <![endif]-->
 <!--[if IE 8]>    <html class="ie8" > <![endif]-->
@@ -77,14 +81,22 @@
 
             <!--top Menu -->
             <div class="span8">
-                <div class="top-menu">
-                    <ul>
-
-                        <li><a href="#" id="user_login">用户登录</a></li>
-                        <li><a href="register.html" class="last" id="user_register">注册</a></li>
-                    </ul>
-                </div>
+                <div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
+                <ul>
+                    <li><a href="#"  id="user_login">用户登录</a></li>
+                    <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
+                </ul>
             </div>
+
+            <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+            <ul>
+                <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+            </ul>
+        </div>
+
+
+    </div>
             <!--top Menu -->
 
         </div>
@@ -99,16 +111,49 @@
 
                 <nav>
                     <ul>
-                        <li><a href="#">基础数据管理 </a></li>
+                        <li><a href="#">基础数据管理 </a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="station_manager_form.jsp">车站管理</a></li>
+                                <li><a href="train_manager_form.jsp">列车管理</a></li>
+                                <li><a href="rout_manager_form.jsp">线路管理</a></li>
+                                <li><a href="traingroup_manager_form.jsp">列车编组管理</a></li>
+                                <li><a href="ticket_rate_manager_form.jsp">票价率管理</a></li>
+                                <li><a href="journey_fare_zone_manager_form.jsp">票价旅程区管理</a></li>
+                                <li><a href="decreasing_increase_rate_manager_form.jsp">递远递减率管理</a></li>
+                            </ul>
+                        </li>
 
-                        <li><a href="#">车站管理</a></li>
-                        <li><a href="#">列车管理</a></li>
-                        <li><a href="#">余票查询</a></li>
-                        <li><a href="#">列车时刻表查询</a></li>
-                        <li><a href="#">票价查询</a></li>
-                        <li><a href="#">改签</a></li>
-                        <li><a href="userInfoPage.html">个人中心</a></li>
-                        <li  class="last"><a href="oder_serve.html">我的订单</a></li>
+                        <li><a href="#">计划管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="plan_manager_form.jsp">计划管理</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">调度管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="dispatching_manager.jsp">调度管理</a></li>
+                            </ul>
+                            </a>
+                        </li>
+
+                        <li><a href="#">票务管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="ticket_affair_manager_form.jsp">票务管理</a></li>
+                            </ul>
+                            </a>
+                        </li>
+                        <li><a href="#">财务管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="financial_statistics_manager.jsp">财务统计</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">客服</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="userinfo_manager_form.jsp">用户管理</a></li>
+                                <li><a href="oder_manager_form.jsp">订单维护</a></li>
+                                <li><a href="ticket_manager_form.jsp">车票维护</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
 
@@ -131,8 +176,8 @@
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p><input type="text" placeholder="身份证号码" name=""></p></td>
-                                            <td><p><input type="text" placeholder="姓名" name=""></p></td>
+                                            <td><p><input type="text" placeholder="车次" name=""></p></td>
+                                            <td><p><input type="text" placeholder="车厢号" name=""></p></td>
                                             <td rowspan="2">
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
                                             </td>
@@ -141,8 +186,8 @@
                                         </tr>
 
                                         <tr>
-                                            <td><p><input type="text" placeholder="取票状态" name=""></p></td>
-                                            <td><p><input type="text" placeholder="乘客类型" name=""></p></td>
+                                            <td><p><input type="text" placeholder="售票状态" name=""></p></td>
+                                            <td><p><input type="text" placeholder="日期" name=""></p></td>
 
                                         </tr>
 
@@ -158,47 +203,44 @@
                         <table>
                             <thead>
                             <tr class="th" id="float">
-                                <th colspan="1" rowspan="1" ><p>乘客姓名</p></th>
-                                <th colspan="1" rowspan="1" ><p>身份证号码</p></th>
+                                <th colspan="1" rowspan="1" ><p>席位代码</p></th>
                                 <th colspan="1" rowspan="1" ><p>车次</p></th>
                                 <th colspan="1" rowspan="1" ><p>日期</p></th>
-                                <th colspan="1" rowspan="1" ><p>车厢</p></th>
+                                <th colspan="1" rowspan="1" ><p>车厢号</p></th>
                                 <th colspan="1" rowspan="1" ><p>座位号</p></th>
-                                <th colspan="1" rowspan="1" ><p>车票状态</p></th>
-                                <th colspan="1" rowspan="1" ><p>乘客类型</p></th>
-                                
+                                <th colspan="1" rowspan="1" ><p>售票状态</p></th>
+                                <th colspan="1" rowspan="1" ><p>席位数量</p></th>
+                                <th colspan="1" rowspan="1" ><p>操作</p></th>
 
                             </tr>
                             </thead>
                             <tbody id="queryLeftTable">
 
                             <tr>
-                                <td>春华</td>
-                                <td>243564199510300035</td>
+                                <td>自动生成</td>
                                 <td>K23</td>
-                                <td>3.19</td>
-                                <td>12</td>
-                                <td>12A</td>
-                                <td>取票</td> 
-                                <td>成人</td> 
-                                
+                                <td>3/19</td>
+                                <td>15</td>
+                                <td>15A</td>
+                                <td>已售</td>
+                                <td>4</td>
+                                <td><a href="#">修改</a></td>
                             </tr>
-<!-- 在这里进行取票、退票、转签并更新席位表操作 -->
+
+
+                            </tbody>
 							<tfoot>
     						<tr>
-    							<th></th>
-    							<th></th>
-        						<th><a href="#">确认取票</a></th>
-        						<th><a href="#">确认退票</a></th>
-        						<th><a href="#">改票</a></th>
-        						<th><a href="#">转签</a></th>
-        						<th></th>
-        						<th></th>
-   							 </tr>
-    						</tfoot>
-<!--  -->
-                            </tbody>
-							
+        					<th>总计：</th>
+        					<th></th>
+        					<th></th>
+        					<th></th>
+        					<th></th>
+        					<th></th>
+        					<th>席位数量和</th>
+        					<th></th>
+    </tr>
+    </tfoot>
                         </table>
                     </div>
 

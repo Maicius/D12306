@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="team.neu.ticket.mapper.OrderServe">
+    <resultMap id="orderInfoMap" type="OrderInfo">
+        <result column="username" property="username"/>
+        <result column="order_state" property="order_state"/>
+        <result column="order_time" property="order_time"/>
+        <result column="train_id" property="train_id"/>
+        <result column="begin_zone_station" property="begin_zone_station"/>
+        <result column="arrive_zone_station" property="arrive_zone_station"/>
+        <result column="train_time" property="train_time"/>
+        <result column="train_style" property="train_style"/>
+        <result column="ticket_price" property="ticket_price"/>
+    </resultMap>
+
+
+    <select id = "orderQuery" parameterType="String" resultMap="orderInfoMap">
+        SELECT o.username, o.order_state, o.order_time, t.train_id, t.begin_zone_station, t.arrive_zone_station,
+            t.train_time, t.train_style, t.ticket_price
+        FROM T_ticket_info t , T_order o
+        WHERE  o.ticket_id=t.ticket_id AND
+                t.user_idcard_num = user_id
+
+
+    </select>
+
+
+</mapper>

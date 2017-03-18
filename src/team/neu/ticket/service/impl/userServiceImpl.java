@@ -25,4 +25,15 @@ public class userServiceImpl implements UserService {
     public int doRegistUser(User user) throws Exception {
         return userMapper.doRegistUser(user);
     }
+
+    @Override
+    public User doModify(User user) throws Exception {
+        //更新用户表返回影响行数
+        if( userMapper.doModify(user)!=0){
+            return  userMapper.doUserLogin(user);
+        }
+        return null;
+    }
+
+
 }

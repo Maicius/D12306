@@ -1,3 +1,8 @@
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Div" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!doctype html>
 <!--[if IE 7]>
 <html class="ie7"> <![endif]-->
@@ -80,14 +85,20 @@
 
             <!--top Menu -->
             <div class="span8">
-                <div class="top-menu">
-                    <ul>
-
-                        <li><a href="#" id="user_login">用户登录</a></li>
-                        <li><a href="#" class="last" id="user_register">注册</a></li>
-                    </ul>
-                </div>
+                <div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
+                <ul>
+                    <li><a href="#"  id="user_login">用户登录</a></li>
+                    <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
+                </ul>
             </div>
+
+            <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+            <ul>
+                <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+            </ul>
+        </div>
+
             <!--top Menu -->
 
         </div>
@@ -104,13 +115,12 @@
                     <ul>
                         <li><a href="index.jsp">首页 </a></li>
                         <li><a href="purchase.jsp">购票</a></li>
-                        <li><a href="#">退票</a></li>
-                        <li><a href="#">余票查询</a></li>
-                        <li><a href="#">列车时刻表查询</a></li>
-                        <li><a href="#">票价查询</a></li>
-                        <li><a href="#">改签</a></li>
-                        <li><a href="#">个人中心</a></li>
-                        <li class="last"><a href="#">我的订单</a></li>
+                        <li><a href="oder_serve.jsp">退票</a></li>
+                        <li><a href="purchase.jsp">余票查询</a></li>
+                        <li><a href="purchase.jsp">票价查询</a></li>
+                        <li><a href="oder_serve.jsp">改签</a></li>
+                        <li><a href="userInfoPage.jsp">个人中心</a></li>
+                        <li  class="last"><a href="oder_serve.jsp">我的订单</a></li>
                     </ul>
                 </nav>
 
@@ -134,7 +144,7 @@
                                 <div class="left_div">
                                     <div class="ul_wraper">
                                     <ul class="left_ul">
-                                        <li><a class="left_list_class " href="#" id="oder_show_button">订单</a></li>
+                                        <li><a class="left_list_class " href="/queryOrder.action?user_id=${sessionScope.user.user_idcard_num}" id="oder_show_button">订单</a></li>
                                         <li><a class="left_list_class" href="#" id="refund_show_button">退票</a></li>
                                         <li><a class="left_list_class" href="#" id="endorse_show_button">改签</a></li>
                                         <li><a class="left_list_class" href="#" id="afterSale_show_button">售后</a></li>
@@ -147,43 +157,31 @@
                                             <tbody>
                                                 <tr class="table_head_class">
                                                     <td><p>订单状态</p></td>
+                                                    <td><p>乘客</p></td>
                                                     <td><p>下单时间</p></td>
                                                     <td><p>车次</p></td>
                                                     <td><p>列车类型</p></td>
-                                                    <td><p>车厢等级</p></td>
                                                     <td><p>始发地</p></td>
                                                     <td><p>目的地</p></td>
                                                     <td><p>出发时间</p></td>
-                                                    <td><p>到达时间</p></td>
+                                                    <td><p>价格</p></td>
                                                     <td><p>订单详情</p></td>
                                                 </tr>
-                                                <tr class="table_row_class">
-                                                    <td><p class="draw_not">未出票</p></td>
-                                                    <td><p>17/3/14</p></td>
-                                                    <td><p>D2088</p></td>
-                                                    <td><p>动车</p></td>
-                                                    <td><p>商务舱</p></td>
-                                                    <td><p>沈阳</p></td>
-                                                    <td><p>成都</p></td>
-                                                    <td><p>17/3/20</p></td>
-                                                    <td><p>17/3/21</p></td>
-                                                    <td><p><a class="oder_info_more" href="#">订单详情</a></p></td>
-                                                </tr>
-                                                <tr class="table_row_class">
-                                                    <td><p class="draw_yes">已出票</p></td>
-                                                    <td><p>17/3/12</p></td>
-                                                    <td><p>G2018</p></td>
-                                                    <td><p>高铁</p></td>
-                                                    <td><p>经济舱</p></td>
-                                                    <td><p>沈阳</p></td>
-                                                    <td><p>成都</p></td>
-                                                    <td><p>17/3/20</p></td>
-                                                    <td><p>17/3/21</p></td>
-                                                    <td><p><a class="oder_info_more"  href="#">订单详情</a></p></td>
-                                                </tr>
-                                                <tr></tr>
-                                                <tr></tr>
-                                                <tr></tr>
+
+                                                <c:forEach items="${orderInfos}" var = "info">
+                                                    <tr>
+                                                        <td>${info.order_state}</td>
+                                                        <td>${info.username}</td>
+                                                        <td>${info.order_time}</td>
+                                                        <td>${info.train_id}</td>
+                                                        <td>${info.train_style}</td>
+                                                        <td>${info.begin_zone_station}</td>
+                                                        <td>${info.arrive_zone_station}</td>
+                                                        <td>${info.train_time}</td>
+                                                        <td>${info.ticket_price}</td>
+                                                        <td><p><a class="oder_info_more"  href="/queryOrder.action?user_id=${sessionScope.user.user_idcard_num}">订单详情</a></p></td>
+                                                    </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -269,17 +267,17 @@
 
 <div class="login-popup-wrapper">
     <div id="login-popup">
-        <h2>sign in</h2>
-        <form method="get" action="#">
-            <input type="text" value="" id="username" placeholder="用户名"/>
-            <input type="text" value="" id="password" placeholder="密码"/>
+        <h2>login Panel</h2>
+        <form method="get" action="/userLogin.action">
+            <p id="login_tip">登陆提示</p>
+            <input type="text" value="" id="username" name="phone_num" placeholder="您的手机号" onblur ="checkUser()" />
+            <input type="password" value="" id="password" name="password" placeholder="您的密码" />
 
             <input type="submit" value="sıgn ın" id="login-button"/>
         </form>
-        <a href="#" class="close">关闭</a>
+        <a href="#" class="close">Close</a>
     </div>
 </div>
-
 
 <div class="oder-detail-popup-wrapper">
     <div id="detail-popup">

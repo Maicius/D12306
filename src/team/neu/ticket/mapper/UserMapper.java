@@ -9,4 +9,5 @@ public interface UserMapper {
     public User doUserLogin(User user) throws Exception;
     public User doUserVerify(User user) throws Exception;
     public int doRegistUser(User user) throws Exception;
+    int doModify(User user) throws Exception;
 }

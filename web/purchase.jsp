@@ -79,13 +79,21 @@ pageEncoding="UTF-8"%>
 
             <!--top Menu -->
             <div class="span8">
-                <div class="top-menu">
+                <div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
                     <ul>
-
-                        <li><a href="#" id="user_login">用户登录</a></li>
+                        <li><a href="#"  id="user_login">用户登录</a></li>
                         <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
                     </ul>
                 </div>
+
+                <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+                    <ul>
+                        <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                        <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+                    </ul>
+                </div>
+
+
             </div>
             <!--top Menu -->
 
@@ -102,15 +110,13 @@ pageEncoding="UTF-8"%>
                 <nav>
                     <ul>
                         <li><a href="index.jsp">首页 </a></li>
-
                         <li><a href="purchase.jsp">购票</a></li>
-                        <li><a href="#">退票</a></li>
-                        <li><a href="#">余票查询</a></li>
-                        <li><a href="#">列车时刻表查询</a></li>
-                        <li><a href="#">票价查询</a></li>
-                        <li><a href="#">改签</a></li>
+                        <li><a href="oder_serve.jsp">退票</a></li>
+                        <li><a href="purchase.jsp">余票查询</a></li>
+                        <li><a href="purchase.jsp">票价查询</a></li>
+                        <li><a href="oder_serve.jsp">改签</a></li>
                         <li><a href="userInfoPage.jsp">个人中心</a></li>
-                        <li  class="last"><a href="oder_serve.html">我的订单</a></li>
+                        <li  class="last"><a href="oder_serve.jsp">我的订单</a></li>
                     </ul>
                 </nav>
 
@@ -238,16 +244,19 @@ pageEncoding="UTF-8"%>
 
 <!-- Footer -->
 
+
+
 <div class="login-popup-wrapper">
     <div id="login-popup">
-        <h2 >sign in</h2>
-        <form method="get" action="#">
-            <input type="text" value="" id="username" placeholder="用户名" />
-            <input type="text" value="" id="password" placeholder="密码" />
+        <h2>login Panel</h2>
+        <form method="get" action="/userLogin.action">
+            <p id="login_tip">登陆提示</p>
+            <input type="text" value="" id="username" name="phone_num" placeholder="您的手机号" onblur ="checkUser()" />
+            <input type="password" value="" id="password" name="password" placeholder="您的密码" />
 
             <input type="submit" value="sıgn ın" id="login-button"/>
         </form>
-        <a href="#" class="close">关闭</a>
+        <a href="#" class="close">Close</a>
     </div>
 </div>
 
@@ -278,6 +287,7 @@ pageEncoding="UTF-8"%>
     });
 </script>
 <script src="js/custom.js"></script>
+<script src="js/myJS.js"></script>
 
 </body>
 </html>

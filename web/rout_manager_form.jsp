@@ -81,14 +81,22 @@
 
             <!--top Menu -->
             <div class="span8">
-                <div class="top-menu">
-                    <ul>
-
-                        <li><a href="#" id="user_login">用户登录</a></li>
-                        <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
-                    </ul>
-                </div>
+                <div class="top-menu" id="top_menu_log" style="display: ${sessionScope.username !=null?"none":"block"}">
+                <ul>
+                    <li><a href="#"  id="user_login">用户登录</a></li>
+                    <li><a href="register.jsp" class="last" id="user_register">注册</a></li>
+                </ul>
             </div>
+
+            <div class="top-menu" id="top_menu_logout" style="display: ${sessionScope.username !=null?"block":"none"}">
+            <ul>
+                <li>欢迎您！<a href="javascript: void(0);"  id="user_name_show" name="user_name_show">${sessionScope.username}</a></li>
+                <li><a href="javascript: void(0);" class="last" id="user_logout">注销</a></li>
+            </ul>
+        </div>
+
+
+    </div>
             <!--top Menu -->
 
         </div>
@@ -103,16 +111,49 @@
 
                 <nav>
                     <ul>
-                        <li><a href="#">基础数据管理 </a></li>
+                        <li><a href="#">基础数据管理 </a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="station_manager_form.jsp">车站管理</a></li>
+                                <li><a href="train_manager_form.jsp">列车管理</a></li>
+                                <li><a href="rout_manager_form.jsp">线路管理</a></li>
+                                <li><a href="traingroup_manager_form.jsp">列车编组管理</a></li>
+                                <li><a href="ticket_rate_manager_form.jsp">票价率管理</a></li>
+                                <li><a href="journey_fare_zone_manager_form.jsp">票价旅程区管理</a></li>
+                                <li><a href="decreasing_increase_rate_manager_form.jsp">递远递减率管理</a></li>
+                            </ul>
+                        </li>
 
-                        <li><a href="#">车站管理</a></li>
-                        <li><a href="#">列车管理</a></li>
-                        <li><a href="#">余票查询</a></li>
-                        <li><a href="#">列车时刻表查询</a></li>
-                        <li><a href="#">票价查询</a></li>
-                        <li><a href="#">改签</a></li>
-                        <li><a href="userInfoPage.jsp">个人中心</a></li>
-                        <li  class="last"><a href="oder_serve.html">我的订单</a></li>
+                        <li><a href="#">计划管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="plan_manager_form.jsp">计划管理</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">调度管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="dispatching_manager.jsp">调度管理</a></li>
+                            </ul>
+                            </a>
+                        </li>
+
+                        <li><a href="#">票务管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="ticket_affair_manager_form.jsp">票务管理</a></li>
+                            </ul>
+                            </a>
+                        </li>
+                        <li><a href="#">财务管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="financial_statistics_manager.jsp">财务统计</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">客服</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="userinfo_manager_form.jsp">用户管理</a></li>
+                                <li><a href="oder_manager_form.jsp">订单维护</a></li>
+                                <li><a href="ticket_manager_form.jsp">车票维护</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
 
@@ -129,7 +170,7 @@
                 <div class="top ">
 
                     <div class="content_top">
-                        <form action="/routeManage.action" method="get">
+                        <form action="" method="get" name="myform">
                             <div class="my_top">
                                 <!--<form action="" method="post">-->
                                 <table>
@@ -139,8 +180,8 @@
                                             <td><p><input type="text" placeholder="车次代码" name="train_id"></p></td>
                                             <td><p><input type="text" placeholder="始发站" name="station_id"></p></td>
                                             <td rowspan="3">
-                                                <p><input type="submit" value="增加" class="register_submit_button"></p>
-                                                <p><input type="submit" value="查询" class="register_submit_button"></p>
+                                                <p><input type="submit" value="增加" class="register_submit_button" onclick="javascript:myform.action='/addRoute.action'"></p>
+                                                <p><input type="submit" value="查询" class="register_submit_button" onclick="javascript:myform.action='/routeManage.action'"></p>
                                             </td>
 
 
@@ -196,7 +237,7 @@
                                 <td>${info.mile}</td>
                                 <td>${info.stay_time}</td>
                                 <td>${info.arrive_station_name}</td>
-                                <td><a href="#">删除</a></td>
+                                <td><a href="/deleteRoute.action?route_id=${info.route_id}" id="deleteRoute">删除</a></td>
                                 <td><a href="#">修改</a></td>
                             </tr>
                             </c:forEach>
@@ -270,6 +311,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.isotope.min.js"></script>
 <script src="js/jquery.tinyscrollbar.min.js"></script>
+<script src="js/myJS.js"></script>
 <script>
     function goToByScroll(id){
         $ = jQuery;
@@ -281,7 +323,24 @@
         $('.scrollbar1').tinyscrollbar();
     });
 </script>
-<script src="js/custom.js"></script>
+<%--<script type="text/javascript">
+    document.getElementById("deleteRoute").onclick=function () {
+        alert("即将删除线路");
+        $.ajax({
+            url:"/deleteRoute.action",
+            type:"get",
+            data:${train_id},
+            success:function (data) {
+                if(data =='0'){
+                    alert("错误:该线路已有票售出，不能删除");
+                }else{
+                    alert("成果删除该线路");
+                }
+            }
 
+        });
+    };
+</script>--%>
+<script src="js/custom.js"></script>
 </body>
 </html>
