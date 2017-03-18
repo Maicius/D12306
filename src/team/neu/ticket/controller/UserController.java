@@ -42,23 +42,25 @@ public class UserController {
             session.setAttribute("job", loginUser.getJob());
             session.setAttribute("passenger_type", loginUser.getPassenger_type());
             session.setAttribute("user", loginUser);
-            if(loginUser.getJob() == "passenger") {
+            System.out.println(loginUser.getJob());
+            if(loginUser.getJob().equals("passenger")) {
                 modelAndView.setViewName("index");
             }
-            else if(loginUser.getJob() == "ticket_manager"){
+            else if(loginUser.getJob().equals("ticket_manager")){
                 modelAndView.setViewName("ticket_manager");
             }
-            else if(loginUser.getJob() == "data_manager"){
-                modelAndView.setViewName("");
+            else if(loginUser.getJob().equals("data_manager")){
+                modelAndView.setViewName("station_manager_form");
+                return modelAndView;
             }
-            else if(loginUser.getJob() =="financial_manager"){
-                modelAndView.setViewName("");
+            else if(loginUser.getJob().equals("financial_manager")){
+                modelAndView.setViewName("station_manager_form");
             }
-            else if(loginUser.getJob()== "plan_manager"){
-                modelAndView.setViewName("");
+            else if(loginUser.getJob().equals("plan_manager")){
+                modelAndView.setViewName("station_manager_form");
             }
-            else if(loginUser.getJob() =="dispatcher_manager"){
-                modelAndView.setViewName("");
+            else if(loginUser.getJob().equals("dispatcher_manager")){
+                modelAndView.setViewName("station_manager_form");
             }else{
                 modelAndView.setViewName("index");
             }
