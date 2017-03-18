@@ -248,7 +248,7 @@
                                 <td>${info.station_class}</td>
                                 <td>${info.station_region}</td>
                                 <td>${info.station_addr}</td>
-                                <td><a href="#">删除</a></td>
+                                <td><a href="/deleteStation.action?station_id=${info.station_id}">删除</a></td>
                                 <td><a href="javascript:void(0);" class="modify_calss" onclick="update(${info.station_id})">修改</a></td>
                             </tr>
                         <form action="/modifyStation.action" method="get">

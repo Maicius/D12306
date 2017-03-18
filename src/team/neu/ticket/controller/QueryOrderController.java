@@ -29,13 +29,11 @@ public class QueryOrderController {
     @RequestMapping(value = "/queryOrder")
     public ModelAndView queryOrder(@RequestParam(value="user_id") String user_id) throws Exception{
         ModelAndView mv = new ModelAndView();
-        System.out.println("queryOrderController");
         List<OrderInfo> orderInfos =  orderServe.orderQuery(user_id);
 
         System.out.println(orderInfos.toString());
         mv.addObject("orderInfos",orderInfos);
         mv.setViewName("oder_serve");
-        System.out.println("Query Server Finished!");
         return mv;
     }
 

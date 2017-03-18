@@ -130,22 +130,30 @@
 				<div class="flexslider">
                 	<ul class="slides">
                         <li>
-                          <img src="http://placehold.it/1600x510" alt="Slider Image">
+                          <img src="images/beijing.png" alt="Slider Image">
                           <div class="detail-one">
-                            <h3>USA</h3>
-                            <h2>Chicago Night street</h2>
+                            <h3>MY12306</h3>
+                            <h2>欢迎您的光临</h2>
                            	<span>$ 2.400</span>
                           	<a href="#"></a> 	
                           </div>
                         </li>
                         <li>
-                          <img src="http://placehold.it/1600x510" alt="Slider Image">
+                          <img src="images/beijing2.png" alt="Slider Image">
                           <div class="detail-one">
-                            <h3>Brazil</h3>
-                            <h2>Brazil Night City Beach</h2>
-                           	<span>$ 1.400</span>
+                            <h3>MY12306</h3>
+                            <h2>今日特价</h2>
+                           	<span></span>
                           	<a href="#"></a> 	
                           </div>
+                        </li>
+                        <li>
+                            <img src="images/beijing3.png" alt="Slider Image">
+                            <div class="detail-one">
+                                <h3>MY12306</h3>
+                                <h2>高效抢票</h2>
+                                <a href="#"></a>
+                            </div>
                         </li>
                     </ul>
                     
@@ -211,8 +219,6 @@
                   <div class="detail">
                     <form action="#" method="post">
                     <div class="trip">
-                    	<input type="radio" name="trip" value="Round-trip"><span>Roud-Trip</span>
-                        <input type="radio" name="trip" value="onw-way"><span>One-way</span>
                     </div>
                     </form>
                   </div>

@@ -133,20 +133,20 @@ pageEncoding="UTF-8"%>
                 <div class="top ">
 
                     <div class="content_top">
-                        <form action="" method="post">
+                        <form action="/queryTicket.action" method="get">
                             <div class="my_top">
                                 <div class="my_places">
                                     <div class="my_start">
-                                        <p><span class="my_span">出发地</span> <input type="text" name="start_place" id="start_place" class="my_input" /></p>
-                                        <p><span class="my_span">目的地 </span><input type="text" name="end_place" id="end_place" class="my_input" /></p>
+                                        <p><span class="my_span">出发地</span> <input type="text" name="from_station" id="start_place" class="my_input" /></p>
+                                        <p><span class="my_span">目的地 </span><input type="text" name="to_station" id="end_place" class="my_input" /></p>
                                     </div>
                                 </div>
 
 
                                 <div class="my_time">
                                     <div class="my_start">
-                                        <p><span class="my_span">出发时间</span><input type="text" name="start_time" id="start_time" class="my_input" /></p>
-                                        <p><span class="my_span">到达时间 </span><input type="text" name="end_time" id="end_time" class="my_input" /></p>
+                                        <p><span class="my_span">出发时间</span><input type="text" name="ticket_date" id="start_time" class="my_input" /></p>
+
                                     </div>
                                 </div>
 
