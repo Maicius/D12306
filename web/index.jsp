@@ -176,7 +176,7 @@
                         		<div class="date clearfix">
                         			<div class="Depart-Date">
                                     	<label>出发时间</label>
-                                        <input name="Location" value="30.01.2013" id="datepicker" class="hasDatepicker" type="text">
+                                        <input name="ticket_date" value="30.01.2013" id="datepicker" class="hasDatepicker" type="text">
                                     </div>
                                     
                         		</div>

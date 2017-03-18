@@ -37,4 +37,19 @@
                VALUES (#{user_idcard_num}, #{user_name}, #{password}, #{job}, #{phone_num}, #{idcard_type},
                         #{email}, #{passenger_type}, #{real_name})
     </insert>
+
+
+    <update id="doModify" parameterType="User" >
+        UPDATE T_12306User
+        <trim prefix="set" suffixOverrides=",">
+            <if test="user_name!=null">user_name=#{user_name},</if>
+            <if test="real_name!=null">real_name=#{real_name},</if>
+            <if test="phone_num!=null">phone_num=#{phone_num},</if>
+            <if test="idcard_type!=null">idcard_type=#{idcard_type},</if>
+            <if test="email!=null">email=#{email},</if>
+            <if test="passenger_type!=null">passenger_type=#{passenger_type},</if>
+            <if test="user_idcard_num!=null">user_idcard_num=#{user_idcard_num},</if>
+        </trim>
+        WHERE user_idcard_num = #{user_idcard_num}
+    </update>
 </mapper>

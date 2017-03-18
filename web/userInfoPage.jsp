@@ -139,7 +139,7 @@
 
                     <div class="content_top">
 
-                        <form action="" method="post">
+                        <form action="/userInfoModify.action" method="get" id="user_info_form">
 
                             <div class="my_top userInfoBorder">
                                 <div class="lay-hd">
@@ -201,6 +201,25 @@
                                         </div>
 
                                     </li>
+
+                                    <li style="display: none">
+                                        <div class="my_register_label">
+                                            密码：
+                                        </div>
+                                        <div class="r-txt">
+                                            <input  class="info_reset_class" id="user_password" name="user_password" disabled="true" value="${sessionScope.user.password}">
+                                        </div>
+
+                                    </li>
+                                    <li style="display: none">
+                                        <div class="my_register_label">
+                                            job：
+                                        </div>
+                                        <div class="r-txt">
+                                            <input  class="info_reset_class" id="user_job" name="user_job" disabled="true" value="${sessionScope.user.job}">
+                                        </div>
+
+                                    </li>
                                     <li>
                                         <div class="my_register_label">
                                             旅客类型：
@@ -228,7 +247,10 @@
                                     <!--
                                         点击修改信息后显示确认按钮
                                     -->
-                                    <a id="info_reset_submit" href="javascript:void(0);" class="register_submit_button" style="display: none">确认</a>
+                                    <a id="info_reset_submit"
+                                       href="javascript:document.getElementById('user_info_form').submit();"
+                                       class="register_submit_button"
+                                       style="display: none">确认</a>
 
                                 </div>
                                 <div style="clear:both"></div> <!--消除float带来的问题，使父元素被撑起来-->

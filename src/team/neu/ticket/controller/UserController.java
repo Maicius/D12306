@@ -101,4 +101,31 @@ public class UserController {
         System.out.println("清空了session");
         return  "清除返回";
     }
+
+    @RequestMapping(value = "/userInfoModify", produces="text/html;charset=UTF-8")
+    public  ModelAndView userInfoModify (HttpServletRequest request,
+                                         @RequestParam(value="username") String username,
+                                         @RequestParam(value="real_name") String real_name,
+                                         @RequestParam(value="idcard_type") String idcard_type,
+                                         @RequestParam(value="idcard_num") String idcard_num,
+                                         @RequestParam(value="user_password") String password,
+                                         @RequestParam(value="email") String email,
+                                         @RequestParam(value="phone_num") String phone_num,
+                                         @RequestParam(value="passenger_type") String passenger_type)throws Exception{
+        System.out.println("userInfoModify");
+        ModelAndView mav = new ModelAndView();
+        User user = new User(username, real_name,password, idcard_num
+                , "passenger", phone_num, idcard_type, passenger_type, email);
+        User newUser = userService.doModify(user);
+        if (newUser!=null){
+            System.out.println("用户信息更改成功");
+            request.getSession().invalidate();
+            System.out.println("清空Session成功");
+            HttpSession session = request.getSession();
+            session.setAttribute("username", user.getUser_name());
+            session.setAttribute("user", user);
+            mav.setViewName("userInfoPage");
+        }
+        return mav;
+    }
 }

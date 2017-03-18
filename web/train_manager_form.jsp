@@ -115,10 +115,10 @@
                             <ul class="clearfix" style="display: none;">
                                 <li><a href="station_manager_form.jsp">车站管理</a></li>
                                 <li><a href="train_manager_form.jsp">列车管理</a></li>
-                                <li><a href="rout_manager_form.html">线路管理</a></li>
+                                <li><a href="rout_manager_form.jsp">线路管理</a></li>
                                 <li><a href="traingroup_manager_form.jsp">列车编组管理</a></li>
                                 <li><a href="ticket_rate_manager_form.jsp">票价率管理</a></li>
-                                <li><a href="ticket_affair_manager_form.jsp">票价旅程区管理</a></li>
+                                <li><a href="journey_fare_zone_manager_form.jsp">票价旅程区管理</a></li>
                                 <li><a href="decreasing_increase_rate_manager_form.jsp">递远递减率管理</a></li>
                             </ul>
                         </li>
@@ -132,6 +132,13 @@
                         <li><a href="#">调度管理</a>
                             <ul class="clearfix" style="display: none;">
                                 <li><a href="dispatching_manager.jsp">调度管理</a></li>
+                            </ul>
+                            </a>
+                        </li>
+
+                        <li><a href="#">票务管理</a>
+                            <ul class="clearfix" style="display: none;">
+                                <li><a href="ticket_affair_manager_form.jsp">票务管理</a></li>
                             </ul>
                             </a>
                         </li>
