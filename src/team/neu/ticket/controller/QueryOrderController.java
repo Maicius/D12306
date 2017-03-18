@@ -37,4 +37,16 @@ public class QueryOrderController {
         return mv;
     }
 
+    @RequestMapping(value = "/orderState")
+    public ModelAndView orderState(@RequestParam(value="order_id") int order_id) throws Exception{
+        ModelAndView mv = new ModelAndView();
+        int result = orderServe.doStateChange(order_id);
+        if (result!=0){
+            System.out.println("更改成功！！！！");
+        }
+        mv.setViewName("oder_serve");
+        System.out.println("Query Server Finished!");
+        return mv;
+    }
+
 }

@@ -3,6 +3,7 @@
         "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="team.neu.ticket.mapper.OrderServe">
     <resultMap id="orderInfoMap" type="OrderInfo">
+        <result column="order_id" property="order_id"/>
         <result column="username" property="username"/>
         <result column="order_state" property="order_state"/>
         <result column="order_time" property="order_time"/>
@@ -16,7 +17,7 @@
 
 
     <select id = "orderQuery" parameterType="String" resultMap="orderInfoMap">
-        SELECT o.username, o.order_state, o.order_time, t.train_id, t.begin_zone_station, t.arrive_zone_station,
+        SELECT o.order_id, o.username, o.order_state, o.order_time, t.train_id, t.begin_zone_station, t.arrive_zone_station,
             t.train_time, t.train_style, t.ticket_price
         FROM T_ticket_info t , T_order o
         WHERE  o.ticket_id=t.ticket_id AND
@@ -24,6 +25,12 @@
 
 
     </select>
+
+    <update id="doStateChange" parameterType="int">
+        UPDATE T_order
+        SET order_state = "已退票"
+        WHERE order_id=#{order_id}
+    </update>
 
 
 </mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="team.neu.ticket.mapper.PriceRateMapper">
+    <resultMap id="PriceRateMap" type="PriceRate">
+        <result column="rate_id" property="rate_id"/>
+        <result column="ticket_class" property="ticket_class"/>
+        <result column="ratio" property="ratio"/>
+        <result column="ticket_rate" property="ticket_rate"/>
+    </resultMap>
+    <select id="doQueryPriceRate" parameterType="PriceRate" resultMap="PriceRateMap">
+        SELECT * FROM T_ticket_rate
+        <where>
+            <if test="rate_id !=null and rate_id">
+                rate_id = #{rate_id}
+            </if>
+            <if test="ticket_class !=null and ticket_class !=''" >
+                ticket_class = #{ticket_class}
+            </if>
+            <if test="ratio !=null and ratio !=''">
+                ratio = #{ratio}
+            </if>
+            <if test="ticket_rate !=null and ticket_rate!=''">
+                ticket_rate = #{ticket_rate}
+            </if>
+        </where>
+    </select>
+
+</mapper>
