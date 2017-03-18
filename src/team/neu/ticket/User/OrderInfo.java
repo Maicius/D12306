@@ -4,6 +4,7 @@ package team.neu.ticket.User;
  * Created by Administrator on 2017/3/18 0018.
  */
 public class OrderInfo {
+    private int order_id;
     private String username;//T_order
     private String order_state;//订单状态T_order
     private String order_time;//下单时间T_order
@@ -15,6 +16,13 @@ public class OrderInfo {
     private String train_style;//列车类型T_ticket_info
     private String ticket_price;//T_ticket_info
 
+    public int getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
+    }
 
     public void setUsername(String username) {
         this.username = username;

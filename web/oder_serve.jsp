@@ -145,9 +145,9 @@ pageEncoding="UTF-8"%>
                                     <div class="ul_wraper">
                                     <ul class="left_ul">
                                         <li><a class="left_list_class " href="/queryOrder.action?user_id=${sessionScope.user.user_idcard_num}" id="oder_show_button">订单</a></li>
-                                        <li><a class="left_list_class" href="#" id="refund_show_button">退票</a></li>
-                                        <li><a class="left_list_class" href="#" id="endorse_show_button">改签</a></li>
-                                        <li><a class="left_list_class" href="#" id="afterSale_show_button">售后</a></li>
+                                        <li><a class="left_list_class" href="javascript:void(0);" id="refund_show_button">退票</a></li>
+                                        <li><a class="left_list_class" href="javascript:void(0);" id="endorse_show_button">改签</a></li>
+                                        <li><a class="left_list_class" href="javascript:void(0);" id="afterSale_show_button">售后</a></li>
                                     </ul>
                                     </div>
                                 </div>
@@ -179,7 +179,7 @@ pageEncoding="UTF-8"%>
                                                         <td>${info.arrive_zone_station}</td>
                                                         <td>${info.train_time}</td>
                                                         <td>${info.ticket_price}</td>
-                                                        <td><p><a class="oder_info_more"  href="/queryOrder.action?user_id=${sessionScope.user.user_idcard_num}">订单详情</a></p></td>
+                                                        <td><p><a class="oder_info_more"  href="javascript:orderInfo_more(${info.order_id});">订单详情</a></p></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
@@ -194,7 +194,7 @@ pageEncoding="UTF-8"%>
                                             <span><h4>据国家相关法律规定</h4></span>
                                         </div>
                                         <div class="refund_detail_bottom_area">
-                                            <p><a href="#" class="ticket_refund_serve">确定退票</a>
+                                            <p><a href="javascript:void(0);" class="ticket_refund_serve" id="ticket_refund_serve">确定退票</a>
                                                 <a href="#" class="detail_close">取消</a></p>
                                         </div>
                                     </div>
@@ -352,7 +352,7 @@ pageEncoding="UTF-8"%>
         </ul>
         </div>
         <div class="oder_bottom_area">
-            <p><a href="#" class="ticket_refund_serve" id="refund_floatWindow_button">退票</a>
+            <p><a href="javascript:" class="ticket_refund_serve" id="refund_floatWindow_button">退票</a>
             <a href="#" class="ticket_endorse_serve" id="endorse_floatWindow_button">改签</a>
             <a href="#" class="detail_close">取消</a></p>
         </div>
