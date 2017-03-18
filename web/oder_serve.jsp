@@ -179,7 +179,7 @@ pageEncoding="UTF-8"%>
                                                         <td>${info.arrive_zone_station}</td>
                                                         <td>${info.train_time}</td>
                                                         <td>${info.ticket_price}</td>
-                                                        <td><p><a class="oder_info_more"  href="javascript:orderInfo_more(${info.order_id});">订单详情</a></p></td>
+                                                        <td><p><a class="oder_info_more"  id="order_detail" href="javascript:orderInfo_more(${info.order_id});">订单详情</a></p></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
@@ -291,7 +291,7 @@ pageEncoding="UTF-8"%>
                     乘 客 名：
                 </div>
                 <div class="r-txt">
-                    <input id="user_realName" class="info_reset_class" disabled="true" type="text" value="叶珍">
+                    <input id="user_realName" class="info_reset_class" disabled="true" type="text" value="${sessionScope.orderInfo.username}">
                 </div>
 
             </li>
@@ -301,7 +301,7 @@ pageEncoding="UTF-8"%>
                     车 次：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" disabled="true" id="train_id" name="train_id"  value="D5678">
+                    <input class="info_reset_class" disabled="true" id="train_id" name="train_id"  value="${sessionScope.orderInfo.train_id}">
                 </div>
             </li>
 
@@ -310,7 +310,7 @@ pageEncoding="UTF-8"%>
                     车厢号 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" disabled="true" id="carriage_number" name="carriage_number"  value="67">
+                    <input class="info_reset_class" disabled="true" id="carriage_number" name="carriage_number"  value="${sessionScope.orderInfo.compart_id}">
                 </div>
             </li>
 
@@ -319,7 +319,7 @@ pageEncoding="UTF-8"%>
                     座位号 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" disabled="true" id="seat_number" name="seat_number"  value="2">
+                    <input class="info_reset_class" disabled="true" id="seat_number" name="seat_number"  value="${sessionScope.orderInfo.seat_no}">
                 </div>
             </li>
 
@@ -328,7 +328,7 @@ pageEncoding="UTF-8"%>
                     出发地 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" disabled="true" id="start_place" name="start_place"  value="沈阳">
+                    <input class="info_reset_class" disabled="true" id="start_place" name="start_place"  value="${sessionScope.orderInfo.begin_zone_station}">
                 </div>
             </li>
 
@@ -337,15 +337,15 @@ pageEncoding="UTF-8"%>
                     目的地 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" disabled="true" id="arrive_place" name="arrive_place"  value="成都">
+                    <input class="info_reset_class" disabled="true" id="arrive_place" name="arrive_place"  value="${sessionScope.orderInfo.arrive_zone_station}">
                 </div>
             </li>
             <li>
                 <div class="my_register_label">
-                    历时 ：
+                    发车时间 ：
                 </div>
                 <div class="r-txt">
-                    <input class="info_reset_class" disabled="true" id="during_time" name="during_time"  value="43h">
+                    <input class="info_reset_class" disabled="true" id="during_time" name="during_time"  value="${sessionScope.orderInfo.train_time}">
                 </div>
             </li>
 

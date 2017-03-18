@@ -23,12 +23,13 @@ public class TicketInfo {
     private String ticket_state;
     private String ticket_date;
 
-    public TicketInfo( String train_id, String train_date, String train_time,
+    public TicketInfo( int ticket_id,String train_id, String train_date, String train_time,
             int compart_id, int seat_id, String begin_zone_station, String arrive_zone_station,
             double ticket_price, String user_name, String user_type, String user_idcard_num,
             String purchase_way, String purchase_time, String train_style, String train_class,
                        String ticket_state){
         this.train_id = train_id;
+        this.ticket_id = ticket_id;
         this.train_date = train_date;
         this.train_time = train_time;
         this.compart_id = compart_id;

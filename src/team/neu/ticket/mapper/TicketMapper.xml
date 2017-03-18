@@ -17,6 +17,10 @@
         <result column="username" property="user_name"/>
     </resultMap>
 
+    <resultMap id = "TicketIdMap" type="TicketInfo">
+        <result column="ticket_id" property="ticket_id"/>
+    </resultMap>
+
 
     <select id="doFirstQuery" parameterType="QueryInfo" resultMap="FirstQueryMap">
     select i.train_id, s.station_name start_station,
@@ -38,10 +42,10 @@
 
     <insert id="doBuyTicket" parameterType="TicketInfo">
 
-        INSERT INTO T_ticket_info(compart_id, seat_no, begin_zone_station, arrive_zone_station, ticket_price,
+        INSERT INTO T_ticket_info(ticket_id, compart_id, seat_no, begin_zone_station, arrive_zone_station, ticket_price,
                                   username, user_type,user_idcard_num, purchase_way, purchase_time,
                                   ticket_state, train_id, train_date, train_time, train_style, train_class)
-              VALUES (#{compart_id}, #{seat_id}, #{begin_zone_station}, #{arrive_zone_station}, #{ticket_price},
+              VALUES (#{ticket_id},#{compart_id}, #{seat_id}, #{begin_zone_station}, #{arrive_zone_station}, #{ticket_price},
                                   #{user_name}, #{user_type}, #{user_idcard_num}, #{purchase_way}, #{purchase_time},
                                   #{ticket_state}, #{train_id}, #{train_date}, #{train_time}, #{train_style}, #{train_class})
     </insert>
@@ -56,5 +60,15 @@
         INSERT INTO T_order(user_id, username, order_state, order_time, ticket_id)
         VALUES(#{user_idcard_num}, #{user_name}, #{ticket_state}, #{purchase_time}, #{ticket_id})
     </insert>
+
+    <select id="queryTicketId" parameterType="TicketInfo" resultMap="TicketIdMap">
+        SELECT *
+        FROM t_ticket_info
+        WHERE compart_id = #{compart_id}
+              AND seat_no = #{seat_no}
+              AND begin_zone_station = #{begin_zone_station}
+              AND arrive_zone_station = #{arrive_zone_station}
+              AND purchase_time = #{purchase_time}
+    </select>
 
 </mapper>

@@ -57,7 +57,13 @@ public class QueryTicketController {
         ModelAndView mv = new ModelAndView();
         int compart_id = (int)(Math.random()*10) +1;
         int seat_id = (int)(Math.random()*100)+1;
-
+        int ticket_id = (int)(Math.random()*1000000)+1;
+        while(ticketService.checkExist(compart_id, seat_id, ticket_id)){
+            compart_id = (int)(Math.random()*10) +1;
+            seat_id = (int)(Math.random()*100)+1;
+            ticket_id = (int)(Math.random()*1000000)+1;
+        }
+        System.out.println(ticket_id);
         HttpSession session = request.getSession();
         Object real_name = session.getAttribute("real_name");
         Object user_idcard_num = session.getAttribute("user_idcard_num");
@@ -70,7 +76,7 @@ public class QueryTicketController {
             price = Double.parseDouble(price_S);
         }
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        TicketInfo ticketInfo = new TicketInfo(train_id, ticket_date, start_time,
+        TicketInfo ticketInfo = new TicketInfo(ticket_id,train_id, ticket_date, start_time,
                                                 compart_id, seat_id, start_station,
                                                 arrive_station, price, String.valueOf(real_name),
                                                 String.valueOf(passenger_type), String.valueOf(user_idcard_num),
@@ -82,6 +88,8 @@ public class QueryTicketController {
         int orderInfo = ticketService.updateOrder(ticketInfo);
         System.out.println(ticketSuccess);
         System.out.println("Left:"+ticketLeft);
+        System.out.println("TicketId:"+ticketInfo.getTicket_id());
+        System.out.println("Ticket_class:"+ticketInfo.getTrain_class());
         System.out.println("Order:"+orderInfo);
         mv.addObject("ticketInfo",ticketInfo);
         mv.setViewName("oder_serve");

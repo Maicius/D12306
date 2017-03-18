@@ -4,8 +4,23 @@
 function orderInfo_more(id) {
 
     var order_id = id;
+
+    document.getElementById("order_detail").onclick=function () {
+        //alert("进了orderDetail函数");
+        $.ajax({
+
+            url:"/orderDetail.action",
+            type:"get",
+            data:{order_id:order_id},
+            success:function(data){
+                if(data !=0){
+                    //alert("获取信息成功");
+                }
+            }
+        })
+    }
     document.getElementById("ticket_refund_serve").onclick=function () {
-        alert("进了orderInfo_more函数");
+        //alert("进了orderInfo_more函数");
         $.ajax({
             url:"/orderState.action",
             type:"get",
@@ -16,8 +31,6 @@ function orderInfo_more(id) {
                 if (data1!=0){
                     alert("状态更改成功");
                 }
-
-
             }
         });
 

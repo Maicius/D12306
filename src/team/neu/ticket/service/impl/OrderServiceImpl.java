@@ -8,19 +8,24 @@ import team.neu.ticket.service.OrderService;
 
 import java.util.List;
 
-public class OrderServiceImpl implements OrderService {
+public class OrderServiceImpl implements OrderService  {
 
     @Autowired
     OrderServe orderserve;
 
 
     @Override
-    public List<OrderInfo> orderQuery(String user_id) {
+    public List<OrderInfo> orderQuery(String user_id) throws Exception{
         return orderserve.orderQuery(user_id);
     }
 
     @Override
-    public int doStateChange(int order_id) {
+    public int doStateChange(int order_id) throws Exception{
         return orderserve.doStateChange(order_id);
+    }
+
+    @Override
+    public OrderInfo orderQueryID(Integer order_id) throws Exception {
+        return orderserve.orderQueryID(order_id);
     }
 }

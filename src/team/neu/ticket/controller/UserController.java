@@ -42,7 +42,27 @@ public class UserController {
             session.setAttribute("job", loginUser.getJob());
             session.setAttribute("passenger_type", loginUser.getPassenger_type());
             session.setAttribute("user", loginUser);
-            modelAndView.setViewName("index");
+            if(loginUser.getJob() == "passenger") {
+                modelAndView.setViewName("index");
+            }
+            else if(loginUser.getJob() == "ticket_manager"){
+                modelAndView.setViewName("ticket_manager");
+            }
+            else if(loginUser.getJob() == "data_manager"){
+                modelAndView.setViewName("");
+            }
+            else if(loginUser.getJob() =="financial_manager"){
+                modelAndView.setViewName("");
+            }
+            else if(loginUser.getJob()== "plan_manager"){
+                modelAndView.setViewName("");
+            }
+            else if(loginUser.getJob() =="dispatcher_manager"){
+                modelAndView.setViewName("");
+            }else{
+                modelAndView.setViewName("index");
+            }
+
             return modelAndView;
         }
         return null;

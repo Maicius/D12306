@@ -18,10 +18,10 @@
 
     <select id = "orderQuery" parameterType="String" resultMap="orderInfoMap">
         SELECT o.order_id, o.username, o.order_state, o.order_time, t.train_id, t.begin_zone_station, t.arrive_zone_station,
-            t.train_time, t.train_style, t.ticket_price
+            t.train_time, t.train_style, t.ticket_price, t.compart_id, t.seat_no
         FROM T_ticket_info t , T_order o
         WHERE  o.ticket_id=t.ticket_id AND
-                t.user_idcard_num = user_id
+                t.user_idcard_num = #{user_id}
 
 
     </select>
@@ -31,6 +31,14 @@
         SET order_state = "已退票"
         WHERE order_id=#{order_id}
     </update>
+
+    <select id="orderQueryID" parameterType="Integer" resultMap="orderInfoMap">
+        SELECT o.order_id, o.username, o.order_state, o.order_time, t.train_id, t.begin_zone_station, t.arrive_zone_station,
+            t.train_time, t.train_style, t.ticket_price, t.compart_id, t.seat_no
+        FROM   T_ticket_info t , T_order o
+        WHERE  o.ticket_id=t.ticket_id
+        AND o.order_id = #{order_id}
+    </select>
 
 
 </mapper>

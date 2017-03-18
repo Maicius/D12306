@@ -12,10 +12,12 @@ public class OrderInfo {
     private String begin_zone_station;//始发地T_ticket_info
     private String arrive_zone_station;//目的地T_ticket_info
     private String train_time;//出发时间T_ticket_info
-
+    private Integer compart_id;
+    private Integer seat_no;
     private String train_style;//列车类型T_ticket_info
     private String ticket_price;//T_ticket_info
 
+    public OrderInfo(){}
     public int getOrder_id() {
         return order_id;
     }
@@ -110,5 +112,21 @@ public class OrderInfo {
                 ", train_style='" + train_style + '\'' +
                 ", ticket_price='" + ticket_price + '\'' +
                 '}';
+    }
+
+    public Integer getCompart_id() {
+        return compart_id;
+    }
+
+    public void setCompart_id(Integer compart_id) {
+        this.compart_id = compart_id;
+    }
+
+    public Integer getSeat_no() {
+        return seat_no;
+    }
+
+    public void setSeat_no(Integer seat_no) {
+        this.seat_no = seat_no;
     }
 }

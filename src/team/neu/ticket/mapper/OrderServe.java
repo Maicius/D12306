@@ -10,4 +10,5 @@ import java.util.List;
 public interface OrderServe {
     List<OrderInfo> orderQuery(String user_id);
     int doStateChange(int order_id);
+    OrderInfo orderQueryID(Integer order_id);
 }

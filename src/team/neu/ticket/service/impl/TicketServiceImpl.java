@@ -23,6 +23,16 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
+    public List<TicketInfo> queryTicketId(TicketInfo ticketInfo) throws Exception {
+        return null;
+    }
+
+    @Override
+    public boolean checkExist(int compart_id, int seat_no, int ticket_id) throws Exception {
+        return false;
+    }
+
+    @Override
     public int updateTickets(TicketInfo ticketInfo) throws Exception {
         return ticketMapper.doUpdateTickets(ticketInfo);
     }
