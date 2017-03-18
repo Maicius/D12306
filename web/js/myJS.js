@@ -1,10 +1,30 @@
 /**
  * Created by Administrator on 2017/3/14 0014.
  */
+function orderInfo_more(id) {
 
+    var order_id = id;
+    document.getElementById("ticket_refund_serve").onclick=function () {
+        alert("进了orderInfo_more函数");
+        $.ajax({
+            url:"/orderState.action",
+            type:"get",
+            data:{order_id: order_id},
+
+            success:function (data) {
+                var data1 = data;
+                if (data1!=0){
+                    alert("状态更改成功");
+                }
+
+
+            }
+        });
+
+    }
+}
 jQuery(document).ready(function(){
     $ = jQuery;
-
 
 
     //订单详情出发弹窗
@@ -13,6 +33,8 @@ jQuery(document).ready(function(){
             $(this).children('#detail-popup').fadeIn('fast');
         });
     });
+
+
 
     //关闭按钮点击事件
     $('.detail_close').click(function(){
@@ -211,3 +233,4 @@ document.getElementById("info_reset_button").onclick=function () {
 document.getElementById("info_reset_submit").onclick=function () {
 
 }
+

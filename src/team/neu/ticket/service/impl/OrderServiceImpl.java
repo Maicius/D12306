@@ -18,4 +18,9 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderInfo> orderQuery(String user_id) {
         return orderserve.orderQuery(user_id);
     }
+
+    @Override
+    public int doStateChange(int order_id) {
+        return orderserve.doStateChange(order_id);
+    }
 }

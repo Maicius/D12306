@@ -170,14 +170,14 @@
                 <div class="top ">
 
                     <div class="content_top">
-                        <form action="" method="post">
+                        <form action="/priceRate.action" method="get">
                             <div class="my_top">
                                 <!--<form action="" method="post">-->
                                 <table>
                                     <tbody class="my_top_tbody">
                                         <tr>
-                                            <td><p><input type="text" placeholder="票价率编号" name=""></p></td>
-                                            <td><p><input type="text" placeholder="票种" name=""></p></td>
+                                            <td><p><input type="text" placeholder="票价率编号" name="rate_id"></p></td>
+                                            <td><p><input type="text" placeholder="票种" name="ticket_class"></p></td>
                                             <td rowspan="2">
                                                 <p><input type="submit" value="查询" class="register_submit_button"></p>
                                             </td>
@@ -186,8 +186,8 @@
                                         </tr>
 
                                         <tr>
-                                            <td><p><input type="text" placeholder="票价率" name=""></p></td>
-                                            <td><p><input type="text" placeholder="比例" name=""></p></td>
+                                            <td><p><input type="text" placeholder="票价率" name="ratio"></p></td>
+                                            <td><p><input type="text" placeholder="比例" name="ticket_rate"></p></td>
 
                                         </tr>
 
@@ -220,6 +220,16 @@
                                 <td>四川省成都市</td>
                                 <td><a href="#">修改</a></td>
                             </tr>
+
+                            <c:forEach items="${priceRates}" var = "info">
+                                <tr>
+                                    <td>${info.rate_id}</td>
+                                    <td>${info.ticket_class}</td>
+                                    <td>${info.ratio}</td>
+                                    <td>${info.ticket_rate}</td>
+                                    <td><a href="javascript:void(0);">修改</a></td>
+                                </tr>
+                            </c:forEach>
 
 
                             </tbody>

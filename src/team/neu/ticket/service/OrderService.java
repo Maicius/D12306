@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface OrderService {
     List<OrderInfo> orderQuery(String user_id);
+    int doStateChange(int order_id);
 }
