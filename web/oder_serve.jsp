@@ -144,7 +144,7 @@ pageEncoding="UTF-8"%>
                                 <div class="left_div">
                                     <div class="ul_wraper">
                                     <ul class="left_ul">
-                                        <li><a class="left_list_class " href="#" id="oder_show_button">订单</a></li>
+                                        <li><a class="left_list_class " href="/queryOrder.action?user_id=${sessionScope.user.user_idcard_num}" id="oder_show_button">订单</a></li>
                                         <li><a class="left_list_class" href="#" id="refund_show_button">退票</a></li>
                                         <li><a class="left_list_class" href="#" id="endorse_show_button">改签</a></li>
                                         <li><a class="left_list_class" href="#" id="afterSale_show_button">售后</a></li>
@@ -157,43 +157,31 @@ pageEncoding="UTF-8"%>
                                             <tbody>
                                                 <tr class="table_head_class">
                                                     <td><p>订单状态</p></td>
+                                                    <td><p>乘客</p></td>
                                                     <td><p>下单时间</p></td>
                                                     <td><p>车次</p></td>
                                                     <td><p>列车类型</p></td>
-                                                    <td><p>车厢等级</p></td>
                                                     <td><p>始发地</p></td>
                                                     <td><p>目的地</p></td>
                                                     <td><p>出发时间</p></td>
-                                                    <td><p>到达时间</p></td>
+                                                    <td><p>价格</p></td>
                                                     <td><p>订单详情</p></td>
                                                 </tr>
-                                                <tr class="table_row_class">
-                                                    <td><p class="draw_not">未出票</p></td>
-                                                    <td><p>17/3/14</p></td>
-                                                    <td><p>D2088</p></td>
-                                                    <td><p>动车</p></td>
-                                                    <td><p>商务舱</p></td>
-                                                    <td><p>沈阳</p></td>
-                                                    <td><p>成都</p></td>
-                                                    <td><p>17/3/20</p></td>
-                                                    <td><p>17/3/21</p></td>
-                                                    <td><p><a class="oder_info_more" href="#">订单详情</a></p></td>
-                                                </tr>
-                                                <tr class="table_row_class">
-                                                    <td><p class="draw_yes">已出票</p></td>
-                                                    <td><p>17/3/12</p></td>
-                                                    <td><p>G2018</p></td>
-                                                    <td><p>高铁</p></td>
-                                                    <td><p>经济舱</p></td>
-                                                    <td><p>沈阳</p></td>
-                                                    <td><p>成都</p></td>
-                                                    <td><p>17/3/20</p></td>
-                                                    <td><p>17/3/21</p></td>
-                                                    <td><p><a class="oder_info_more"  href="#">订单详情</a></p></td>
-                                                </tr>
-                                                <tr></tr>
-                                                <tr></tr>
-                                                <tr></tr>
+
+                                                <c:forEach items="${orderInfos}" var = "info">
+                                                    <tr>
+                                                        <td>${info.order_state}</td>
+                                                        <td>${info.username}</td>
+                                                        <td>${info.order_time}</td>
+                                                        <td>${info.train_id}</td>
+                                                        <td>${info.train_style}</td>
+                                                        <td>${info.begin_zone_station}</td>
+                                                        <td>${info.arrive_zone_station}</td>
+                                                        <td>${info.train_time}</td>
+                                                        <td>${info.ticket_price}</td>
+                                                        <td><p><a class="oder_info_more"  href="/queryOrder.action?user_id=${sessionScope.user.user_idcard_num}">订单详情</a></p></td>
+                                                    </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>

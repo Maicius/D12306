@@ -84,7 +84,7 @@ public class QueryTicketController {
         System.out.println("Left:"+ticketLeft);
         System.out.println("Order:"+orderInfo);
         mv.addObject("ticketInfo",ticketInfo);
-        mv.setViewName("");
+        mv.setViewName("oder_serve");
         return mv;
     }
 

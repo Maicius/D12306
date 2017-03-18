@@ -54,7 +54,7 @@
 
     <insert id="doUpdateOrder" parameterType="TicketInfo">
         INSERT INTO T_order(user_id, username, order_state, order_time, ticket_id)
-        VALUES(#{user_idcard_num}, #{user_name}, #{ticket_state}, #{purchase_time}, #{ticket_price})
+        VALUES(#{user_idcard_num}, #{user_name}, #{ticket_state}, #{purchase_time}, #{ticket_id})
     </insert>
 
 </mapper>
