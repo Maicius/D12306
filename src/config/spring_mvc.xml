@@ -45,6 +45,8 @@
             <!-- /**表示所有url包括子url路径 -->
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/userLogin.action"/>
+            <mvc:exclude-mapping path="/userVerify.action"/>
+            <mvc:exclude-mapping path="/userRegister.action"/>
             <bean class="team.neu.ticket.interceptor.LoginIntercepter"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

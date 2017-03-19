@@ -5,7 +5,7 @@ function orderInfo_more(id) {
 
     var order_id = id;
 
-    document.getElementById("order_detail").onclick=function () {
+
         //alert("进了orderDetail函数");
         $.ajax({
 
@@ -18,7 +18,7 @@ function orderInfo_more(id) {
                 }
             }
         })
-    }
+
     document.getElementById("ticket_refund_serve").onclick=function () {
         //alert("进了orderInfo_more函数");
         $.ajax({
@@ -159,7 +159,7 @@ document.getElementById("login-button").onclick =  function () {
 
 document.getElementById("user_logout").onclick = function () {
     //清空session的值
-    alert("点击触发");
+    //alert("点击触发");
     $.ajax({
         url:"/logout.action",
         type:"get",
